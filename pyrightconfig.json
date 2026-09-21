@@ -1,0 +1,6 @@
+{
+  "extraPaths": [
+    "EnzAIme/common",
+    "EnzAIme/backend"
+  ]
+}

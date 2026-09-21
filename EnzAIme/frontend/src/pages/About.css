@@ -1,0 +1,14 @@
+.about-page { padding: 56px 28px 100px; max-width: 780px; }
+.about-intro { font-size: 1.05rem; max-width: 68ch; margin-bottom: 44px; }
+.about-section { margin-bottom: 36px; }
+.about-section h2 { font-size: 1.15rem; font-family: var(--font-body); font-weight: 600; margin-bottom: 14px; }
+.about-section p { max-width: 68ch; }
+.about-formula {
+  background: var(--ink-teal);
+  color: var(--amber);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  font-size: 0.88rem;
+  margin: 8px 0;
+}

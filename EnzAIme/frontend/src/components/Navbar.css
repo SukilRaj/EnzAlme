@@ -1,0 +1,59 @@
+.nav {
+  background: var(--ink-teal);
+  color: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--paper);
+}
+
+.nav-wordmark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 440;
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--paper) 72%, transparent);
+  font-size: 0.92rem;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: var(--amber);
+  background: rgba(217, 164, 65, 0.12);
+}
+
+@media (max-width: 640px) {
+  .nav-wordmark { font-size: 1.15rem; }
+  .nav-link { padding: 8px 10px; font-size: 0.85rem; }
+}

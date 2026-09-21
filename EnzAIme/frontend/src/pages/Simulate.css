@@ -1,0 +1,244 @@
+/* ============================================================
+   ENZAIme — Environmental Sensitivity Simulator Styles
+   ============================================================ */
+.simulate-page {
+  padding-top: 36px;
+  padding-bottom: 72px;
+}
+
+.simulate-header {
+  margin-bottom: 28px;
+}
+
+.simulate-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.simulate-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--slate);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  transition: color 0.15s ease;
+}
+
+.simulate-back-link:hover {
+  color: var(--ink-teal);
+}
+
+.simulate-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .simulate-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Controls Card */
+.simulate-controls-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.simulate-controls-title {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink-teal);
+}
+
+.slider-group {
+  margin-bottom: 22px;
+}
+
+.slider-group:last-child {
+  margin-bottom: 0;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.slider-label {
+  font-weight: 500;
+  color: var(--ink-teal);
+  font-size: 0.95rem;
+}
+
+.slider-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--amber-deep);
+}
+
+.slider-range-input {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+  outline: none;
+  margin: 8px 0;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.slider-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ink-teal);
+  border: 2px solid var(--paper-raised);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  cursor: grab;
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.slider-range-input::-webkit-slider-thumb:hover {
+  background: var(--amber-deep);
+  transform: scale(1.15);
+}
+
+.slider-range-input::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+.slider-bounds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--slate-2);
+}
+
+/* Score & Meter Output Card */
+.simulate-output-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.score-dial-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+@keyframes dial-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.04); opacity: 0.72; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.score-dial-pulsing {
+  animation: dial-pulse 0.9s infinite ease-in-out;
+}
+
+.simulate-disclaimer-badge {
+  background: var(--moss-pale);
+  border: 1px solid rgba(76, 154, 106, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink-teal);
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.meters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Sensitivity Charts Section */
+.sensitivity-section {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.sensitivity-section-head {
+  margin-bottom: 18px;
+}
+
+.sensitivity-section-title {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink-teal);
+}
+
+.sensitivity-section-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.sensitivity-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.sensitivity-chart-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  background: var(--paper);
+}
+
+.sensitivity-chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.sensitivity-chart-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-teal);
+}
+
+.sensitivity-chart-val {
+  font-size: 0.88rem;
+  color: var(--amber-deep);
+}
+
+.sensitivity-chart-svg-wrap {
+  width: 100%;
+  transition: opacity 0.2s ease;
+}
+
+.sensitivity-chart-svg-wrap.chart-loading {
+  opacity: 0.45;
+}

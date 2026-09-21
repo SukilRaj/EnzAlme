@@ -1,0 +1,18 @@
+kind,name,n_masters,how,enzyme_id,record,into,field,source_base,value_base,source_rec,value_rec,resolution
+ambiguous_name,nylc,4.0,,,,,,,,,,
+merged,,,normalized_name,ENZ003,16,ENZ003,,,,,,
+value_conflict,,,,ENZ003,,,enzyme_name,demo\enzymes_demo.csv,LCC (Leaf-branch compost cutinase),pazy_proteins (1).fasta,LCC,prefer_base
+value_conflict,,,,ENZ003,,,ec_number,demo\enzymes_demo.csv,3.1.1.74,pazy_proteins (1).fasta,,prefer_base
+value_conflict,,,,ENZ003,,,organism,demo\enzymes_demo.csv,uncultured leaf-branch compost bacterium (metagenome),pazy_proteins (1).fasta,,prefer_base
+ambiguous_name,nyla,2.0,,,,,,,,,,
+merged,,,normalized_name,ENZ006,60,ENZ006,,,,,,
+value_conflict,,,,ENZ006,,,enzyme_name,demo\enzymes_demo.csv,NylB (6-aminohexanoate-oligomer exohydrolase),pazy_proteins.fasta,NylB,prefer_base
+value_conflict,,,,ENZ006,,,ec_number,demo\enzymes_demo.csv,3.5.1.46,pazy_proteins.fasta,,prefer_base
+value_conflict,,,,ENZ006,,,organism,demo\enzymes_demo.csv,Paenarthrobacter (Arthrobacter) sp. KI72,pazy_proteins.fasta,,prefer_base
+merged,,,accession,ENZ001,ENZ001,ENZ001,,,,,,
+value_conflict,,,,ENZ001,,,enzyme_name,demo\enzymes_demo.csv,PETase (IsPETase),raw\pazy\pazy_proteins.fasta,PETase_IsPETase,prefer_base
+value_conflict,,,,ENZ001,,,ec_number,demo\enzymes_demo.csv,3.1.1.101,raw\pazy\pazy_proteins.fasta,,prefer_base
+value_conflict,,,,ENZ001,,,organism,demo\enzymes_demo.csv,Ideonella sakaiensis,raw\pazy\pazy_proteins.fasta,Ideonella_sakaiensis,prefer_base
+merged,,,accession,ENZ002,ENZ002,ENZ002,,,,,,
+value_conflict,,,,ENZ002,,,ec_number,demo\enzymes_demo.csv,3.1.1.102,raw\pazy\pazy_proteins.fasta,,prefer_base
+value_conflict,,,,ENZ002,,,organism,demo\enzymes_demo.csv,Ideonella sakaiensis,raw\pazy\pazy_proteins.fasta,Ideonella_sakaiensis,prefer_base

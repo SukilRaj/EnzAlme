@@ -1,0 +1,42 @@
+{
+  "embedding_dim": 480,
+  "env_dim": 14,
+  "env_columns": [
+    "pollutant_PA",
+    "pollutant_PET",
+    "pollutant_PUR",
+    "scenario_ph_norm",
+    "scenario_temp_norm",
+    "scenario_sal_norm",
+    "pollutant_evidence_score",
+    "ph_metadata_available",
+    "temperature_metadata_available",
+    "salinity_metadata_available",
+    "has_sequence",
+    "has_accession",
+    "metadata_completeness",
+    "unknown_feature_count"
+  ],
+  "pollutant_categories": [
+    "PA",
+    "PET",
+    "PUR"
+  ],
+  "best_model": "ridge",
+  "split": {
+    "method": "GroupShuffleSplit",
+    "test_size": 0.2,
+    "groups_before": "enzyme_id",
+    "seed": 42
+  },
+  "target": "derived_compatibility_label",
+  "baselines": [
+    "ridge",
+    "random_forest",
+    "gradient_boosting"
+  ],
+  "mlp": {
+    "hidden": 64,
+    "dropout": 0.3
+  }
+}

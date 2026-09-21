@@ -1,0 +1,288 @@
+{
+  "generated_by": "src/build_master_dataset.py",
+  "schema_version": 1,
+  "input_dirs": [
+    "D:\\Final_Year_Project\\EnzAIme\\data",
+    "D:\\Final_Year_Project\\EnzAIme\\datasets"
+  ],
+  "number_of_source_files_scanned": 25,
+  "number_of_source_files_used": 5,
+  "number_of_raw_records": 79,
+  "number_of_valid_protein_sequences": 70,
+  "number_of_unique_sequences": 70,
+  "number_of_unique_accessions": 7,
+  "number_of_enzyme_level_rows": 75,
+  "records_with_pollutant_label": 74,
+  "records_with_pH_data": 9,
+  "records_with_temperature_data": 9,
+  "records_with_salinity_data": 0,
+  "pollutant_distribution": {
+    "PA": 58,
+    "PET": 12,
+    "PUR": 4,
+    "unknown": 1
+  },
+  "evidence_type_distribution": {
+    "curated": 74,
+    "predicted": 1
+  },
+  "missing_value_percentages": {
+    "enzyme_id": 0.0,
+    "accession": 90.7,
+    "enzyme_name": 0.0,
+    "protein_sequence": 6.7,
+    "sequence_length": 6.7,
+    "enzyme_family": 100.0,
+    "ec_number": 90.7,
+    "organism": 86.7,
+    "pollutant_type": 1.3,
+    "substrate": 100.0,
+    "ph_opt": 88.0,
+    "ph_min": 100.0,
+    "ph_max": 100.0,
+    "temperature_opt_c": 88.0,
+    "temperature_min_c": 100.0,
+    "temperature_max_c": 100.0,
+    "salinity_opt": 100.0,
+    "salinity_min": 100.0,
+    "salinity_max": 100.0,
+    "salinity_unit": 100.0,
+    "evidence_type": 0.0,
+    "evidence_score": 0.0,
+    "source_database": 0.0,
+    "source_file": 0.0,
+    "source_record_id": 0.0,
+    "sequence_hash": 6.7,
+    "data_quality_flag": 0.0,
+    "notes": 0.0
+  },
+  "number_of_duplicate_sequence_records_removed": 0,
+  "number_of_duplicate_rows_in_master": 0,
+  "number_of_conflicts": 17,
+  "file_status": {
+    "demo\\SOURCES.md": "skipped",
+    "demo\\demo_scenarios.json": "skipped",
+    "demo\\enzymes_demo.csv": "used",
+    "fireprotdb_20251015-164116.csv": "skipped",
+    "interim\\pazy_proteins_clean.fasta": "skipped",
+    "interim\\sequence_qc.csv": "skipped",
+    "mutation\\README.md": "skipped",
+    "new_release_structure_sequence.tsv": "excluded",
+    "pazy_proteins (1).fasta": "used",
+    "pazy_proteins.fasta": "used",
+    "processed\\data_conflicts.csv": "skipped",
+    "processed\\data_quality_report.csv": "skipped",
+    "processed\\dataset_summary.json": "skipped",
+    "processed\\environmental_scenarios.csv": "skipped",
+    "processed\\enzymes.csv": "skipped",
+    "processed\\master_enzymes.csv": "skipped",
+    "processed\\master_enzymes_deduplicated.csv": "skipped",
+    "processed\\model_ready_dataset.csv": "skipped",
+    "processed\\unmatched_records.csv": "skipped",
+    "raw\\README.md": "skipped",
+    "raw\\pazy\\pazy_proteins.fasta": "used",
+    "raw\\pdb\\.gitkeep": "skipped",
+    "raw\\uniprot\\.gitkeep": "skipped",
+    "rcsb_pdb_7CWQ.fasta": "used",
+    "uniprotkb_Enzyme_sequence_dmatase_2026_08_02.fasta.gz": "excluded"
+  },
+  "source_details": {
+    "enzymes_demo.csv": {
+      "status": "used",
+      "n_records": 9
+    },
+    "fireprotdb_20251015-164116.csv": {
+      "status": "skipped",
+      "reason": "--fireprotdb skip"
+    },
+    "new_release_structure_sequence.tsv": {
+      "status": "excluded",
+      "reason": "no pollutant annotation; no sequence overlap"
+    },
+    "pazy_proteins (1).fasta": {
+      "status": "used",
+      "n_records": 8,
+      "n_empty": 0,
+      "n_invalid_chars": 0
+    },
+    "pazy_proteins.fasta": {
+      "status": "used",
+      "n_records": 59,
+      "n_empty": 0,
+      "n_invalid_chars": 0
+    },
+    "pazy_proteins_clean.fasta": {
+      "status": "skipped",
+      "reason": "duplicate of data/raw/pazy/pazy_proteins.fasta (same 2 sequences); raw copy used instead."
+    },
+    "rcsb_pdb_7CWQ.fasta": {
+      "status": "used",
+      "n_records": 1,
+      "n_empty": 0,
+      "n_invalid_chars": 0
+    },
+    "uniprotkb_Enzyme_sequence_dmatase_2026_08_02.fasta.gz": {
+      "status": "excluded",
+      "reason": "tRNA dimethylallyltransferases are NOT plastic-degrading enzymes (project scope); kept for provenance only, never loaded.",
+      "n_records": 0
+    }
+  },
+  "merge_events": [
+    {
+      "kind": "ambiguous_name",
+      "name": "nylc",
+      "n_masters": 4
+    },
+    {
+      "kind": "merged",
+      "how": "normalized_name",
+      "enzyme_id": "ENZ003",
+      "record": "16",
+      "into": "ENZ003"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "enzyme_name",
+      "enzyme_id": "ENZ003",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "LCC (Leaf-branch compost cutinase)",
+      "source_rec": "pazy_proteins (1).fasta",
+      "value_rec": "LCC",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "ec_number",
+      "enzyme_id": "ENZ003",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "3.1.1.74",
+      "source_rec": "pazy_proteins (1).fasta",
+      "value_rec": "",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "organism",
+      "enzyme_id": "ENZ003",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "uncultured leaf-branch compost bacterium (metagenome)",
+      "source_rec": "pazy_proteins (1).fasta",
+      "value_rec": "",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "ambiguous_name",
+      "name": "nyla",
+      "n_masters": 2
+    },
+    {
+      "kind": "merged",
+      "how": "normalized_name",
+      "enzyme_id": "ENZ006",
+      "record": "60",
+      "into": "ENZ006"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "enzyme_name",
+      "enzyme_id": "ENZ006",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "NylB (6-aminohexanoate-oligomer exohydrolase)",
+      "source_rec": "pazy_proteins.fasta",
+      "value_rec": "NylB",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "ec_number",
+      "enzyme_id": "ENZ006",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "3.5.1.46",
+      "source_rec": "pazy_proteins.fasta",
+      "value_rec": "",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "organism",
+      "enzyme_id": "ENZ006",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "Paenarthrobacter (Arthrobacter) sp. KI72",
+      "source_rec": "pazy_proteins.fasta",
+      "value_rec": "",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "merged",
+      "how": "accession",
+      "enzyme_id": "ENZ001",
+      "record": "ENZ001",
+      "into": "ENZ001"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "enzyme_name",
+      "enzyme_id": "ENZ001",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "PETase (IsPETase)",
+      "source_rec": "raw\\pazy\\pazy_proteins.fasta",
+      "value_rec": "PETase_IsPETase",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "ec_number",
+      "enzyme_id": "ENZ001",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "3.1.1.101",
+      "source_rec": "raw\\pazy\\pazy_proteins.fasta",
+      "value_rec": "",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "organism",
+      "enzyme_id": "ENZ001",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "Ideonella sakaiensis",
+      "source_rec": "raw\\pazy\\pazy_proteins.fasta",
+      "value_rec": "Ideonella_sakaiensis",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "merged",
+      "how": "accession",
+      "enzyme_id": "ENZ002",
+      "record": "ENZ002",
+      "into": "ENZ002"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "ec_number",
+      "enzyme_id": "ENZ002",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "3.1.1.102",
+      "source_rec": "raw\\pazy\\pazy_proteins.fasta",
+      "value_rec": "",
+      "resolution": "prefer_base"
+    },
+    {
+      "kind": "value_conflict",
+      "field": "organism",
+      "enzyme_id": "ENZ002",
+      "source_base": "demo\\enzymes_demo.csv",
+      "value_base": "Ideonella sakaiensis",
+      "source_rec": "raw\\pazy\\pazy_proteins.fasta",
+      "value_rec": "Ideonella_sakaiensis",
+      "resolution": "prefer_base"
+    }
+  ],
+  "notes": {
+    "pH_and_temperature": "Only the 9 curated demo rows carry pH_opt/T_opt values; all are flagged demo_assumption=True (literature-approximate / heuristic). None are experimental measurements.",
+    "salinity": "No source file provides salinity data, so all salinity fields are left empty (unknown) -- nothing was invented.",
+    "evidence_score": "Ordinal provenance score derived ONLY from the recorded evidence_type label, not a biological measurement.",
+    "no_external_downloads": true,
+    "no_model_training": true,
+    "no_synthetic_scenarios_generated": true
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "disclaimer": "All scores below are agreement with the project-defined compatibility REFERENCE score (Section 12), not experimentally-measured degradation accuracy. See docs/scoring.md and the Scientific Disclaimer in README.md.",
+  "baseline_pollutant_only": {
+    "description": "Score = 1.0 if pollutant matches, else 0.0 (ignores pH/T/salinity entirely).",
+    "mean_absolute_error_vs_reference": 0.158,
+    "note": "Agreement with the compatibility REFERENCE score, not an experimental accuracy metric."
+  },
+  "baseline_rule_based_reference": {
+    "description": "The transparent compatibility engine itself (Section 11-12) \u2014 used as the reference target.",
+    "mean_absolute_error_vs_reference": 0.0
+  },
+  "proposed_model": {
+    "trained": false,
+    "reason": "torch not installed; only 150 rows have a known sequence (need >= 200 for a scientifically meaningful fit); no cached ESM-2 embeddings found (run scripts/05_generate_embeddings.py)"
+  },
+  "split_strategy": "5-fold enzyme-level cross-validation (no enzyme appears in both train and test of the same fold).",
+  "environment_conditioning_effect": {
+    "scenarios_compared": 225,
+    "scenarios_with_different_top_pick": 99,
+    "fraction_changed": 0.44,
+    "example_differences": [
+      {
+        "pollutant": "PA",
+        "pH": 6,
+        "temperature": 45,
+        "salinity": 0.0,
+        "top_env_aware": "ENZ007",
+        "top_pollutant_only": "ENZ006"
+      },
+      {
+        "pollutant": "PA",
+        "pH": 6,
+        "temperature": 45,
+        "salinity": 0.5,
+        "top_env_aware": "ENZ007",
+        "top_pollutant_only": "ENZ006"
+      },
+      {
+        "pollutant": "PA",
+        "pH": 6,
+        "temperature": 45,
+        "salinity": 1.0,
+        "top_env_aware": "ENZ007",
+        "top_pollutant_only": "ENZ006"
+      },
+      {
+        "pollutant": "PA",
+        "pH": 6,
+        "temperature": 55,
+        "salinity": 0.0,
+        "top_env_aware": "ENZ007",
+        "top_pollutant_only": "ENZ006"
+      },
+      {
+        "pollutant": "PA",
+        "pH": 6,
+        "temperature": 55,
+        "salinity": 0.5,
+        "top_env_aware": "ENZ007",
+        "top_pollutant_only": "ENZ006"
+      }
+    ]
+  }
+}

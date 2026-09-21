@@ -1,0 +1,184 @@
+/* ============================================================
+   ENZAIme — Design tokens
+   ------------------------------------------------------------
+   Palette grounded in the subject matter: bioreactor/wastewater
+   teal, catalytic-reaction amber, agar-plate paper. Deliberately
+   NOT the common AI-generated cream+terracotta or near-black+neon
+   defaults.
+
+   Type: Fraunces (headline serif, editorial/journal character)
+         + IBM Plex Sans (UI/body, technical neutral)
+         + IBM Plex Mono (sequences, scores, scientific notation)
+   ============================================================ */
+:root {
+  /* Color */
+  --ink-teal: #123c39;      /* deep teal-black — headers, nav, dark panels */
+  --ink-teal-2: #0c2b29;    /* darker shade for depth/hover */
+  --paper: #f1f4ee;         /* pale sage paper — page background */
+  --paper-raised: #ffffff;  /* card surfaces */
+  --line: #d8ddd2;          /* hairline borders on paper */
+  --line-dark: rgba(241, 244, 238, 0.18);
+  --amber: #d9a441;         /* catalysis/enzyme accent */
+  --amber-deep: #b9812a;
+  --moss: #4c9a6a;          /* high compatibility / positive */
+  --moss-pale: #e4f0e6;
+  --clay: #b85c4a;          /* low compatibility / alert */
+  --clay-pale: #f5e5e1;
+  --slate: #5b6b63;         /* secondary text on paper */
+  --slate-2: #8a978f;       /* tertiary text / placeholders */
+
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Scale */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --shadow-card: 0 1px 2px rgba(18, 60, 57, 0.06), 0 6px 20px rgba(18, 60, 57, 0.05);
+  --max-width: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-teal);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 560;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+  margin: 0 0 0.5em;
+  color: var(--ink-teal);
+}
+
+h1 { font-size: clamp(2.1rem, 4vw, 3.1rem); font-weight: 440; }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+h3 { font-size: 1.25rem; font-weight: 600; font-family: var(--font-body); }
+
+p { margin: 0 0 1em; color: var(--slate); max-width: 62ch; }
+
+a { color: inherit; }
+
+button, input, select, textarea { font-family: inherit; font-size: inherit; }
+
+code, .mono { font-family: var(--font-mono); }
+
+:focus-visible {
+  outline: 2px solid var(--amber-deep);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--slate-2);
+  letter-spacing: 0.02em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 22px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--ink-teal);
+  color: var(--paper);
+}
+.btn-primary:hover:not(:disabled) { background: var(--ink-teal-2); }
+
+.btn-accent {
+  background: var(--amber);
+  color: var(--ink-teal-2);
+}
+.btn-accent:hover:not(:disabled) { background: var(--amber-deep); color: var(--paper); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-teal);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover:not(:disabled) { border-color: var(--ink-teal); }
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--slate);
+  white-space: nowrap;
+}
+.badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+}
+.badge-demo { color: var(--amber-deep); border-color: color-mix(in srgb, var(--amber) 40%, var(--line)); background: color-mix(in srgb, var(--amber) 12%, transparent); }
+.badge-ai { color: var(--moss); border-color: color-mix(in srgb, var(--moss) 40%, var(--line)); background: var(--moss-pale); }
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0;
+}
+
+::selection { background: var(--amber); color: var(--ink-teal-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main { flex: 1; }
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 40px;
+  margin-top: 40px;
+}
+.footer-inner { display: flex; flex-direction: column; gap: 6px; }
+.footer-note { font-size: 0.8rem; max-width: 74ch; color: var(--slate-2); margin: 0; }
+.footer-meta { font-size: 0.72rem; color: var(--slate-2); margin: 0; }

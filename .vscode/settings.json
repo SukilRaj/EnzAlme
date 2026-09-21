@@ -1,0 +1,10 @@
+{
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/EnzAIme/common",
+    "${workspaceFolder}/EnzAIme/backend"
+  ],
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/EnzAIme/common",
+    "${workspaceFolder}/EnzAIme/backend"
+  ]
+}

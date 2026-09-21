@@ -1,0 +1,22 @@
+{
+  "duplicate_enzyme_ids": 0,
+  "duplicate_sequences": 0,
+  "empty_sequences": 5,
+  "invalid_amino_acids": [],
+  "invalid_pH": [],
+  "invalid_temperature": [],
+  "negative_salinity": [],
+  "missing_pollutant": [
+    {
+      "enzyme_id": "ENZ_PDB_7CWQ_1"
+    }
+  ],
+  "invalid_pollutant_categories": [],
+  "n_records": 75,
+  "n_records_with_sequence": 70,
+  "n_records_by_pollutant": {
+    "PA": 58,
+    "PET": 12,
+    "PUR": 4
+  }
+}

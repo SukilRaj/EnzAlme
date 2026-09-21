@@ -1,0 +1,12 @@
+.pipeline-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pipeline-diagram svg {
+  max-width: 380px;
+  filter: drop-shadow(0 8px 24px rgba(18, 60, 57, 0.08));
+}
+@media (max-width: 900px) {
+  .pipeline-diagram { margin-top: 32px; }
+}

@@ -1,0 +1,7 @@
+{
+  "n_enzymes_processed": 70,
+  "total_candidates": 700,
+  "per_enzyme_top_k": 10,
+  "ranking_method": "property_delta + solvent_context_score; larger property_delta and more hydrophobic context = higher rank",
+  "caveat": "Candidates are COMPUTATIONAL ONLY. Embedding-delta ranking is not a predicted activity measurement."
+}

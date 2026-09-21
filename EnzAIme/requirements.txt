@@ -1,0 +1,40 @@
+# ENZAIme — Python dependencies
+# Install with: pip install -r requirements.txt
+#
+# Runtime tiers:
+#   Tier 1  (backend / rules / mutation / tests) — works with the listed core PKGs.
+#   Tier 2  (ML pipeline) — requires torch + transformers + scipy + matplotlib.
+#   Tier 3  (full Kaggle GPU path) — add a GPU + internet to Tier 2 and run
+#           notebooks/kaggle_full_training.ipynb.
+#
+# On KAGGLE, the base image already ships torch/transformers/scikit-learn, so the
+# notebook only needs matplotlib + tabulate in most environments.
+
+# --- Core / data pipeline ---
+pandas>=2.0
+numpy>=1.24
+biopython>=1.81
+scikit-learn>=1.3
+joblib>=1.3
+python-dotenv>=1.0
+
+# --- Backend API ---
+fastapi>=0.100
+uvicorn[standard]>=0.23
+pydantic>=2.0
+pydantic-settings>=2.0
+python-multipart>=0.0.6
+
+# --- ML pipeline (Tier 2): ESM-2 embedding + neural model + eval ---
+torch>=2.1
+transformers>=4.33
+scipy>=1.10
+matplotlib>=3.7
+tabulate>=0.9
+
+# --- Testing ---
+pytest>=7.4
+httpx>=0.24
+
+# --- Shared core package (editable install) ---
+-e ./common

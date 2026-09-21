@@ -1,0 +1,50 @@
+.recommend-page { padding: 56px 28px 90px; max-width: 1120px; }
+.recommend-intro { max-width: 62ch; margin-bottom: 40px; }
+
+.recommend-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.recommend-form { padding: 32px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; flex: 1; }
+.field label { font-size: 0.85rem; font-weight: 600; color: var(--ink-teal); }
+.field select, .field input {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  background: var(--paper);
+  color: var(--ink-teal);
+}
+.field select:focus, .field input:focus { border-color: var(--amber-deep); }
+.field-error { font-size: 0.78rem; color: var(--clay); }
+.field-row { display: flex; gap: 16px; }
+
+.scenario-panel { padding: 4px 4px; }
+.scenario-intro { font-size: 0.85rem; margin-bottom: 14px; }
+.scenario-list { display: flex; flex-direction: column; gap: 10px; }
+.scenario-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+  font-size: 0.86rem;
+  color: var(--ink-teal);
+}
+.scenario-btn:hover { border-color: var(--amber-deep); }
+.scenario-btn-values { color: var(--slate-2); font-size: 0.74rem; }
+
+@media (max-width: 860px) {
+  .recommend-grid { grid-template-columns: 1fr; }
+  .field-row { flex-direction: column; }
+}

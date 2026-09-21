@@ -1,0 +1,51 @@
+.mutations-page { padding: 56px 28px 90px; max-width: 1120px; }
+.mutations-meta { color: var(--slate-2); font-size: 0.82rem; margin-bottom: 24px; }
+
+.disclaimer-panel {
+  background: var(--moss-pale);
+  border: 1px solid color-mix(in srgb, var(--moss) 35%, var(--line));
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 0.86rem;
+  color: var(--ink-teal);
+  margin-bottom: 28px;
+}
+
+.mutations-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 0.86rem;
+}
+.mutations-table th, .mutations-table td {
+  padding: 11px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.mutations-table th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--slate-2);
+  font-weight: 500;
+  background: var(--paper);
+}
+.mutations-table tbody tr:last-child td { border-bottom: none; }
+.mutations-table tbody tr:hover { background: color-mix(in srgb, var(--amber) 6%, transparent); }
+.top-row { background: color-mix(in srgb, var(--moss) 8%, transparent); }
+.mutation-cell { font-weight: 600; color: var(--ink-teal); }
+.score-cell { font-weight: 600; color: var(--moss); }
+
+.future-work-card {
+  margin-top: 32px;
+  padding: 24px 26px;
+  border-left: 3px solid var(--amber);
+}
+.future-work-card h3 { margin-top: 4px; }
+.future-work-card p { margin-bottom: 0; font-size: 0.9rem; }
+
+@media (max-width: 720px) {
+  .mutations-table { display: block; overflow-x: auto; white-space: nowrap; }
+}

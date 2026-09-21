@@ -1,0 +1,3 @@
+Placeholder — drop real UniProt FASTA/TSV exports here (see ../README.md).
+Note: the tRNA dimethylallyltransferase file is explicitly excluded from the
+enzyme recommendation dataset (see ../README.md and Section 5 of the project brief).

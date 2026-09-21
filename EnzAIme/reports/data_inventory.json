@@ -1,0 +1,20 @@
+{
+  "raw_dir": "/home/claude/EnzAIme/data/raw",
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 2210,
+      "type": "other"
+    },
+    {
+      "path": "pazy/pazy_proteins.fasta",
+      "size_bytes": 1039,
+      "type": "fasta",
+      "n_records": 2,
+      "min_length": 290,
+      "max_length": 603,
+      "mean_length": 446.5,
+      "records_with_invalid_chars": 0
+    }
+  ]
+}

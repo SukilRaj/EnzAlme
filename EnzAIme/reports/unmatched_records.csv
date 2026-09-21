@@ -1,0 +1,6 @@
+record_id,record_type,reason,action
+ENZ004,enzyme_catalogue_row,missing_protein_sequence,kept_in_catalogue; excluded from ESM training; available for recommendation-only use
+ENZ005,enzyme_catalogue_row,missing_protein_sequence,kept_in_catalogue; excluded from ESM training; available for recommendation-only use
+ENZ007,enzyme_catalogue_row,missing_protein_sequence,kept_in_catalogue; excluded from ESM training; available for recommendation-only use
+ENZ008,enzyme_catalogue_row,missing_protein_sequence,kept_in_catalogue; excluded from ESM training; available for recommendation-only use
+ENZ009,enzyme_catalogue_row,missing_protein_sequence,kept_in_catalogue; excluded from ESM training; available for recommendation-only use

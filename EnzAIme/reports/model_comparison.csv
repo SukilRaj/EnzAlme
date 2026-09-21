@@ -1,0 +1,7 @@
+model,mae,rmse,r2,spearman,n,top1_consistent,top3_consistent
+ridge,0.0097,0.0334,0.374,0.2815,1400,0,0.0
+random_forest,0.0079,0.0347,0.3236,0.6262,1400,0,0.3333
+gradient_boosting,0.008,0.0347,0.3235,0.2794,1400,0,0.0
+mlp,0.0132,0.0336,0.3648,0.2804,1400,0,0.0
+derived_label_reference,0.0,0.0,1.0,1.0,1400,1,1.0
+pollutant_evidence_only,0.2042,0.2072,-23.1272,,1400,0,0.0

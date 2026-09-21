@@ -1,0 +1,26 @@
+source_file,status,reason,path,size_bytes,records_contributed
+demo\SOURCES.md,skipped,"documentation/text, not enzyme data.",D:\Final_Year_Project\EnzAIme\data\demo\SOURCES.md,4320,
+demo\demo_scenarios.json,skipped,"JSON scenario/state file, not enzyme metadata.",D:\Final_Year_Project\EnzAIme\data\demo\demo_scenarios.json,958,
+demo\enzymes_demo.csv,used,curated demo/enzyme metadata backbone,D:\Final_Year_Project\EnzAIme\data\demo\enzymes_demo.csv,6051,9.0
+fireprotdb_20251015-164116.csv,skipped,--fireprotdb skip: file not scanned.,D:\Final_Year_Project\EnzAIme\datasets\fireprotdb_20251015-164116.csv,1775499132,
+interim\pazy_proteins_clean.fasta,skipped,duplicate of data/raw/pazy/pazy_proteins.fasta (same 2 sequences); raw copy used instead.,D:\Final_Year_Project\EnzAIme\data\interim\pazy_proteins_clean.fasta,1039,
+interim\sequence_qc.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\interim\sequence_qc.csv,159,
+mutation\README.md,skipped,"documentation/text, not enzyme data.",D:\Final_Year_Project\EnzAIme\data\mutation\README.md,998,
+new_release_structure_sequence.tsv,excluded,Generic PDB release export (535 sequences incl. GAPDH and antibody chains). No pollutant/activity annotation and no sequence overlap with the enzyme set.,D:\Final_Year_Project\EnzAIme\datasets\new_release_structure_sequence.tsv,221959,
+pazy_proteins (1).fasta,used,PAZy PET/cutinase-lipase export,D:\Final_Year_Project\EnzAIme\datasets\pazy_proteins (1).fasta,2880,8.0
+pazy_proteins.fasta,used,PAZy nylonase export,D:\Final_Year_Project\EnzAIme\datasets\pazy_proteins.fasta,22348,59.0
+processed\data_conflicts.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\data_conflicts.csv,1788,
+processed\data_quality_report.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\data_quality_report.csv,4191,
+processed\dataset_summary.json,skipped,"JSON scenario/state file, not enzyme metadata.",D:\Final_Year_Project\EnzAIme\data\processed\dataset_summary.json,9260,
+processed\environmental_scenarios.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\environmental_scenarios.csv,14886,
+processed\enzymes.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\enzymes.csv,6051,
+processed\master_enzymes.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\master_enzymes.csv,48631,
+processed\master_enzymes_deduplicated.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\master_enzymes_deduplicated.csv,48631,
+processed\model_ready_dataset.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\model_ready_dataset.csv,22822,
+processed\unmatched_records.csv,skipped,"derived pipeline output, not a raw enzyme source.",D:\Final_Year_Project\EnzAIme\data\processed\unmatched_records.csv,2389,
+raw\README.md,skipped,"documentation/text, not enzyme data.",D:\Final_Year_Project\EnzAIme\data\raw\README.md,2210,
+raw\pazy\pazy_proteins.fasta,used,ENZAIme-style FASTA (accession pipe headers),D:\Final_Year_Project\EnzAIme\data\raw\pazy\pazy_proteins.fasta,1039,59.0
+raw\pdb\.gitkeep,skipped,not a recognised enzyme source.,D:\Final_Year_Project\EnzAIme\data\raw\pdb\.gitkeep,76,
+raw\uniprot\.gitkeep,skipped,not a recognised enzyme source.,D:\Final_Year_Project\EnzAIme\data\raw\uniprot\.gitkeep,239,
+rcsb_pdb_7CWQ.fasta,used,RCSB PDB structure FASTA,D:\Final_Year_Project\EnzAIme\datasets\rcsb_pdb_7CWQ.fasta,383,1.0
+uniprotkb_Enzyme_sequence_dmatase_2026_08_02.fasta.gz,excluded,"tRNA dimethylallyltransferases are NOT plastic-degrading enzymes (project scope); kept for provenance only, never loaded.",D:\Final_Year_Project\EnzAIme\datasets\uniprotkb_Enzyme_sequence_dmatase_2026_08_02.fasta.gz,2898,0.0
