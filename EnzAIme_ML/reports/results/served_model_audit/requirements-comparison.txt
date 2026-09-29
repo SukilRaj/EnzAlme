@@ -1,0 +1,7 @@
+# Isolated numerical inference environment; not a recovered training lockfile.
+# Python 3.11.9, Windows x64. Encoder is held fixed in the existing environment.
+scikit-learn==1.6.1
+numpy==1.26.4
+scipy==1.13.1
+joblib==1.4.2
+threadpoolctl==3.6.0

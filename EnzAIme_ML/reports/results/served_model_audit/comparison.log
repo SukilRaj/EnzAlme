@@ -1,0 +1,96 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Microsoft Visual C++ Redistributable is not installed, this may lead to the DLL load failure.
+It can be downloaded at https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+Loading weights:   0%|          | 0/534 [00:00<?, ?it/s]
+Loading weights:   3%|2         | 16/534 [00:07<03:51,  2.24it/s]
+Loading weights: 100%|##########| 534/534 [00:07<00:00, 74.07it/s]
+[transformers] EsmModel LOAD REPORT from: facebook/esm2_t33_650M_UR50D
+Key                       | Status     | 
+--------------------------+------------+-
+lm_head.bias              | UNEXPECTED | 
+lm_head.dense.weight      | UNEXPECTED | 
+lm_head.dense.bias        | UNEXPECTED | 
+lm_head.layer_norm.weight | UNEXPECTED | 
+lm_head.layer_norm.bias   | UNEXPECTED | 
+pooler.dense.weight       | MISSING    | 
+pooler.dense.bias         | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+D:\Final_Year_Project\EnzAIme_ML\.venv\Lib\site-packages\sklearn\base.py:525: InconsistentVersionWarning: Trying to unpickle estimator PCA from version 1.6.1 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+D:\Final_Year_Project\EnzAIme_ML\.venv\Lib\site-packages\sklearn\base.py:525: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+D:\Final_Year_Project\EnzAIme_ML\.venv\Lib\site-packages\sklearn\base.py:525: InconsistentVersionWarning: Trying to unpickle estimator Ridge from version 1.6.1 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+{
+  "sequence_sha256": "12c59fe9dab495ee536f1c2a5fc28c66e212192096c2351044d4dc139042f5af",
+  "embedding_sha256": "ca075a1f24ae6cd9902d0870a93694ca7bea43980099843ccd78d6bf8fcad3ee",
+  "encoder_device": "cpu",
+  "encoder_dtype": "torch.float32",
+  "encoder_revision": "08e4846e537177426273712802403f7ba8261b6c",
+  "conditions": {
+    "ph": 8,
+    "temperature": 40,
+    "duration": 48
+  },
+  "current": {
+    "prediction_um": 23.14270943023124,
+    "float_hex": "0x1.724889aefac89p+4",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "packages": {
+      "scikit-learn": "1.9.1",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0"
+    }
+  },
+  "compatible": {
+    "prediction_um": 23.14270943023124,
+    "float_hex": "0x1.724889aefac89p+4",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "packages": {
+      "scikit-learn": "1.6.1",
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "joblib": "1.4.2",
+      "threadpoolctl": "3.6.0"
+    }
+  },
+  "compatible_minus_current_um": 0.0,
+  "absolute_difference_um": 0.0,
+  "relative_difference": 0.0,
+  "live_api": {
+    "request": {
+      "sequence": "MNFPRASRLMQAAVLGGLMAVSAAATAQTNPYARGPNPTAASLEASAGPFTVRSFTVSRPSGYGAGTVYYPTNAGGTVGAIAIVPGYTARQSSIKWWGPRLASHGFVVITIDTNSTLDQPSSRSSQQMAALRQVASLNGTSSSPIYGKVDTARMGVMGWSMGGGGSLISAANNPSLKAAAPQAPWDSSTNFSSVTVPTLIFACENDSIAPVNSSALPIYDSMSRNAKQFLEINGGSHSCANSGNSNQALIGKKGVAWMKRFMDNDTRYSTFACENPNSTRVSDFRTANCS",
+      "ph": 8,
+      "temperature": 40,
+      "duration": 48
+    },
+    "response": {
+      "predicted_activity_um": 23.14270943023124,
+      "target": "TPA",
+      "substrate": "PET",
+      "conditions": {
+        "ph": 8.0,
+        "temperature": 40.0,
+        "duration": 48.0
+      }
+    },
+    "sequence_sha256": "12c59fe9dab495ee536f1c2a5fc28c66e212192096c2351044d4dc139042f5af"
+  },
+  "stored_embedding_comparison": {
+    "shape": [
+      1280
+    ],
+    "max_abs_difference": 0.0,
+    "exact_equal": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "model": "ESM-2 + Environment Ridge",
+  "split_strategy": "GroupKFold by protein",
+  "folds": [
+    {
+      "fold": 1,
+      "records": 77,
+      "mae": 1280.018,
+      "rmse": 1476.210,
+      "r2": -0.025,
+      "spearman": 0.739
+    },
+    {
+      "fold": 2,
+      "records": 38,
+      "mae": 330.676,
+      "rmse": 680.711,
+      "r2": -0.206,
+      "spearman": 0.321
+    },
+    {
+      "fold": 3,
+      "records": 38,
+      "mae": 576.740,
+      "rmse": 816.246,
+      "r2": -20.861,
+      "spearman": -0.063
+    },
+    {
+      "fold": 4,
+      "records": 37,
+      "mae": 4530.637,
+      "rmse": 11970.276,
+      "r2": -0.143,
+      "spearman": 0.925
+    },
+    {
+      "fold": 5,
+      "records": 37,
+      "mae": 491.436,
+      "rmse": 1578.859,
+      "r2": -0.045,
+      "spearman": 0.046
+    }
+  ]
+}

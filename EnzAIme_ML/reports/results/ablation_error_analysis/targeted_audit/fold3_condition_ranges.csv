@@ -1,0 +1,4 @@
+﻿feature,train_min,train_max,train_missing,train_records,test_min,test_max,test_missing,test_records,test_outside_training_range
+temperature_c,30.0,80.0,0,184,25.0,60.0,0,37,1
+ph,7.0,9.0,0,184,7.0,9.0,0,37,0
+duration_hours,0.0,672.0,0,184,1.0,120.0,0,37,0

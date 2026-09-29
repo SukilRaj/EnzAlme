@@ -1,0 +1,234 @@
+{
+  "counts": {
+    "original": 227,
+    "confirmed": 221,
+    "excluded": 6
+  },
+  "original_protein_counts": {
+    "1": 12,
+    "4": 2,
+    "11": 1,
+    "13": 12,
+    "15": 8,
+    "17": 5,
+    "25": 1,
+    "37": 8,
+    "41": 3,
+    "42": 22,
+    "44": 77,
+    "148": 2,
+    "149": 13,
+    "177": 12,
+    "185": 8,
+    "195": 8,
+    "223": 1,
+    "224": 1,
+    "225": 1,
+    "226": 1,
+    "240": 1,
+    "481": 12,
+    "483": 12,
+    "495": 2,
+    "496": 2
+  },
+  "confirmed_protein_counts": {
+    "1": 12,
+    "4": 2,
+    "11": 1,
+    "13": 12,
+    "15": 8,
+    "17": 5,
+    "25": 1,
+    "37": 8,
+    "41": 2,
+    "42": 20,
+    "44": 75,
+    "148": 2,
+    "149": 13,
+    "177": 12,
+    "185": 7,
+    "195": 8,
+    "223": 1,
+    "224": 1,
+    "225": 1,
+    "226": 1,
+    "240": 1,
+    "481": 12,
+    "483": 12,
+    "495": 2,
+    "496": 2
+  },
+  "original_environment": {
+    "mean": [
+      50.11013215859031,
+      7.812775330396476,
+      122.8546255506608
+    ],
+    "population_variance": [
+      192.38875196491347,
+      0.5034931785984584,
+      20592.970055696813
+    ]
+  },
+  "confirmed_environment": {
+    "mean": [
+      50.34389140271493,
+      7.82579185520362,
+      119.75113122171946
+    ],
+    "population_variance": [
+      194.0536844044963,
+      0.5047193955897713,
+      18204.340779263322
+    ]
+  },
+  "artifacts": {
+    "pca": {
+      "class": "sklearn.decomposition._pca.PCA",
+      "parameters": {
+        "copy": true,
+        "iterated_power": "auto",
+        "n_components": 10,
+        "n_oversamples": 10,
+        "power_iteration_normalizer": "auto",
+        "random_state": 42,
+        "svd_solver": "auto",
+        "tol": 0.0,
+        "whiten": false
+      },
+      "n_samples_": 227,
+      "n_features_in_": 1280,
+      "n_components_": 10
+    },
+    "scaler": {
+      "class": "sklearn.preprocessing._data.StandardScaler",
+      "parameters": {
+        "copy": true,
+        "with_mean": true,
+        "with_std": true
+      },
+      "n_samples_seen_": 227,
+      "n_features_in_": 13,
+      "environment_mean_last_three": [
+        50.11013215859031,
+        7.812775330396476,
+        122.8546255506608
+      ],
+      "environment_variance_last_three": [
+        192.38875196491347,
+        0.5034931785984584,
+        20592.970055696813
+      ]
+    },
+    "ridge_model": {
+      "class": "sklearn.linear_model._ridge.Ridge",
+      "parameters": {
+        "alpha": 10.0,
+        "copy_X": true,
+        "fit_intercept": true,
+        "max_iter": null,
+        "positive": false,
+        "random_state": null,
+        "solver": "auto",
+        "tol": 0.0001
+      },
+      "n_features_in_": 13
+    }
+  },
+  "excluded_records": [
+    {
+      "protein_id": "41",
+      "temperature_c": "30.0",
+      "ph": "8.0",
+      "duration_value": "72",
+      "duration_unit": "h",
+      "protein_name": "PET46",
+      "target_value": "1.91",
+      "target_unit": "µM",
+      "assay_index": "1",
+      "exclusion_reason": "The source proves that TPA was measured, but it also reports the same value for a combined product metric. Numeric equality does not establish the selected analyte.",
+      "original_zero_based_row_matches": [
+        49
+      ]
+    },
+    {
+      "protein_id": "42",
+      "temperature_c": "37.0",
+      "ph": "7.0",
+      "duration_value": "28",
+      "duration_unit": "d",
+      "protein_name": "CalB",
+      "target_value": "3.4",
+      "target_unit": "µM",
+      "assay_index": "6; 12",
+      "exclusion_reason": "TPA is explicit, but the numeric value is also an explicit BHET value in one matching assay and the assay variant is not retained.",
+      "original_zero_based_row_matches": [
+        57,
+        63
+      ]
+    },
+    {
+      "protein_id": "42",
+      "temperature_c": "37.0",
+      "ph": "7.0",
+      "duration_value": "28",
+      "duration_unit": "d",
+      "protein_name": "CalB",
+      "target_value": "3.4",
+      "target_unit": "µM",
+      "assay_index": "6; 12",
+      "exclusion_reason": "The duplicate ML rows do not resolve whether the source target was the TPA measurement or the coincident BHET measurement.",
+      "original_zero_based_row_matches": [
+        57,
+        63
+      ]
+    },
+    {
+      "protein_id": "44",
+      "temperature_c": "50.0",
+      "ph": "7.0",
+      "duration_value": "0",
+      "duration_unit": "d",
+      "protein_name": "HiC",
+      "target_value": "0.0",
+      "target_unit": "µM",
+      "assay_index": "23; 28",
+      "exclusion_reason": "A zero numeric value cannot identify which of the three product measurements was selected, and the two assay strategies are not preserved in the ML row.",
+      "original_zero_based_row_matches": [
+        141,
+        146
+      ]
+    },
+    {
+      "protein_id": "44",
+      "temperature_c": "50.0",
+      "ph": "7.0",
+      "duration_value": "0",
+      "duration_unit": "d",
+      "protein_name": "HiC",
+      "target_value": "0.0",
+      "target_unit": "µM",
+      "assay_index": "23; 28",
+      "exclusion_reason": "The source contains TPA but cannot distinguish it from the coincident zero BHET or MHET measurements. The zero-duration interpretation is also unresolved.",
+      "original_zero_based_row_matches": [
+        141,
+        146
+      ]
+    },
+    {
+      "protein_id": "185",
+      "temperature_c": "45.0",
+      "ph": "8.0",
+      "duration_value": "7",
+      "duration_unit": "h",
+      "protein_name": "SM14est",
+      "target_value": "2.3",
+      "target_unit": "µM",
+      "assay_index": "22; 26",
+      "exclusion_reason": "The source explicitly identifies TPA, but the identical numeric value belongs to a different analyte under another matching assay condition.",
+      "original_zero_based_row_matches": [
+        185
+      ]
+    }
+  ]
+}

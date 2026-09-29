@@ -1,0 +1,116 @@
+{
+  "dataset_scope": {
+    "confirmed_dataset": "data\\processed\\tpa_pet_ml_confirmed.csv",
+    "master_dataset": "master_dataset.csv",
+    "total_records": 221,
+    "total_proteins": 25
+  },
+  "total_records": 221,
+  "total_proteins": 25,
+  "total_candidate_features": 48,
+  "feature_counts": {
+    "by_group": {
+      "Target-related": 12,
+      "Protein": 11,
+      "Experimental/assay": 11,
+      "Environmental": 7,
+      "Experimental context": 7
+    },
+    "by_role": {
+      "EXCLUDED FIELD": 15,
+      "FUTURE FEATURE": 12,
+      "EVIDENCE/TRACEABILITY FIELD": 11,
+      "CURRENT MODEL FEATURE": 9,
+      "GROUPING/SPLIT VARIABLE": 1
+    }
+  },
+  "eligibility_counts": {
+    "LEAKAGE_RISK": 24,
+    "SAFE_WITH_CAUTION": 14,
+    "FUTURE_FEATURE": 5,
+    "NOT_RECOMMENDED": 4,
+    "SAFE": 1
+  },
+  "current_recommended_feature_set": [
+    "sequence",
+    "ESM-2 embedding",
+    "temperature_c",
+    "ph",
+    "duration_hours",
+    "material",
+    "substrate"
+  ],
+  "excluded_features": [
+    "analyte",
+    "metric_type",
+    "target_value",
+    "target_unit",
+    "target_value_standardized",
+    "standardized_unit",
+    "conversion_formula",
+    "molecular_weight_used",
+    "conversion_status",
+    "replicate_n",
+    "condition_group_id",
+    "repeated_condition",
+    "possible_duplicate",
+    "zero_duration_flag",
+    "classification"
+  ],
+  "future_features": [
+    "EC number",
+    "salinity",
+    "COD",
+    "BOD",
+    "pollutant type"
+  ],
+  "leakage_risks": {
+    "protein_group_split_required": true,
+    "exact_duplicate_groups": 4,
+    "repeated_condition_groups": 48,
+    "repeated_groups_with_identical_targets": 1,
+    "repeated_groups_with_different_targets": 47,
+    "groups_with_metadata_differences": 48,
+    "source_identifiers_excluded": [
+      "literature_doi",
+      "source_file",
+      "assay_index",
+      "protein_id",
+      "UniProt accession"
+    ],
+    "target_derived_fields_excluded": [
+      "analyte",
+      "metric_type",
+      "target_value",
+      "target_unit",
+      "target_value_standardized",
+      "standardized_unit",
+      "conversion_formula",
+      "molecular_weight_used",
+      "conversion_status",
+      "replicate_n",
+      "condition_group_id",
+      "repeated_condition",
+      "possible_duplicate",
+      "zero_duration_flag",
+      "classification"
+    ]
+  },
+  "duplicate_near_duplicate_findings": {
+    "exact_duplicate_record_groups": 4,
+    "exact_duplicate_sequence_pairs": [],
+    "near_identical_sequence_pairs_at_or_above_0_90": [],
+    "repeated_condition_groups": 48
+  },
+  "methodological_recommendations": [
+    "Use protein- or unique-sequence-grouped train/test splits.",
+    "Do not allow exact duplicate rows or repeated experimental records to cross folds.",
+    "Fit preprocessing within each training fold and retain missingness/coverage audits.",
+    "Keep identifiers and target/provenance fields outside model inputs.",
+    "Do not merge salinity, COD, BOD, or pollutant type into the current 221 rows without same-record labels."
+  ],
+  "sequence_findings": {
+    "exact_duplicate_sequence_pairs": [],
+    "near_identical_pairs_at_or_above_0_90": []
+  }
+}

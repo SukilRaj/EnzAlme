@@ -1,0 +1,398 @@
+{
+  "source_file": "fireprotdb_20251015-164116.csv",
+  "chunk_size": 100000,
+  "project_dataset": "tpa_pet_ml_dataset.csv",
+  "project_protein_count": 25,
+  "fireprotdb_statistics": {
+    "total_rows": 5465660,
+    "substitution_rows": 5348343,
+    "ddg_rows": 613208,
+    "substitution_and_ddg_rows": 555932,
+    "substitution_and_stabilizing_rows": 518310,
+    "stabilizing_for_substitution_rows": {
+      "unique_value_count": 3,
+      "most_common": [
+        {
+          "value": "(empty)",
+          "count": 4830033
+        },
+        {
+          "value": "False",
+          "count": 515457
+        },
+        {
+          "value": "True",
+          "count": 2853
+        }
+      ]
+    },
+    "substitution_values": {
+      "unique_value_count": 692335,
+      "most_common": [
+        {
+          "value": "Y925E",
+          "count": 243
+        },
+        {
+          "value": "E19Q",
+          "count": 128
+        },
+        {
+          "value": "E19K",
+          "count": 126
+        },
+        {
+          "value": "E19A",
+          "count": 121
+        },
+        {
+          "value": "E43K",
+          "count": 121
+        },
+        {
+          "value": "E43Q",
+          "count": 120
+        },
+        {
+          "value": "E19D",
+          "count": 119
+        },
+        {
+          "value": "E19F",
+          "count": 119
+        },
+        {
+          "value": "E19G",
+          "count": 119
+        },
+        {
+          "value": "E19H",
+          "count": 119
+        },
+        {
+          "value": "E19I",
+          "count": 119
+        },
+        {
+          "value": "E19L",
+          "count": 119
+        },
+        {
+          "value": "E19M",
+          "count": 119
+        },
+        {
+          "value": "E19N",
+          "count": 119
+        },
+        {
+          "value": "E19P",
+          "count": 119
+        },
+        {
+          "value": "E19R",
+          "count": 119
+        },
+        {
+          "value": "E19S",
+          "count": 119
+        },
+        {
+          "value": "E19T",
+          "count": 119
+        },
+        {
+          "value": "E19V",
+          "count": 119
+        },
+        {
+          "value": "E19W",
+          "count": 119
+        },
+        {
+          "value": "E19Y",
+          "count": 119
+        },
+        {
+          "value": "E43S",
+          "count": 118
+        },
+        {
+          "value": "E3R",
+          "count": 114
+        },
+        {
+          "value": "E43A",
+          "count": 113
+        },
+        {
+          "value": "V5A",
+          "count": 113
+        },
+        {
+          "value": "E19C",
+          "count": 112
+        },
+        {
+          "value": "E16G",
+          "count": 111
+        },
+        {
+          "value": "V5Q",
+          "count": 111
+        },
+        {
+          "value": "V5E",
+          "count": 111
+        },
+        {
+          "value": "V5N",
+          "count": 111
+        },
+        {
+          "value": "V5H",
+          "count": 111
+        },
+        {
+          "value": "V5D",
+          "count": 111
+        },
+        {
+          "value": "V5R",
+          "count": 111
+        },
+        {
+          "value": "V5K",
+          "count": 111
+        },
+        {
+          "value": "V5T",
+          "count": 111
+        },
+        {
+          "value": "V5S",
+          "count": 111
+        },
+        {
+          "value": "V5G",
+          "count": 111
+        },
+        {
+          "value": "V5M",
+          "count": 111
+        },
+        {
+          "value": "V5L",
+          "count": 111
+        },
+        {
+          "value": "V5I",
+          "count": 111
+        },
+        {
+          "value": "V5W",
+          "count": 111
+        },
+        {
+          "value": "V5Y",
+          "count": 111
+        },
+        {
+          "value": "V5F",
+          "count": 111
+        },
+        {
+          "value": "V5P",
+          "count": 111
+        },
+        {
+          "value": "E16D",
+          "count": 110
+        },
+        {
+          "value": "E16K",
+          "count": 110
+        },
+        {
+          "value": "E16L",
+          "count": 110
+        },
+        {
+          "value": "E16N",
+          "count": 110
+        },
+        {
+          "value": "E16P",
+          "count": 110
+        },
+        {
+          "value": "E16R",
+          "count": 110
+        }
+      ]
+    },
+    "mutation_row_percentages": {
+      "with_uniprotkb": 87.03785452802859,
+      "with_ph": 0.32640015795546395,
+      "with_exp_temperature": 0.17695200176952003
+    },
+    "common_source_dataset_values": [
+      {
+        "value": "Domainome DDG",
+        "count": 4071188
+      },
+      {
+        "value": "MegaScale",
+        "count": 697472
+      },
+      {
+        "value": "Domainome FITNESS",
+        "count": 562181
+      },
+      {
+        "value": "ProTherm",
+        "count": 17394
+      },
+      {
+        "value": "COZYME",
+        "count": 108
+      }
+    ]
+  },
+  "project_proteins": [
+    {
+      "protein_id": "1",
+      "protein_name": "IsPETase",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "4",
+      "protein_name": "PET12",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "11",
+      "protein_name": "Mors1",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "13",
+      "protein_name": "MG8",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "15",
+      "protein_name": "RgPETase",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "17",
+      "protein_name": "BhrPETase",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "25",
+      "protein_name": "TfCut2",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "37",
+      "protein_name": "PHL-7",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "41",
+      "protein_name": "PET46",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "42",
+      "protein_name": "CalB",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "44",
+      "protein_name": "HiC",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "148",
+      "protein_name": "CtPl",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "149",
+      "protein_name": "606",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "177",
+      "protein_name": "Sub1",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "185",
+      "protein_name": "SM14est",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "195",
+      "protein_name": "BurPL",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "223",
+      "protein_name": "HG-2",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "224",
+      "protein_name": "HG-3",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "225",
+      "protein_name": "HG-4",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "226",
+      "protein_name": "HG-5",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "240",
+      "protein_name": "Dkca1",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "481",
+      "protein_name": "Sis",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "483",
+      "protein_name": "DIEGO",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "495",
+      "protein_name": "PET93",
+      "uniprot_accession": null
+    },
+    {
+      "protein_id": "496",
+      "protein_name": "PET94",
+      "uniprot_accession": null
+    }
+  ],
+  "project_accession_comparison": {
+    "status": "unavailable_missing_uniprot_accessions_column",
+    "matching_note": "The project dataset has no uniprot_accessions column; no accessions or matches were inferred.",
+    "matching_fireprotdb_rows": 0,
+    "matching_mutation_rows": 0,
+    "unique_matching_proteins": 0,
+    "matched_proteins": []
+  },
+  "scientific_note": "DDG and stabilizing values describe mutation stability or thermodynamic evidence. They are not direct PET activity measurements and are not used to alter activity predictions."
+}

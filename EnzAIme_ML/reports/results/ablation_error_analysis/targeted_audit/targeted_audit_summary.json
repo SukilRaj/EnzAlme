@@ -1,0 +1,309 @@
+{
+  "protein37": {
+    "protein_name": "PHL-7",
+    "held_out_fold": 2,
+    "row45": {
+      "source_row_id": 45,
+      "protein_id": "37",
+      "protein_name": "PHL-7",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "source_record_id": "",
+      "assay_index": "22",
+      "literature_doi": "10.1002/cssc.202101062",
+      "source_reference": {
+        "source": "main article and Supporting Information",
+        "location": "Figure 3C/D; Figures 4–5/S14–S16 where applicable; PHL7; 16 h"
+      },
+      "analyte": "TPA",
+      "recorded_value": 47.0,
+      "recorded_unit": "mM",
+      "standardized_value_um": 47000.0,
+      "standardized_unit": "µM",
+      "conversion_formula": "value * 1000",
+      "conversion_status": "converted",
+      "classification": "TPA_CONFIRMED",
+      "temperature_c": 70.0,
+      "ph": 8.0,
+      "duration_value": 16.0,
+      "duration_unit": "h",
+      "duration_hours": 16.0,
+      "assay_method": [
+        {
+          "method": "HPLC quantification of PET hydrolysis products. For homogeneous PHL7/LCC assays, an Agilent 1100 HPLC with a Eurospher II 100-5 C18 column (150 × 2 mm) was used at 30 °C, 300 µL/min, UV 241 nm, with TPA, MHET and BHET standards.",
+          "role": "quantitative"
+        },
+        {
+          "method": "gravimetric determination of G-PET film weight loss",
+          "role": "quantitative"
+        },
+        {
+          "method": "vertical scanning interferometry (VSI) surface-retreat analysis",
+          "role": "supporting"
+        },
+        {
+          "method": "scanning electron microscopy (SEM) of enzyme-exposed G-PET film",
+          "role": "supporting"
+        }
+      ],
+      "material_description": {
+        "reported_name": "amorphous G-PET film (Goodfellow ES301445)",
+        "material_category": "polymer",
+        "form": "film",
+        "morphology": "amorphous",
+        "thickness_value": 250,
+        "thickness_unit": "µm",
+        "dimensions": "3 × 0.5 cm film; about 45 mg; reported crystallinity 5–7%",
+        "pretreatment_steps": []
+      },
+      "original_assay_json": {
+        "assay_index": "22",
+        "conditions": "{\"temperature_c\": 70, \"ph\": 8, \"duration_value\": 16, \"duration_unit\": \"h\", \"enzyme_preparation\": \"purified\", \"enzyme_features\": [], \"reaction_volume_value\": 1.8, \"reaction_volume_unit\": \"mL\", \"agitation_mode\": \"shaking\", \"agitation_speed_rpm\": 700, \"buffer\": \"1 M potassium phosphate buffer, pH 8.0\", \"additional_conditions\": {\"enzyme_loading\": \"0.6 mg enzyme/g PET\", \"preparation_detail\": \"homogeneous PHL7 preparation\", \"source_loading_note\": \"Main text/Figure 3 report 0.6 mg enzyme/g PET; Methods report 0.55 mg enzyme/g PET for the homogeneous PHL7/LCC weight-loss series.\"}}",
+        "degradation_chemistry": "[{\"reaction_type\": \"hydrolysis\", \"bond_type\": \"ester\", \"evidence_level\": \"supported_by_products\", \"reported_description\": \"PET ester-bond hydrolysis was demonstrated by release of terephthalate-containing products and/or direct loss/retreat of PET material.\", \"evidence_source\": \"main article and Supporting Information\", \"evidence_location\": \"Figure 3C/D and surface analysis; PHL7; 16 h\"}]",
+        "detection_methods": "[{\"method\": \"HPLC quantification of PET hydrolysis products. For homogeneous PHL7/LCC assays, an Agilent 1100 HPLC with a Eurospher II 100-5 C18 column (150 \\u00d7 2 mm) was used at 30 \\u00b0C, 300 \\u00b5L/min, UV 241 nm, with TPA, MHET and BHET standards.\", \"role\": \"quantitative\"}, {\"method\": \"gravimetric determination of G-PET film weight loss\", \"role\": \"quantitative\"}, {\"method\": \"vertical scanning interferometry (VSI) surface-retreat analysis\", \"role\": \"supporting\"}, {\"method\": \"scanning electron microscopy (SEM) of enzyme-exposed G-PET film\", \"role\": \"supporting\"}]",
+        "evidence": "{\"source\": \"main article and Supporting Information\", \"location\": \"Figure 3C/D; Figures 4\\u20135/S14\\u2013S16 where applicable; PHL7; 16 h\"}",
+        "is_representative": "True",
+        "literature_doi": "10.1002/cssc.202101062",
+        "material": "{\"reported_name\": \"amorphous G-PET film (Goodfellow ES301445)\", \"material_category\": \"polymer\", \"form\": \"film\", \"morphology\": \"amorphous\", \"thickness_value\": 250, \"thickness_unit\": \"\\u00b5m\", \"dimensions\": \"3 \\u00d7 0.5 cm film; about 45 mg; reported crystallinity 5\\u20137%\", \"pretreatment_steps\": []}",
+        "measurements": "[{\"metric_type\": \"product_concentration\", \"analyte\": \"TPA\", \"value\": 47, \"unit\": \"mM\", \"qualifier\": \"~\", \"reported_result\": \"Approximate PHL7 mean digitized from Figure 3C.\", \"value_is_digitized\": true}, {\"metric_type\": \"product_concentration\", \"analyte\": \"MHET\", \"value\": 52.5, \"unit\": \"mM\", \"qualifier\": \"~\", \"reported_result\": \"Approximate PHL7 mean digitized from Figure 3C.\", \"value_is_digitized\": true}, {\"metric_type\": \"mass_loss_percent\", \"analyte\": \"G-PET film\", \"value\": 90, \"unit\": \"%\", \"reported_result\": \"Directly stated in the Results text: 90% \\u00b1 2.8% weight loss within 16 h.\", \"uncertainty_value\": 2.8, \"uncertainty_type\": \"SD\", \"replicate_n\": 3, \"value_is_digitized\": false}, {\"metric_type\": \"other\", \"analyte\": \"PET surface degradation rate after prolonged exposure (VSI)\", \"value\": 6.7, \"unit\": \"\\u00b5m/h\", \"reported_result\": \"Directly stated in the Results text for PHL7 after 16 h exposure.\", \"value_is_digitized\": false}]",
+        "protein_id": "37",
+        "protein_name": "PHL-7",
+        "representative_group": "",
+        "source_file": "pazy_polymer_assays.json.gz",
+        "substrate": "PET"
+      },
+      "original_conditions": {
+        "temperature_c": 70,
+        "ph": 8,
+        "duration_value": 16,
+        "duration_unit": "h",
+        "enzyme_preparation": "purified",
+        "enzyme_features": [],
+        "reaction_volume_value": 1.8,
+        "reaction_volume_unit": "mL",
+        "agitation_mode": "shaking",
+        "agitation_speed_rpm": 700,
+        "buffer": "1 M potassium phosphate buffer, pH 8.0",
+        "additional_conditions": {
+          "enzyme_loading": "0.6 mg enzyme/g PET",
+          "preparation_detail": "homogeneous PHL7 preparation",
+          "source_loading_note": "Main text/Figure 3 report 0.6 mg enzyme/g PET; Methods report 0.55 mg enzyme/g PET for the homogeneous PHL7/LCC weight-loss series."
+        }
+      },
+      "original_measurements": [
+        {
+          "metric_type": "product_concentration",
+          "analyte": "TPA",
+          "value": 47,
+          "unit": "mM",
+          "qualifier": "~",
+          "reported_result": "Approximate PHL7 mean digitized from Figure 3C.",
+          "value_is_digitized": true
+        },
+        {
+          "metric_type": "product_concentration",
+          "analyte": "MHET",
+          "value": 52.5,
+          "unit": "mM",
+          "qualifier": "~",
+          "reported_result": "Approximate PHL7 mean digitized from Figure 3C.",
+          "value_is_digitized": true
+        },
+        {
+          "metric_type": "mass_loss_percent",
+          "analyte": "G-PET film",
+          "value": 90,
+          "unit": "%",
+          "reported_result": "Directly stated in the Results text: 90% ± 2.8% weight loss within 16 h.",
+          "uncertainty_value": 2.8,
+          "uncertainty_type": "SD",
+          "replicate_n": 3,
+          "value_is_digitized": false
+        },
+        {
+          "metric_type": "other",
+          "analyte": "PET surface degradation rate after prolonged exposure (VSI)",
+          "value": 6.7,
+          "unit": "µm/h",
+          "reported_result": "Directly stated in the Results text for PHL7 after 16 h exposure.",
+          "value_is_digitized": false
+        }
+      ],
+      "source_consistency": {
+        "value_and_unit_match_retained_record": true,
+        "digitized_approximate_value": true,
+        "transcription_error_verified": false,
+        "unresolved_evidence": [
+          "The retained record describes the TPA value as approximate and digitized from Figure 3C.",
+          "The raw figure/image and independent replicate-level values are not present in the retained workspace record."
+        ]
+      }
+    }
+  },
+  "fold3": {
+    "held_out_proteins": [
+      {
+        "protein_id": "1",
+        "protein_name": "IsPETase"
+      },
+      {
+        "protein_id": "11",
+        "protein_name": "Mors1"
+      },
+      {
+        "protein_id": "148",
+        "protein_name": "CtPl"
+      },
+      {
+        "protein_id": "149",
+        "protein_name": "606"
+      },
+      {
+        "protein_id": "185",
+        "protein_name": "SM14est"
+      },
+      {
+        "protein_id": "496",
+        "protein_name": "PET94"
+      }
+    ],
+    "condition_outside_training_ranges": [
+      {
+        "source_row_id": 14,
+        "protein_id": "11",
+        "feature": "temperature_c",
+        "test_value": 25.0,
+        "train_min": 30.0,
+        "train_max": 80.0
+      }
+    ]
+  },
+  "aggregation": [
+    {
+      "configuration": "A",
+      "metric": "mae_um",
+      "pooled_oof_value": 1420.712664507627,
+      "mean_fold_value": 1423.1083857471326,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "A",
+      "metric": "rmse_um",
+      "pooled_oof_value": 5085.699206739496,
+      "mean_fold_value": 3200.768736687273,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "A",
+      "metric": "r2",
+      "pooled_oof_value": -0.0489747036720591,
+      "mean_fold_value": -0.2917476221872883,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "A",
+      "metric": "spearman",
+      "pooled_oof_value": 0.4408822209672188,
+      "mean_fold_value": 0.3131776702346841,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "B",
+      "metric": "mae_um",
+      "pooled_oof_value": 1888.33057054038,
+      "mean_fold_value": 1918.2932398061846,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "B",
+      "metric": "rmse_um",
+      "pooled_oof_value": 5346.749048483047,
+      "mean_fold_value": 3943.420391515289,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "B",
+      "metric": "r2",
+      "pooled_oof_value": -0.1594266436356657,
+      "mean_fold_value": -86.8720366472366,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "B",
+      "metric": "spearman",
+      "pooled_oof_value": 0.2737302565537072,
+      "mean_fold_value": -0.22675071181906425,
+      "defined_fold_count": 4,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "C",
+      "metric": "mae_um",
+      "pooled_oof_value": 1515.8998049653262,
+      "mean_fold_value": 1592.1208717198062,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "C",
+      "metric": "rmse_um",
+      "pooled_oof_value": 5116.622727280307,
+      "mean_fold_value": 3452.482537898115,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "C",
+      "metric": "r2",
+      "pooled_oof_value": -0.0617700377413008,
+      "mean_fold_value": -23.22155728836957,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    },
+    {
+      "configuration": "C",
+      "metric": "spearman",
+      "pooled_oof_value": 0.391955857510308,
+      "mean_fold_value": 0.2394329683546145,
+      "defined_fold_count": 5,
+      "fold_count": 5,
+      "aggregation_note": "pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics"
+    }
+  ],
+  "b_fold1": {
+    "test_protein_count": 1,
+    "unique_prediction_count": 1,
+    "constant_prediction": true,
+    "prediction_um": 2774.41479492,
+    "expected_from_protein_only_features": true
+  },
+  "outputs": [
+    "aggregation_check.csv",
+    "fold3_condition_ranges.csv",
+    "fold3_error_contributing_rows.csv",
+    "fold3_protein_metrics.csv",
+    "fold3_test_outside_training_ranges.csv",
+    "protein37_observations.csv",
+    "protein37_oof_predictions.csv",
+    "protein37_provenance_audit_records.csv",
+    "targeted_audit_report.md",
+    "targeted_audit_summary.json"
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "ProcessId": 24916,
+    "ExecutablePath": "D:\\Final_Year_Project\\EnzAIme_ML\\.venv\\Scripts\\python.exe",
+    "CommandLine": "\"D:\\Final_Year_Project\\EnzAIme_ML\\.venv\\Scripts\\python.exe\" -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000"
+  },
+  {
+    "ProcessId": 24480,
+    "ExecutablePath": "C:\\Users\\Welcome\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "CommandLine": "\"C:\\Users\\Welcome\\AppData\\Local\\Programs\\Python\\Python311\\python.exe\" -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000"
+  }
+]

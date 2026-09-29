@@ -1,0 +1,2 @@
+﻿source_row_id,protein_id,feature,test_value,train_min,train_max
+14,11,temperature_c,25.0,30.0,80.0

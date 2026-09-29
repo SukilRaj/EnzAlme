@@ -1,0 +1,399 @@
+{
+  "dataset": {
+    "records": 221,
+    "proteins": 25,
+    "source": "data\\processed\\tpa_pet_ml_confirmed.csv"
+  },
+  "reproduction": {
+    "mae_um": {
+      "max_absolute_difference": 1.8189894035458565e-12,
+      "all_within_tolerance": true,
+      "undefined_match": true
+    },
+    "rmse_um": {
+      "max_absolute_difference": 5.4569682106375694e-12,
+      "all_within_tolerance": true,
+      "undefined_match": true
+    },
+    "r2": {
+      "max_absolute_difference": 1.7053025658242404e-13,
+      "all_within_tolerance": true,
+      "undefined_match": true
+    },
+    "spearman": {
+      "max_absolute_difference": 9.020562075079397e-17,
+      "all_within_tolerance": true,
+      "undefined_match": true
+    }
+  },
+  "protocol": {
+    "folds": [
+      {
+        "fold": 1,
+        "train_records": 146,
+        "test_records": 75,
+        "train_proteins": [
+          "1",
+          "11",
+          "13",
+          "148",
+          "149",
+          "15",
+          "17",
+          "177",
+          "185",
+          "195",
+          "223",
+          "224",
+          "225",
+          "226",
+          "240",
+          "25",
+          "37",
+          "4",
+          "41",
+          "42",
+          "481",
+          "483",
+          "495",
+          "496"
+        ],
+        "test_proteins": [
+          "44"
+        ]
+      },
+      {
+        "fold": 2,
+        "train_records": 184,
+        "test_records": 37,
+        "train_proteins": [
+          "1",
+          "11",
+          "13",
+          "148",
+          "149",
+          "15",
+          "177",
+          "185",
+          "195",
+          "224",
+          "225",
+          "240",
+          "25",
+          "41",
+          "44",
+          "481",
+          "483",
+          "495",
+          "496"
+        ],
+        "test_proteins": [
+          "17",
+          "223",
+          "226",
+          "37",
+          "4",
+          "42"
+        ]
+      },
+      {
+        "fold": 3,
+        "train_records": 184,
+        "test_records": 37,
+        "train_proteins": [
+          "13",
+          "15",
+          "17",
+          "177",
+          "195",
+          "223",
+          "224",
+          "225",
+          "226",
+          "240",
+          "25",
+          "37",
+          "4",
+          "41",
+          "42",
+          "44",
+          "481",
+          "483",
+          "495"
+        ],
+        "test_proteins": [
+          "1",
+          "11",
+          "148",
+          "149",
+          "185",
+          "496"
+        ]
+      },
+      {
+        "fold": 4,
+        "train_records": 185,
+        "test_records": 36,
+        "train_proteins": [
+          "1",
+          "11",
+          "13",
+          "148",
+          "149",
+          "15",
+          "17",
+          "185",
+          "223",
+          "224",
+          "226",
+          "240",
+          "37",
+          "4",
+          "41",
+          "42",
+          "44",
+          "481",
+          "496"
+        ],
+        "test_proteins": [
+          "177",
+          "195",
+          "225",
+          "25",
+          "483",
+          "495"
+        ]
+      },
+      {
+        "fold": 5,
+        "train_records": 185,
+        "test_records": 36,
+        "train_proteins": [
+          "1",
+          "11",
+          "148",
+          "149",
+          "17",
+          "177",
+          "185",
+          "195",
+          "223",
+          "225",
+          "226",
+          "25",
+          "37",
+          "4",
+          "42",
+          "44",
+          "483",
+          "495",
+          "496"
+        ],
+        "test_proteins": [
+          "13",
+          "15",
+          "224",
+          "240",
+          "41",
+          "481"
+        ]
+      }
+    ],
+    "same_splits_across_configurations": true,
+    "prediction_clipping": "none in original implementation",
+    "ambiguous_records_excluded": true
+  },
+  "pooled_metrics": [
+    {
+      "configuration": "A",
+      "record_count": 221,
+      "mae_um": 1420.7126645076273,
+      "rmse_um": 5085.699206739496,
+      "r2": -0.04897470367205914,
+      "spearman": 0.44088222096721885,
+      "sse_um2": 5716018349.136192,
+      "sst_um2": 5449147943.34563,
+      "r2_formula": "1 - SSE/SST"
+    },
+    {
+      "configuration": "B",
+      "record_count": 221,
+      "mae_um": 1888.3305705403802,
+      "rmse_um": 5346.749048483047,
+      "r2": -0.15942664363566572,
+      "spearman": 0.27373025655370725,
+      "sse_um2": 6317887310.627415,
+      "sst_um2": 5449147943.34563,
+      "r2_formula": "1 - SSE/SST"
+    },
+    {
+      "configuration": "C",
+      "record_count": 221,
+      "mae_um": 1515.8998049653262,
+      "rmse_um": 5116.622727280307,
+      "r2": -0.061770037741300854,
+      "spearman": 0.391955857510308,
+      "sse_um2": 5785742017.464022,
+      "sst_um2": 5449147943.34563,
+      "r2_formula": "1 - SSE/SST"
+    }
+  ],
+  "mean_fold_metrics": {
+    "A": {
+      "mae_um": 1423.1083857471326,
+      "rmse_um": 3200.768736687273,
+      "r2": -0.2917476221872883,
+      "spearman": 0.3131776702346841
+    },
+    "B": {
+      "mae_um": 1918.2932398061846,
+      "rmse_um": 3943.420391515289,
+      "r2": -86.8720366472366,
+      "spearman": -0.22675071181906423
+    },
+    "C": {
+      "mae_um": 1592.1208717198065,
+      "rmse_um": 3452.482537898115,
+      "r2": -23.22155728836957,
+      "spearman": 0.23943296835461444
+    }
+  },
+  "extreme_r2_folds": [
+    {
+      "configuration": "B",
+      "fold": 3,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "test_protein_ids": "1;11;148;149;185;496",
+      "train_target_min_um": 0.983,
+      "train_target_median_um": 341.4,
+      "train_target_max_um": 47000.0,
+      "train_target_std_um": 5414.509874668126,
+      "test_target_min_um": 0.3,
+      "test_target_median_um": 29.9,
+      "test_target_max_um": 682.0,
+      "test_target_std_um": 179.04910255685283,
+      "mae_um": 2357.4173121775034,
+      "rmse_um": 3679.6420601307914,
+      "r2": -433.07630045537775,
+      "spearman": -0.021246677361381635,
+      "sse_um2": 500971330.55529225,
+      "sst_um2": 1154108.9205509187,
+      "r2_formula": "1 - SSE/SST",
+      "undefined_metrics": ""
+    },
+    {
+      "configuration": "C",
+      "fold": 3,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "test_protein_ids": "1;11;148;149;185;496",
+      "train_target_min_um": 0.983,
+      "train_target_median_um": 341.4,
+      "train_target_max_um": 47000.0,
+      "train_target_std_um": 5414.509874668126,
+      "test_target_min_um": 0.3,
+      "test_target_median_um": 29.9,
+      "test_target_max_um": 682.0,
+      "test_target_std_um": 179.04910255685283,
+      "mae_um": 1277.5856547279977,
+      "rmse_um": 1909.8701053102411,
+      "r2": -115.9398649517521,
+      "spearman": -0.04402523379591329,
+      "sse_um2": 134961341.30883682,
+      "sst_um2": 1154108.9205509187,
+      "r2_formula": "1 - SSE/SST",
+      "undefined_metrics": ""
+    },
+    {
+      "configuration": "A",
+      "fold": 3,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "test_protein_ids": "1;11;148;149;185;496",
+      "train_target_min_um": 0.983,
+      "train_target_median_um": 341.4,
+      "train_target_max_um": 47000.0,
+      "train_target_std_um": 5414.509874668126,
+      "test_target_min_um": 0.3,
+      "test_target_median_um": 29.9,
+      "test_target_max_um": 682.0,
+      "test_target_std_um": 179.04910255685283,
+      "mae_um": 136.43874466173557,
+      "rmse_um": 232.4289476417816,
+      "r2": -0.7319500312109888,
+      "spearman": -0.26575990252174453,
+      "sse_um2": 1998858.9809690441,
+      "sst_um2": 1154108.9205509187,
+      "r2_formula": "1 - SSE/SST",
+      "undefined_metrics": ""
+    },
+    {
+      "configuration": "A",
+      "fold": 1,
+      "train_records": 146,
+      "test_records": 75,
+      "train_proteins": 24,
+      "test_proteins": 1,
+      "test_protein_ids": "44",
+      "train_target_min_um": 0.3,
+      "train_target_median_um": 46.15,
+      "train_target_max_um": 47000.0,
+      "train_target_std_um": 6039.106561048072,
+      "test_target_min_um": 3.1,
+      "test_target_median_um": 992.0,
+      "test_target_max_um": 5981.9,
+      "test_target_std_um": 1464.2770076546126,
+      "mae_um": 1354.6368171962558,
+      "rmse_um": 1892.6466802561304,
+      "r2": -0.6932541636935301,
+      "spearman": 0.7575139302982451,
+      "sse_um2": 268658359.2213413,
+      "sst_um2": 158663929.48080003,
+      "r2_formula": "1 - SSE/SST",
+      "undefined_metrics": ""
+    },
+    {
+      "configuration": "B",
+      "fold": 1,
+      "train_records": 146,
+      "test_records": 75,
+      "train_proteins": 24,
+      "test_proteins": 1,
+      "test_protein_ids": "44",
+      "train_target_min_um": 0.3,
+      "train_target_median_um": 46.15,
+      "train_target_max_um": 47000.0,
+      "train_target_std_um": 6039.106561048072,
+      "test_target_min_um": 3.1,
+      "test_target_median_um": 992.0,
+      "test_target_max_um": 5981.9,
+      "test_target_std_um": 1464.2770076546126,
+      "mae_um": 1667.1315436197917,
+      "rmse_um": 1862.029811173225,
+      "r2": -0.6389145735786268,
+      "spearman": null,
+      "sse_um2": 260036626.3273347,
+      "sst_um2": 158663929.48080003,
+      "r2_formula": "1 - SSE/SST",
+      "undefined_metrics": "spearman: constant predictions"
+    }
+  ],
+  "output_files": [
+    "actual_vs_predicted.png",
+    "fold_metrics.csv",
+    "oof_predictions.csv",
+    "per_protein_squared_error.png",
+    "pooled_metrics.csv",
+    "protein_metrics.csv",
+    "top_squared_error_proteins.csv",
+    "top_squared_error_rows.csv",
+    "within_protein_comparisons.csv"
+  ]
+}

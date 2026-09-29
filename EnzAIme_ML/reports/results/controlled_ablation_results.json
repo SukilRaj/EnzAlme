@@ -1,0 +1,700 @@
+{
+  "dataset_information": {
+    "source": "data\\processed\\tpa_pet_ml_confirmed.csv",
+    "records": 221,
+    "proteins": 25,
+    "target": "target_value_standardized",
+    "target_transform": "log1p(target_value_standardized) applied within each training fold only",
+    "target_unit": "uM",
+    "random_seed": 42
+  },
+  "feature_configurations": {
+    "A": {
+      "name": "Environment Only",
+      "features": [
+        "temperature_c",
+        "ph",
+        "duration_hours"
+      ],
+      "feature_description": "temperature_c + ph + duration_hours",
+      "pca_components": 0,
+      "scaler": "StandardScaler on training environment features only",
+      "model": "Ridge(alpha=10)"
+    },
+    "B": {
+      "name": "ESM-2 Only",
+      "features": [
+        "ESM-2 embedding"
+      ],
+      "feature_description": "ESM-2 embedding",
+      "pca_components": 10,
+      "scaler": "StandardScaler on ESM-2 training embeddings only",
+      "model": "Ridge(alpha=10)"
+    },
+    "C": {
+      "name": "ESM-2 + Environment",
+      "features": [
+        "ESM-2 embedding",
+        "temperature_c",
+        "ph",
+        "duration_hours"
+      ],
+      "feature_description": "ESM-2 embedding + temperature_c + ph + duration_hours",
+      "pca_components": 10,
+      "scaler": "StandardScaler on concatenated PCA-ESM and environment training features only",
+      "model": "Ridge(alpha=10)"
+    }
+  },
+  "validation_strategy": {
+    "method": "GroupKFold(n_splits=5)",
+    "grouping_variable": "protein_id",
+    "same_folds_across_configs": true,
+    "leakage_check": "No protein appears in both train and test within a fold",
+    "fold_assignments": [
+      {
+        "fold": 1,
+        "train_records": 146,
+        "test_records": 75,
+        "train_proteins": [
+          "1",
+          "11",
+          "13",
+          "148",
+          "149",
+          "15",
+          "17",
+          "177",
+          "185",
+          "195",
+          "223",
+          "224",
+          "225",
+          "226",
+          "240",
+          "25",
+          "37",
+          "4",
+          "41",
+          "42",
+          "481",
+          "483",
+          "495",
+          "496"
+        ],
+        "test_proteins": [
+          "44"
+        ]
+      },
+      {
+        "fold": 2,
+        "train_records": 184,
+        "test_records": 37,
+        "train_proteins": [
+          "1",
+          "11",
+          "13",
+          "148",
+          "149",
+          "15",
+          "177",
+          "185",
+          "195",
+          "224",
+          "225",
+          "240",
+          "25",
+          "41",
+          "44",
+          "481",
+          "483",
+          "495",
+          "496"
+        ],
+        "test_proteins": [
+          "17",
+          "223",
+          "226",
+          "37",
+          "4",
+          "42"
+        ]
+      },
+      {
+        "fold": 3,
+        "train_records": 184,
+        "test_records": 37,
+        "train_proteins": [
+          "13",
+          "15",
+          "17",
+          "177",
+          "195",
+          "223",
+          "224",
+          "225",
+          "226",
+          "240",
+          "25",
+          "37",
+          "4",
+          "41",
+          "42",
+          "44",
+          "481",
+          "483",
+          "495"
+        ],
+        "test_proteins": [
+          "1",
+          "11",
+          "148",
+          "149",
+          "185",
+          "496"
+        ]
+      },
+      {
+        "fold": 4,
+        "train_records": 185,
+        "test_records": 36,
+        "train_proteins": [
+          "1",
+          "11",
+          "13",
+          "148",
+          "149",
+          "15",
+          "17",
+          "185",
+          "223",
+          "224",
+          "226",
+          "240",
+          "37",
+          "4",
+          "41",
+          "42",
+          "44",
+          "481",
+          "496"
+        ],
+        "test_proteins": [
+          "177",
+          "195",
+          "225",
+          "25",
+          "483",
+          "495"
+        ]
+      },
+      {
+        "fold": 5,
+        "train_records": 185,
+        "test_records": 36,
+        "train_proteins": [
+          "1",
+          "11",
+          "148",
+          "149",
+          "17",
+          "177",
+          "185",
+          "195",
+          "223",
+          "225",
+          "226",
+          "25",
+          "37",
+          "4",
+          "42",
+          "44",
+          "483",
+          "495",
+          "496"
+        ],
+        "test_proteins": [
+          "13",
+          "15",
+          "224",
+          "240",
+          "41",
+          "481"
+        ]
+      }
+    ]
+  },
+  "preprocessing_strategy": {
+    "fit_within_fold_only": true,
+    "no_target_transform_before_split": true,
+    "inference_transform": "train-only scaler/PCA fitted on training fold before evaluating validation fold"
+  },
+  "model_configuration": {
+    "primary_model": "Ridge",
+    "alpha": 10,
+    "random_state": 42,
+    "same_model_for_all_configs": true
+  },
+  "per_fold_results": [
+    {
+      "configuration": "A",
+      "feature_description": "temperature_c + ph + duration_hours",
+      "fold": 1,
+      "train_records": 146,
+      "test_records": 75,
+      "train_proteins": 24,
+      "test_proteins": 1,
+      "pca_components": 0,
+      "mae_um": 1354.636817196256,
+      "rmse_um": 1892.6466802561306,
+      "r2": -0.6932541636935303,
+      "spearman": 0.7575139302982451,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "A",
+      "feature_description": "temperature_c + ph + duration_hours",
+      "fold": 2,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 0,
+      "mae_um": 4850.714806386029,
+      "rmse_um": 12027.420818740382,
+      "r2": -0.14104427810670805,
+      "spearman": 0.0776953085357601,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "A",
+      "feature_description": "temperature_c + ph + duration_hours",
+      "fold": 3,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 0,
+      "mae_um": 136.4387446617356,
+      "rmse_um": 232.42894764178166,
+      "r2": -0.7319500312109886,
+      "spearman": -0.26575990252174453,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "A",
+      "feature_description": "temperature_c + ph + duration_hours",
+      "fold": 4,
+      "train_records": 185,
+      "test_records": 36,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 0,
+      "mae_um": 624.6841062975593,
+      "rmse_um": 1584.8910090170043,
+      "r2": -0.051514951156357514,
+      "spearman": 0.34540085338402376,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "A",
+      "feature_description": "temperature_c + ph + duration_hours",
+      "fold": 5,
+      "train_records": 185,
+      "test_records": 36,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 0,
+      "mae_um": 149.0674541940836,
+      "rmse_um": 266.4562277810642,
+      "r2": 0.15902531323114266,
+      "spearman": 0.6510381614771362,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "B",
+      "feature_description": "ESM-2 embedding",
+      "fold": 1,
+      "train_records": 146,
+      "test_records": 75,
+      "train_proteins": 24,
+      "test_proteins": 1,
+      "pca_components": 10,
+      "mae_um": 1667.1315436197917,
+      "rmse_um": 1862.029811173225,
+      "r2": -0.6389145735786268,
+      "spearman": NaN,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "B",
+      "feature_description": "ESM-2 embedding",
+      "fold": 2,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 4652.725410961252,
+      "rmse_um": 12133.134058878604,
+      "r2": -0.1611905074233826,
+      "spearman": -0.4875393471864524,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "B",
+      "feature_description": "ESM-2 embedding",
+      "fold": 3,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 2357.4173121775034,
+      "rmse_um": 3679.6420601307914,
+      "r2": -433.0763004553776,
+      "spearman": -0.021246677361381635,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "B",
+      "feature_description": "ESM-2 embedding",
+      "fold": 4,
+      "train_records": 185,
+      "test_records": 36,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 757.3964265399452,
+      "rmse_um": 1717.597154826696,
+      "r2": -0.23497814709834342,
+      "spearman": -0.5200258540689173,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "B",
+      "feature_description": "ESM-2 embedding",
+      "fold": 5,
+      "train_records": 185,
+      "test_records": 36,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 156.79550573243034,
+      "rmse_um": 324.6988725671218,
+      "r2": -0.24879955270488607,
+      "spearman": 0.12180903134049458,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "C",
+      "feature_description": "ESM-2 embedding + temperature_c + ph + duration_hours",
+      "fold": 1,
+      "train_records": 146,
+      "test_records": 75,
+      "train_proteins": 24,
+      "test_proteins": 1,
+      "pca_components": 10,
+      "mae_um": 1088.0410718597095,
+      "rmse_um": 1233.9255148114994,
+      "r2": 0.2802843495595496,
+      "spearman": 0.7377313120254275,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "C",
+      "feature_description": "ESM-2 embedding + temperature_c + ph + duration_hours",
+      "fold": 2,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 4720.912530515349,
+      "rmse_um": 12112.903185740637,
+      "r2": -0.15732138136693652,
+      "spearman": -0.14635311907147217,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "C",
+      "feature_description": "ESM-2 embedding + temperature_c + ph + duration_hours",
+      "fold": 3,
+      "train_records": 184,
+      "test_records": 37,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 1277.5856547279977,
+      "rmse_um": 1909.8701053102411,
+      "r2": -115.93986495175204,
+      "spearman": -0.04402523379591329,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "C",
+      "feature_description": "ESM-2 embedding + temperature_c + ph + duration_hours",
+      "fold": 4,
+      "train_records": 185,
+      "test_records": 36,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 730.0576897877697,
+      "rmse_um": 1704.5028533262102,
+      "r2": -0.21621992461424622,
+      "spearman": 0.15833556464340368,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    },
+    {
+      "configuration": "C",
+      "feature_description": "ESM-2 embedding + temperature_c + ph + duration_hours",
+      "fold": 5,
+      "train_records": 185,
+      "test_records": 36,
+      "train_proteins": 19,
+      "test_proteins": 6,
+      "pca_components": 10,
+      "mae_um": 144.00741170820322,
+      "rmse_um": 301.2110303019846,
+      "r2": -0.07466453367410808,
+      "spearman": 0.49147631797162655,
+      "target_log1p": "log1p(target_value_standardized)",
+      "random_state": 42
+    }
+  ],
+  "aggregated_results": {
+    "A": {
+      "feature_description": "temperature_c + ph + duration_hours",
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "mae_um": 1354.636817196256,
+          "rmse_um": 1892.6466802561306,
+          "r2": -0.6932541636935303,
+          "spearman": 0.7575139302982451
+        },
+        {
+          "fold": 2,
+          "mae_um": 4850.714806386029,
+          "rmse_um": 12027.420818740382,
+          "r2": -0.14104427810670805,
+          "spearman": 0.0776953085357601
+        },
+        {
+          "fold": 3,
+          "mae_um": 136.4387446617356,
+          "rmse_um": 232.42894764178166,
+          "r2": -0.7319500312109886,
+          "spearman": -0.26575990252174453
+        },
+        {
+          "fold": 4,
+          "mae_um": 624.6841062975593,
+          "rmse_um": 1584.8910090170043,
+          "r2": -0.051514951156357514,
+          "spearman": 0.34540085338402376
+        },
+        {
+          "fold": 5,
+          "mae_um": 149.0674541940836,
+          "rmse_um": 266.4562277810642,
+          "r2": 0.15902531323114266,
+          "spearman": 0.6510381614771362
+        }
+      ],
+      "fold_count": 5,
+      "metrics": {
+        "mae_um": {
+          "mean": 1423.1083857471326,
+          "std": 1979.226775857352,
+          "median": 624.6841062975593,
+          "min": 136.4387446617356,
+          "max": 4850.714806386029
+        },
+        "rmse_um": {
+          "mean": 3200.7687366872724,
+          "std": 4991.324025899066,
+          "median": 1584.8910090170043,
+          "min": 232.42894764178166,
+          "max": 12027.420818740382
+        },
+        "r2": {
+          "mean": -0.29174762218728834,
+          "std": 0.3995638676219507,
+          "median": -0.14104427810670805,
+          "min": -0.7319500312109886,
+          "max": 0.15902531323114266
+        },
+        "spearman": {
+          "mean": 0.3131776702346841,
+          "std": 0.41929804820155897,
+          "median": 0.34540085338402376,
+          "min": -0.26575990252174453,
+          "max": 0.7575139302982451
+        }
+      }
+    },
+    "B": {
+      "feature_description": "ESM-2 embedding",
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "mae_um": 1667.1315436197917,
+          "rmse_um": 1862.029811173225,
+          "r2": -0.6389145735786268,
+          "spearman": NaN
+        },
+        {
+          "fold": 2,
+          "mae_um": 4652.725410961252,
+          "rmse_um": 12133.134058878604,
+          "r2": -0.1611905074233826,
+          "spearman": -0.4875393471864524
+        },
+        {
+          "fold": 3,
+          "mae_um": 2357.4173121775034,
+          "rmse_um": 3679.6420601307914,
+          "r2": -433.0763004553776,
+          "spearman": -0.021246677361381635
+        },
+        {
+          "fold": 4,
+          "mae_um": 757.3964265399452,
+          "rmse_um": 1717.597154826696,
+          "r2": -0.23497814709834342,
+          "spearman": -0.5200258540689173
+        },
+        {
+          "fold": 5,
+          "mae_um": 156.79550573243034,
+          "rmse_um": 324.6988725671218,
+          "r2": -0.24879955270488607,
+          "spearman": 0.12180903134049458
+        }
+      ],
+      "fold_count": 5,
+      "metrics": {
+        "mae_um": {
+          "mean": 1918.2932398061846,
+          "std": 1745.2497762078135,
+          "median": 1667.1315436197917,
+          "min": 156.79550573243034,
+          "max": 4652.725410961252
+        },
+        "rmse_um": {
+          "mean": 3943.420391515288,
+          "std": 4730.819438060482,
+          "median": 1862.029811173225,
+          "min": 324.6988725671218,
+          "max": 12133.134058878604
+        },
+        "r2": {
+          "mean": -86.87203664723657,
+          "std": 193.534156914278,
+          "median": -0.24879955270488607,
+          "min": -433.0763004553776,
+          "max": -0.1611905074233826
+        },
+        "spearman": {
+          "mean": -0.22675071181906423,
+          "std": 0.32544678219759066,
+          "median": -0.25439301227391703,
+          "min": -0.5200258540689173,
+          "max": 0.12180903134049458
+        }
+      }
+    },
+    "C": {
+      "feature_description": "ESM-2 embedding + temperature_c + ph + duration_hours",
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "mae_um": 1088.0410718597095,
+          "rmse_um": 1233.9255148114994,
+          "r2": 0.2802843495595496,
+          "spearman": 0.7377313120254275
+        },
+        {
+          "fold": 2,
+          "mae_um": 4720.912530515349,
+          "rmse_um": 12112.903185740637,
+          "r2": -0.15732138136693652,
+          "spearman": -0.14635311907147217
+        },
+        {
+          "fold": 3,
+          "mae_um": 1277.5856547279977,
+          "rmse_um": 1909.8701053102411,
+          "r2": -115.93986495175204,
+          "spearman": -0.04402523379591329
+        },
+        {
+          "fold": 4,
+          "mae_um": 730.0576897877697,
+          "rmse_um": 1704.5028533262102,
+          "r2": -0.21621992461424622,
+          "spearman": 0.15833556464340368
+        },
+        {
+          "fold": 5,
+          "mae_um": 144.00741170820322,
+          "rmse_um": 301.2110303019846,
+          "r2": -0.07466453367410808,
+          "spearman": 0.49147631797162655
+        }
+      ],
+      "fold_count": 5,
+      "metrics": {
+        "mae_um": {
+          "mean": 1592.120871719806,
+          "std": 1801.5654036291057,
+          "median": 1088.0410718597095,
+          "min": 144.00741170820322,
+          "max": 4720.912530515349
+        },
+        "rmse_um": {
+          "mean": 3452.482537898114,
+          "std": 4880.842121798809,
+          "median": 1704.5028533262102,
+          "min": 301.2110303019846,
+          "max": 12112.903185740637
+        },
+        "r2": {
+          "mean": -23.22155728836956,
+          "std": 51.83146801347466,
+          "median": -0.15732138136693652,
+          "min": -115.93986495175204,
+          "max": 0.2802843495595496
+        },
+        "spearman": {
+          "mean": 0.23943296835461444,
+          "std": 0.3699943701929382,
+          "median": 0.15833556464340368,
+          "min": -0.14635311907147217,
+          "max": 0.7377313120254275
+        }
+      }
+    }
+  },
+  "comparison": {
+    "A_vs_B": "Compare environment-only to protein-only performance under the same 5 protein-grouped folds.",
+    "B_vs_C": "Compare protein-only to ESM-2 + environment performance under the same 5 protein-grouped folds.",
+    "A_vs_C": "Compare environment-only to ESM-2 + environment performance under the same 5 protein-grouped folds.",
+    "interpretation": "This experiment isolates the contribution of each feature block while keeping the model and validation protocol fixed."
+  }
+}

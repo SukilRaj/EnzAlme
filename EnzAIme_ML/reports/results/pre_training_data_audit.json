@@ -1,0 +1,536 @@
+{
+  "dataset_size": {
+    "total_rows": 221,
+    "unique_proteins": 25,
+    "unique_protein_condition_combinations": 123,
+    "duplicate_rows": 5,
+    "exact_duplicate_groups": 4,
+    "exact_duplicate_rows_involved": 9,
+    "exact_duplicate_details": [
+      {
+        "protein_id": "1",
+        "protein_name": "IsPETase",
+        "target_value_standardized": 521.0,
+        "temperature_c": 30.0,
+        "ph": 9.0,
+        "duration_hours": 18.0,
+        "substrate": "PET",
+        "rows": 3
+      },
+      {
+        "protein_id": "42",
+        "protein_name": "CalB",
+        "target_value_standardized": 13.0,
+        "temperature_c": 37.0,
+        "ph": 7.0,
+        "duration_hours": 168.0,
+        "substrate": "PET",
+        "rows": 2
+      },
+      {
+        "protein_id": "44",
+        "protein_name": "HiC",
+        "target_value_standardized": 129.4,
+        "temperature_c": 50.0,
+        "ph": 7.0,
+        "duration_hours": 72.0,
+        "substrate": "PET",
+        "rows": 2
+      },
+      {
+        "protein_id": "44",
+        "protein_name": "HiC",
+        "target_value_standardized": 347.1,
+        "temperature_c": 50.0,
+        "ph": 7.0,
+        "duration_hours": 168.0,
+        "substrate": "PET",
+        "rows": 2
+      }
+    ]
+  },
+  "protein_distribution": {
+    "mean": 8.84,
+    "median": 5.0,
+    "minimum": 1,
+    "maximum": 75,
+    "standard_deviation": 14.794931564559533,
+    "records": [
+      {
+        "protein_id": "44",
+        "protein_name": "HiC",
+        "record_count": 75
+      },
+      {
+        "protein_id": "42",
+        "protein_name": "CalB",
+        "record_count": 20
+      },
+      {
+        "protein_id": "149",
+        "protein_name": "606",
+        "record_count": 13
+      },
+      {
+        "protein_id": "483",
+        "protein_name": "DIEGO",
+        "record_count": 12
+      },
+      {
+        "protein_id": "1",
+        "protein_name": "IsPETase",
+        "record_count": 12
+      },
+      {
+        "protein_id": "13",
+        "protein_name": "MG8",
+        "record_count": 12
+      },
+      {
+        "protein_id": "481",
+        "protein_name": "Sis",
+        "record_count": 12
+      },
+      {
+        "protein_id": "177",
+        "protein_name": "Sub1",
+        "record_count": 12
+      },
+      {
+        "protein_id": "195",
+        "protein_name": "BurPL",
+        "record_count": 8
+      },
+      {
+        "protein_id": "37",
+        "protein_name": "PHL-7",
+        "record_count": 8
+      },
+      {
+        "protein_id": "15",
+        "protein_name": "RgPETase",
+        "record_count": 8
+      },
+      {
+        "protein_id": "185",
+        "protein_name": "SM14est",
+        "record_count": 7
+      },
+      {
+        "protein_id": "17",
+        "protein_name": "BhrPETase",
+        "record_count": 5
+      },
+      {
+        "protein_id": "148",
+        "protein_name": "CtPl",
+        "record_count": 2
+      },
+      {
+        "protein_id": "4",
+        "protein_name": "PET12",
+        "record_count": 2
+      },
+      {
+        "protein_id": "41",
+        "protein_name": "PET46",
+        "record_count": 2
+      },
+      {
+        "protein_id": "495",
+        "protein_name": "PET93",
+        "record_count": 2
+      },
+      {
+        "protein_id": "496",
+        "protein_name": "PET94",
+        "record_count": 2
+      },
+      {
+        "protein_id": "240",
+        "protein_name": "Dkca1",
+        "record_count": 1
+      },
+      {
+        "protein_id": "223",
+        "protein_name": "HG-2",
+        "record_count": 1
+      },
+      {
+        "protein_id": "224",
+        "protein_name": "HG-3",
+        "record_count": 1
+      },
+      {
+        "protein_id": "225",
+        "protein_name": "HG-4",
+        "record_count": 1
+      },
+      {
+        "protein_id": "226",
+        "protein_name": "HG-5",
+        "record_count": 1
+      },
+      {
+        "protein_id": "11",
+        "protein_name": "Mors1",
+        "record_count": 1
+      },
+      {
+        "protein_id": "25",
+        "protein_name": "TfCut2",
+        "record_count": 1
+      }
+    ]
+  },
+  "target_distribution": {
+    "target_value_standardized": {
+      "minimum": 0.3,
+      "q1": 25.1,
+      "median": 194.8,
+      "mean": 1472.0770740185205,
+      "q3": 956.0,
+      "maximum": 47000.0,
+      "standard_deviation": 4976.831752022031,
+      "zero_values": 0,
+      "greater_than_1000_uM": 53,
+      "greater_than_5000_uM": 11,
+      "greater_than_10000_uM": 5
+    },
+    "log1p_target_value_standardized": {
+      "minimum": 0.262364264467491,
+      "q1": 3.261935314328648,
+      "median": 5.27709373009641,
+      "mean": 5.119042445348234,
+      "q3": 6.863803391452954,
+      "maximum": 10.757924157061597,
+      "standard_deviation": 2.317069792495197
+    }
+  },
+  "environment_distribution": {
+    "ph": {
+      "minimum": 7.0,
+      "maximum": 9.0,
+      "mean": 7.82579185520362,
+      "median": 8.0,
+      "unique_values": 5,
+      "counts": {
+        "7.0": 71,
+        "7.5": 24,
+        "8.0": 75,
+        "8.5": 13,
+        "9.0": 38
+      }
+    },
+    "temperature_c": {
+      "minimum": 25.0,
+      "maximum": 80.0,
+      "mean": 50.34389140271493,
+      "median": 50.0,
+      "unique_values": 12,
+      "counts": {
+        "25.0": 1,
+        "30.0": 22,
+        "37.0": 40,
+        "40.0": 26,
+        "45.0": 7,
+        "50.0": 36,
+        "55.0": 11,
+        "60.0": 27,
+        "65.0": 1,
+        "70.0": 46,
+        "72.0": 3,
+        "80.0": 1
+      }
+    },
+    "duration_hours": {
+      "minimum": 0.0,
+      "maximum": 672.0,
+      "mean": 119.75113122171946,
+      "median": 72.0,
+      "unique_values": 31,
+      "zero_duration_rows": 8,
+      "counts": {
+        "0.0": 8,
+        "1.0": 4,
+        "2.0": 2,
+        "3.0": 2,
+        "4.0": 2,
+        "5.0": 2,
+        "7.0": 1,
+        "8.0": 2,
+        "12.0": 1,
+        "16.0": 1,
+        "18.0": 12,
+        "20.0": 5,
+        "24.0": 28,
+        "36.0": 1,
+        "48.0": 22,
+        "50.0": 1,
+        "60.0": 1,
+        "72.0": 32,
+        "84.0": 1,
+        "96.0": 10,
+        "108.0": 1,
+        "120.0": 11,
+        "144.0": 4,
+        "168.0": 31,
+        "240.0": 10,
+        "336.0": 10,
+        "360.0": 4,
+        "480.0": 2,
+        "504.0": 4,
+        "528.0": 4,
+        "672.0": 2
+      }
+    }
+  },
+  "repeated_conditions": {
+    "condition_columns": [
+      "protein_id",
+      "ph",
+      "temperature_c",
+      "duration_hours",
+      "substrate"
+    ],
+    "condition_groups": 123,
+    "repeated_condition_groups": 48,
+    "rows_involved": 146,
+    "groups_with_identical_target_values": 1,
+    "groups_with_different_target_values": 47
+  },
+  "uniprot_coverage": {
+    "proteins_with_accession": 15,
+    "proteins_without_accession": 10,
+    "coverage_percent": 60.0,
+    "unresolved_proteins": [
+      {
+        "protein_id": "13",
+        "protein_name": "MG8"
+      },
+      {
+        "protein_id": "148",
+        "protein_name": "CtPl"
+      },
+      {
+        "protein_id": "224",
+        "protein_name": "HG-3"
+      },
+      {
+        "protein_id": "226",
+        "protein_name": "HG-5"
+      },
+      {
+        "protein_id": "240",
+        "protein_name": "Dkca1"
+      },
+      {
+        "protein_id": "37",
+        "protein_name": "PHL-7"
+      },
+      {
+        "protein_id": "481",
+        "protein_name": "Sis"
+      },
+      {
+        "protein_id": "483",
+        "protein_name": "DIEGO"
+      },
+      {
+        "protein_id": "495",
+        "protein_name": "PET93"
+      },
+      {
+        "protein_id": "496",
+        "protein_name": "PET94"
+      }
+    ]
+  },
+  "sequence_quality": {
+    "missing_sequences": 0,
+    "empty_sequences": 0,
+    "duplicate_sequences_across_protein_ids": {},
+    "length_minimum": 186,
+    "length_median": 290.0,
+    "length_maximum": 462
+  },
+  "leakage_analysis": {
+    "proteins_with_multiple_conditions": 18,
+    "duplicate_sequence_groups": 0,
+    "exact_duplicate_groups": 4,
+    "same_protein_condition_target_groups": 4,
+    "same_protein_condition_target_rows": 9,
+    "assessment": "Protein-grouped validation prevents a protein and its repeated observations from appearing in both training and validation. No duplicate sequences occur across protein IDs. Exact duplicates and repeated source observations remain within their protein group."
+  },
+  "groupkfold_feasibility": {
+    "unique_proteins_G": 25,
+    "five_fold_feasible": true,
+    "approximate_proteins_per_validation_fold": 5,
+    "group_size_imbalance": {
+      "minimum_records": 1,
+      "maximum_records": 75,
+      "median_records": 5.0,
+      "highly_imbalanced": true
+    },
+    "validation_note": "Use GroupKFold or another protein-grouped strategy, not random row-wise splitting."
+  },
+  "high_value_observations": [
+    {
+      "protein_name": "PHL-7",
+      "protein_id": "37",
+      "target": "47000.0",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "16.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "22"
+    },
+    {
+      "protein_name": "PHL-7",
+      "protein_id": "37",
+      "target": "44500.0",
+      "temperature": "72.0",
+      "ph": "8.0",
+      "duration": "24.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "11"
+    },
+    {
+      "protein_name": "PHL-7",
+      "protein_id": "37",
+      "target": "24000.0",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "8.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "21"
+    },
+    {
+      "protein_name": "PHL-7",
+      "protein_id": "37",
+      "target": "20200.0",
+      "temperature": "72.0",
+      "ph": "8.0",
+      "duration": "24.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "13"
+    },
+    {
+      "protein_name": "PHL-7",
+      "protein_id": "37",
+      "target": "13800.0",
+      "temperature": "72.0",
+      "ph": "8.0",
+      "duration": "24.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "12"
+    },
+    {
+      "protein_name": "PHL-7",
+      "protein_id": "37",
+      "target": "8800.0",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "4.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "20"
+    },
+    {
+      "protein_name": "DIEGO",
+      "protein_id": "483",
+      "target": "6865.0",
+      "temperature": "60.0",
+      "ph": "7.5",
+      "duration": "120.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "29"
+    },
+    {
+      "protein_name": "DIEGO",
+      "protein_id": "483",
+      "target": "6861.0",
+      "temperature": "60.0",
+      "ph": "7.5",
+      "duration": "96.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "20"
+    },
+    {
+      "protein_name": "HiC",
+      "protein_id": "44",
+      "target": "5981.9",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "168.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "10"
+    },
+    {
+      "protein_name": "HiC",
+      "protein_id": "44",
+      "target": "5442.7",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "168.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "14"
+    },
+    {
+      "protein_name": "HiC",
+      "protein_id": "44",
+      "target": "5319.4",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "168.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "15"
+    },
+    {
+      "protein_name": "HiC",
+      "protein_id": "44",
+      "target": "4718.1",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "168.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "12"
+    },
+    {
+      "protein_name": "HiC",
+      "protein_id": "44",
+      "target": "4613.0",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "144.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "37"
+    },
+    {
+      "protein_name": "HiC",
+      "protein_id": "44",
+      "target": "4257.1",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "168.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "38"
+    },
+    {
+      "protein_name": "HiC",
+      "protein_id": "44",
+      "target": "4163.0",
+      "temperature": "70.0",
+      "ph": "8.0",
+      "duration": "168.0",
+      "source_file": "pazy_polymer_assays.json.gz",
+      "assay_index": "13"
+    }
+  ],
+  "recommendations_for_model_evaluation": [
+    "Keep validation grouped by protein; do not use random row-wise splitting.",
+    "Report per-protein record counts and fold composition because group sizes range from 1 to 75 records.",
+    "Keep exact duplicates, repeated observations, zero-duration rows, and high-value observations until their source meaning is separately reviewed.",
+    "Report performance both overall and by held-out protein where fold sizes permit.",
+    "Treat the observed pH, temperature, and duration ranges as dataset support limits rather than industrial-environment coverage."
+  ]
+}

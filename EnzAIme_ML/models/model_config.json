@@ -1,0 +1,19 @@
+{
+  "model_name": "ESM-2 + Environment Ridge",
+  "esm_model": "facebook/esm2_t33_650M_UR50D",
+  "esm_embedding_dimension": 1280,
+  "pca_components": 10,
+  "ridge_alpha": 10.0,
+  "target": "TPA concentration",
+  "target_unit": "uM",
+  "substrate": "PET",
+  "target_transform": "log1p",
+  "environment_features": [
+    "temperature_c",
+    "ph",
+    "duration_hours"
+  ],
+  "duration_unit": "hours",
+  "training_records": 227,
+  "unique_proteins": 25
+}

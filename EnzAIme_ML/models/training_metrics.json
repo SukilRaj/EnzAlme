@@ -1,0 +1,12 @@
+{
+  "training_records": 227,
+  "unique_proteins": 25,
+  "cv_MAE_mean": 1441.9015591122761,
+  "cv_MAE_std": 1764.4546901852793,
+  "cv_RMSE_mean": 3304.4606561435285,
+  "cv_RMSE_std": 4860.345509768341,
+  "cv_R2_mean": -4.256099637643251,
+  "cv_R2_std": 9.282702428549793,
+  "cv_Spearman_mean": 0.39366591227080616,
+  "cv_Spearman_std": 0.4287873373550485
+}

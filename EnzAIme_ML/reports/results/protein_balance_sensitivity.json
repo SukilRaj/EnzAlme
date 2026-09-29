@@ -1,0 +1,418 @@
+{
+  "experiment": "Protein-balance sensitivity analysis",
+  "random_state": 42,
+  "selection_rule": "min(record_count, 5) per protein",
+  "balanced_dataset": {
+    "total_records": 82,
+    "proteins": 25,
+    "records_per_protein": {
+      "minimum": 1,
+      "maximum": 5,
+      "median": 5.0,
+      "mean": 3.28,
+      "distribution": [
+        {
+          "protein_id": "1",
+          "protein_name": "IsPETase",
+          "record_count": 5
+        },
+        {
+          "protein_id": "11",
+          "protein_name": "Mors1",
+          "record_count": 1
+        },
+        {
+          "protein_id": "13",
+          "protein_name": "MG8",
+          "record_count": 5
+        },
+        {
+          "protein_id": "148",
+          "protein_name": "CtPl",
+          "record_count": 2
+        },
+        {
+          "protein_id": "149",
+          "protein_name": "606",
+          "record_count": 5
+        },
+        {
+          "protein_id": "15",
+          "protein_name": "RgPETase",
+          "record_count": 5
+        },
+        {
+          "protein_id": "17",
+          "protein_name": "BhrPETase",
+          "record_count": 5
+        },
+        {
+          "protein_id": "177",
+          "protein_name": "Sub1",
+          "record_count": 5
+        },
+        {
+          "protein_id": "185",
+          "protein_name": "SM14est",
+          "record_count": 5
+        },
+        {
+          "protein_id": "195",
+          "protein_name": "BurPL",
+          "record_count": 5
+        },
+        {
+          "protein_id": "223",
+          "protein_name": "HG-2",
+          "record_count": 1
+        },
+        {
+          "protein_id": "224",
+          "protein_name": "HG-3",
+          "record_count": 1
+        },
+        {
+          "protein_id": "225",
+          "protein_name": "HG-4",
+          "record_count": 1
+        },
+        {
+          "protein_id": "226",
+          "protein_name": "HG-5",
+          "record_count": 1
+        },
+        {
+          "protein_id": "240",
+          "protein_name": "Dkca1",
+          "record_count": 1
+        },
+        {
+          "protein_id": "25",
+          "protein_name": "TfCut2",
+          "record_count": 1
+        },
+        {
+          "protein_id": "37",
+          "protein_name": "PHL-7",
+          "record_count": 5
+        },
+        {
+          "protein_id": "4",
+          "protein_name": "PET12",
+          "record_count": 2
+        },
+        {
+          "protein_id": "41",
+          "protein_name": "PET46",
+          "record_count": 2
+        },
+        {
+          "protein_id": "42",
+          "protein_name": "CalB",
+          "record_count": 5
+        },
+        {
+          "protein_id": "44",
+          "protein_name": "HiC",
+          "record_count": 5
+        },
+        {
+          "protein_id": "481",
+          "protein_name": "Sis",
+          "record_count": 5
+        },
+        {
+          "protein_id": "483",
+          "protein_name": "DIEGO",
+          "record_count": 5
+        },
+        {
+          "protein_id": "495",
+          "protein_name": "PET93",
+          "record_count": 2
+        },
+        {
+          "protein_id": "496",
+          "protein_name": "PET94",
+          "record_count": 2
+        }
+      ]
+    }
+  },
+  "balanced_folds": [
+    {
+      "fold": 1,
+      "train_records": 65,
+      "validation_records": 17,
+      "train_proteins": 20,
+      "validation_proteins": 5
+    },
+    {
+      "fold": 2,
+      "train_records": 65,
+      "validation_records": 17,
+      "train_proteins": 20,
+      "validation_proteins": 5
+    },
+    {
+      "fold": 3,
+      "train_records": 66,
+      "validation_records": 16,
+      "train_proteins": 21,
+      "validation_proteins": 4
+    },
+    {
+      "fold": 4,
+      "train_records": 66,
+      "validation_records": 16,
+      "train_proteins": 20,
+      "validation_proteins": 5
+    },
+    {
+      "fold": 5,
+      "train_records": 66,
+      "validation_records": 16,
+      "train_proteins": 19,
+      "validation_proteins": 6
+    }
+  ],
+  "comparisons": [
+    {
+      "model": "Ridge",
+      "configuration": "alpha=10",
+      "pca_components": 10,
+      "full_dataset": {
+        "model": "Ridge",
+        "configuration": "alpha=10",
+        "pca_components": 10,
+        "mean_mae": 1337.5120390556353,
+        "std_mae": 1919.6371480624666,
+        "mean_rmse": 3145.4002002397683,
+        "std_rmse": 5044.100625826025,
+        "mean_r2": -0.5406186436460485,
+        "std_r2": 1.1362286493041398,
+        "mean_spearman": 0.31966695247244303,
+        "std_spearman": 0.3728192455540529,
+        "folds": [
+          {
+            "fold": 1,
+            "mae": 903.4310201460694,
+            "rmse": 1372.8521315787477,
+            "r2": 0.10909666991684697,
+            "spearman": 0.6935517322312017
+          },
+          {
+            "fold": 2,
+            "mae": 4728.591890944439,
+            "rmse": 12104.036614930743,
+            "r2": -0.15562769717692237,
+            "spearman": -0.08386793998738583
+          },
+          {
+            "fold": 3,
+            "mae": 276.4862074923469,
+            "rmse": 333.44358091879366,
+            "r2": -2.5645084515128116,
+            "spearman": -0.06773165829766777
+          },
+          {
+            "fold": 4,
+            "mae": 643.5389255226014,
+            "rmse": 1628.81819845423,
+            "r2": -0.11061075477861526,
+            "spearman": 0.4379028350064517
+          },
+          {
+            "fold": 5,
+            "mae": 135.51215117271911,
+            "rmse": 287.8504753163272,
+            "r2": 0.018557015321259862,
+            "spearman": 0.6184797934096153
+          }
+        ]
+      },
+      "balanced_dataset": {
+        "model": "Ridge",
+        "configuration": "alpha=10",
+        "pca_components": 10,
+        "mean_mae": 1356.3698630291556,
+        "std_mae": 1930.60594419467,
+        "mean_rmse": 3249.3589109044933,
+        "std_rmse": 5102.945036998703,
+        "mean_r2": 0.008037390253152931,
+        "std_r2": 0.3066448516632239,
+        "mean_spearman": 0.467457289402687,
+        "std_spearman": 0.15544868828315173,
+        "folds": [
+          {
+            "fold": 1,
+            "records": 17,
+            "mae": 542.5076872694314,
+            "rmse": 1655.8232574396397,
+            "r2": -0.05839343983543621,
+            "spearman": 0.42331320208766715
+          },
+          {
+            "fold": 2,
+            "records": 17,
+            "mae": 65.59075975168774,
+            "rmse": 74.91549489251496,
+            "r2": 0.5460742602571247,
+            "spearman": 0.6174703785293442
+          },
+          {
+            "fold": 3,
+            "records": 16,
+            "mae": 770.7961561914851,
+            "rmse": 1233.005377139673,
+            "r2": -0.20800724630180345,
+            "spearman": 0.47366093144606974
+          },
+          {
+            "fold": 4,
+            "records": 16,
+            "mae": 625.5498510670807,
+            "rmse": 964.1807931086319,
+            "r2": -0.08168788403244154,
+            "spearman": 0.22991900126450213
+          },
+          {
+            "fold": 5,
+            "records": 16,
+            "mae": 4777.404860866093,
+            "rmse": 12318.869631942007,
+            "r2": -0.15779873882167883,
+            "spearman": 0.5929229336858518
+          }
+        ]
+      },
+      "balanced_minus_full": {
+        "mae": 18.857823973520226,
+        "rmse": 103.958710664725,
+        "r2": 0.5486560338992015,
+        "spearman": 0.14779033693024396
+      }
+    },
+    {
+      "model": "GradientBoostingRegressor",
+      "configuration": "n_estimators=200,learning_rate=0.03,max_depth=2,min_samples_leaf=3,random_state=42",
+      "pca_components": 25,
+      "full_dataset": {
+        "model": "GradientBoostingRegressor",
+        "configuration": "n_estimators=200,learning_rate=0.03,max_depth=2,min_samples_leaf=3,random_state=42",
+        "pca_components": 25,
+        "mean_mae": 1307.3861523563753,
+        "std_mae": 1967.427992634871,
+        "mean_rmse": 3082.4108814535302,
+        "std_rmse": 5103.595771720424,
+        "mean_r2": -0.05766290106069723,
+        "std_r2": 0.2317434734960045,
+        "mean_spearman": 0.23795380807608774,
+        "std_spearman": 0.41170854144037544,
+        "folds": [
+          {
+            "fold": 1,
+            "mae": 889.1288208489894,
+            "rmse": 1203.8410380084958,
+            "r2": 0.31495145925617696,
+            "spearman": 0.7109831375746131
+          },
+          {
+            "fold": 2,
+            "mae": 4777.351221423498,
+            "rmse": 12154.580395361952,
+            "r2": -0.16529913946307673,
+            "spearman": -0.3875817677635821
+          },
+          {
+            "fold": 3,
+            "mae": 105.57056339162706,
+            "rmse": 199.5250416353137,
+            "r2": -0.27629111657944083,
+            "spearman": 0.19542312585058186
+          },
+          {
+            "fold": 4,
+            "mae": 619.1716331081194,
+            "rmse": 1539.9639221676046,
+            "r2": 0.0072549240148148675,
+            "spearman": 0.48061983260420355
+          },
+          {
+            "fold": 5,
+            "mae": 145.7085230096429,
+            "rmse": 314.1440100942861,
+            "r2": -0.1689306325319604,
+            "spearman": 0.19032471211462224
+          }
+        ]
+      },
+      "balanced_dataset": {
+        "model": "GradientBoostingRegressor",
+        "configuration": "n_estimators=200,learning_rate=0.03,max_depth=2,min_samples_leaf=3,random_state=42",
+        "pca_components": 25,
+        "mean_mae": 1358.6916817884792,
+        "std_mae": 1988.1377307640096,
+        "mean_rmse": 3258.1483752729428,
+        "std_rmse": 5143.437550371331,
+        "mean_r2": -0.03390583574268504,
+        "std_r2": 0.2564279549075848,
+        "mean_spearman": 0.22372883852954026,
+        "std_spearman": 0.33558255899560097,
+        "folds": [
+          {
+            "fold": 1,
+            "records": 17,
+            "mae": 554.9774524002231,
+            "rmse": 1694.6490012127888,
+            "r2": -0.10860977255822646,
+            "spearman": 0.38834817886027817
+          },
+          {
+            "fold": 2,
+            "records": 17,
+            "mae": 74.68059563696015,
+            "rmse": 99.52890403709647,
+            "r2": 0.19880183106187233,
+            "spearman": 0.16523125369312816
+          },
+          {
+            "fold": 3,
+            "records": 16,
+            "mae": 781.7217987656045,
+            "rmse": 1301.9219354154445,
+            "r2": -0.34681978261262136,
+            "spearman": 0.2942167448024827
+          },
+          {
+            "fold": 4,
+            "records": 16,
+            "mae": 496.39454700327985,
+            "rmse": 797.690757063274,
+            "r2": 0.2596209298791553,
+            "spearman": 0.5822892500400791
+          },
+          {
+            "fold": 5,
+            "records": 16,
+            "mae": 4885.6840151363285,
+            "rmse": 12396.951278636112,
+            "r2": -0.17252238448360502,
+            "spearman": -0.31144123474826685
+          }
+        ]
+      },
+      "balanced_minus_full": {
+        "mae": 51.30552943210387,
+        "rmse": 175.73749381941252,
+        "r2": 0.023757065318012187,
+        "spearman": -0.014224969546547478
+      }
+    }
+  ],
+  "interpretation": {
+    "not_production_performance": true,
+    "fold_reuse": "One fixed five-fold GroupKFold split set was reused for both balanced models.",
+    "imbalance_effect_note": "The balanced subset changes both the number of observations and the relative weight of proteins. Differences from the full-data results are sensitivity evidence, not a replacement performance estimate."
+  }
+}

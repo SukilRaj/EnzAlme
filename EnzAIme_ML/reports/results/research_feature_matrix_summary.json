@@ -1,0 +1,182 @@
+{
+  "dataset_size": {
+    "records": 221,
+    "proteins": 25,
+    "source": "data\\processed\\tpa_pet_ml_confirmed.csv"
+  },
+  "embedding_dimension": 1280,
+  "embedding_verification_status": "verified",
+  "embedding_protein_coverage": {
+    "expected_unique_proteins": 25,
+    "embedding_files_available": 25,
+    "missing_proteins": []
+  },
+  "configurations": {
+    "A": {
+      "name": "Environment Only",
+      "features": [
+        "temperature_c",
+        "ph",
+        "duration_hours"
+      ],
+      "feature_count": 3,
+      "dimension": 3,
+      "records": 221,
+      "proteins": 25,
+      "missingness": {
+        "temperature_c": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        "ph": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        "duration_hours": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        }
+      },
+      "approved": true
+    },
+    "B": {
+      "name": "Protein Only",
+      "features": [
+        "ESM-2 embedding"
+      ],
+      "feature_count": 1,
+      "dimension": 1280,
+      "records": 221,
+      "proteins": 25,
+      "missingness": {
+        "ESM-2 embedding": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        }
+      },
+      "approved": true
+    },
+    "C": {
+      "name": "ESM-2 + Environment",
+      "features": [
+        "ESM-2 embedding",
+        "temperature_c",
+        "ph",
+        "duration_hours"
+      ],
+      "feature_count": 4,
+      "dimension": 1283,
+      "records": 221,
+      "proteins": 25,
+      "missingness": {
+        "temperature_c": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        "ph": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        "duration_hours": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        }
+      },
+      "approved": true
+    },
+    "D": {
+      "name": "ESM-2 + Environment + Context",
+      "features": [],
+      "feature_count": 0,
+      "dimension": 0,
+      "records": 221,
+      "proteins": 25,
+      "missingness": {
+        "material": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        },
+        "substrate": {
+          "missing_count": 0,
+          "missing_percentage": 0.0
+        }
+      },
+      "approved": false,
+      "rejected_reason": "material_description is highly heterogeneous and source-specific, with 33 unique values and rich preparation metadata; this can encode source/protocol context rather than stable prediction-time substrate features. substrate is constant (PET) across the confirmed dataset, so it contributes no discriminative signal. The context block is therefore rejected for the next research matrix.",
+      "material_unique_values": 33,
+      "substrate_unique_values": 1
+    }
+  },
+  "feature_dimensions": {
+    "A": 3,
+    "B": 1280,
+    "C": 1283,
+    "D": 0
+  },
+  "missingness": {
+    "temperature_c": {
+      "temperature_c": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    },
+    "ph": {
+      "ph": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    },
+    "duration_hours": {
+      "duration_hours": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    },
+    "material_description": {
+      "material_description": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    },
+    "substrate": {
+      "substrate": {
+        "missing_count": 0,
+        "missing_percentage": 0.0
+      }
+    }
+  },
+  "material_analysis": {
+    "unique_values": 33,
+    "missing_count": 0,
+    "top_values": {
+      "{\"reported_name\": \"post-consumer PET (PC-PET) from Crystal\\u00ae non-carbonated mineral water bottles\", \"material_category\": \"polymer\", \"degree_of_polymerization\": 222.4, \"form\": \"film\", \"crystallinity_percent\": 36.6, \"mw_value\": 42737, \"mw_unit\": \"g/mol\", \"thickness_value\": 0.1, \"thickness_unit\": \"mm\", \"dimensions\": \"PET squares of approximately 0.5 cm\", \"pretreatment\": \"Before hydrolysis, PET squares were washed with detergent, then distilled water, then a 1:1 (v/v) water/ethanol mixture for 10 min with orbital stirring at 200 rpm, and finally dried at 105 \\u00b0C using a moisture analyzer.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"washing\", \"description\": \"PET squares were washed with detergent before hydrolysis.\", \"reagent\": \"detergent\"}, {\"step_order\": 2, \"type\": \"washing\", \"description\": \"PET squares were subsequently washed with distilled water.\", \"reagent\": \"distilled water\"}, {\"step_order\": 3, \"type\": \"solvent\", \"description\": \"PET squares were washed with a 1:1 (v/v) water/ethanol mixture for 10 min using orbital stirring at 200 rpm.\", \"reagent\": \"water/ethanol (1:1 v/v)\", \"duration_value\": 10, \"duration_unit\": \"min\"}, {\"step_order\": 4, \"type\": \"thermal\", \"description\": \"The washed PET squares were dried at 105 \\u00b0C using a moisture analyzer.\", \"temperature_c\": 105}]}": 44,
+      "{\"reported_name\": \"PET bottle material, pretreatment B (PT-B)\", \"material_category\": \"polymer\", \"form\": \"film\", \"crystallinity_percent\": 36.5, \"mw_value\": 43340, \"mw_unit\": \"g/mol\", \"thickness_value\": 0.1, \"thickness_unit\": \"mm\", \"dimensions\": \"PET from non-carbonated Crystal mineral-water bottles, cut into squares of approximately 0.5 cm as reported. Table 2: intrinsic viscosity 0.7521 \\u00b1 0.0007 dL/g; viscometric molar mass 43,340 \\u00b1 63 g/mol; polymerization degree 225.5 \\u00b1 0.3; crystallinity 36.5 \\u00b1 0.1%.\", \"pretreatment\": \"Pretreatment B: PET was soaked in monoethylene glycol (MEG) for 22 h at 37 \\u00b0C, followed by Tween 80 washing and drying under the same conditions used for PT-A.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"glycolysis\", \"description\": \"PET was soaked in monoethylene glycol (MEG).\", \"reagent\": \"monoethylene glycol (MEG)\", \"temperature_c\": 37, \"duration_value\": 22, \"duration_unit\": \"h\"}, {\"step_order\": 2, \"type\": \"washing\", \"description\": \"PET was washed with Tween 80 under the same conditions used for PT-A (2% Tween 80, 30 min, 37 \\u00b0C).\", \"reagent\": \"Tween 80\", \"concentration_value\": 2, \"concentration_unit\": \"%\", \"temperature_c\": 37, \"duration_value\": 30, \"duration_unit\": \"min\"}, {\"step_order\": 3, \"type\": \"drying\", \"description\": \"PET was dried under the same conditions used for PT-A (55 \\u00b0C).\", \"temperature_c\": 55}]}": 38,
+      "{\"reported_name\": \"PET microparticles (mp-PET; KAI YUAN Plastication Technology Co.)\", \"material_category\": \"polymer\", \"form\": \"microparticle\", \"crystallinity_percent\": 42.67, \"dimensions\": \"High-crystallinity PET microparticles. DSC: Tm 247.2 \\u00b0C; crystallization temperature 173.7 \\u00b0C; Tg 79.1 \\u00b0C; \\u0394Hf 59.78 J/g; no cold-crystallization enthalpy (\\u0394Hcc) observed.\", \"pretreatment_steps\": []}": 13,
+      "{\"reported_name\": \"PET powder (~0.3 \\u00b5m diameter; gift from PTT Innovation Institute)\", \"material_category\": \"polymer\", \"form\": \"powder\", \"crystallinity_percent\": 31.23, \"particle_size_value\": 0.3, \"particle_size_unit\": \"\\u00b5m\", \"dimensions\": \"~0.3 \\u00b5m-diameter powder\", \"pretreatment_steps\": []}": 12,
+      "{\"reported_name\": \"polyethylene terephthalate (PET), ground granules (Sigma-Aldrich)\", \"material_category\": \"polymer\", \"form\": \"ground granules\", \"pretreatment_steps\": []}": 12,
+      "{\"reported_name\": \"nanoPET (diameter <0.22 \\u00b5m) prepared from Goodfellow PET microplastics (starting material: maximum particle size 300 \\u00b5m, 40% crystallinity, natural colour)\", \"material_category\": \"polymer\", \"form\": \"nanoparticle suspension\", \"dimensions\": \"nanoPET diameter <0.22 \\u00b5m\", \"pretreatment\": \"0.25 g Goodfellow PET microplastics (maximum particle size 300 \\u00b5m, 40% crystallinity, natural colour) were dissolved in 25 mL 1,1,1,3,3,3-hexafluoro-2-propanol (1:100 w:v), stirred, and added dropwise to 250 mL ddH2O. The solvent was removed by evaporation while stirring and heating to 58.2 \\u00b0C. Larger particles were removed by filtration with a 0.22 \\u00b5m cutoff. The resulting nanoPET concentration was determined gravimetrically after water evaporation. The crystallinity of the resulting nanoPET was not reported.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"solvent\", \"description\": \"0.25 g PET microplastics were dissolved in 25 mL 1,1,1,3,3,3-hexafluoro-2-propanol at a 1:100 w:v ratio.\", \"reagent\": \"1,1,1,3,3,3-hexafluoro-2-propanol\"}, {\"step_order\": 2, \"type\": \"other\", \"description\": \"The stirred PET solution was added dropwise to 250 mL ddH2O to form the nanoPET suspension.\", \"reagent\": \"ddH2O\"}, {\"step_order\": 3, \"type\": \"thermal\", \"description\": \"The solvent was removed by evaporation while stirring and heating the mixture to 58.2 \\u00b0C.\", \"temperature_c\": 58.2}, {\"step_order\": 4, \"type\": \"other\", \"description\": \"Larger particles were removed by filtration using a 0.22 \\u00b5m cutoff, yielding nanoPET with reported diameter <0.22 \\u00b5m.\"}]}": 12,
+      "{\"reported_name\": \"PET bottle material, pretreatment A (PT-A)\", \"material_category\": \"polymer\", \"form\": \"film\", \"crystallinity_percent\": 37.4, \"mw_value\": 43678, \"mw_unit\": \"g/mol\", \"thickness_value\": 0.1, \"thickness_unit\": \"mm\", \"dimensions\": \"PET from non-carbonated Crystal mineral-water bottles, cut into squares of approximately 0.5 cm as reported. Table 2: intrinsic viscosity 0.7559 \\u00b1 0.0066 dL/g; viscometric molar mass 43,678 \\u00b1 592 g/mol; polymerization degree 227.3 \\u00b1 3.1; crystallinity 37.4 \\u00b1 0.6%.\", \"pretreatment\": \"Pretreatment A: PET was washed with 2% Tween 80 solution for 30 min at 37 \\u00b0C, subsequently washed with distilled water, and dried at 55 \\u00b0C.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"washing\", \"description\": \"PET was washed with 2% Tween 80 solution.\", \"reagent\": \"Tween 80\", \"concentration_value\": 2, \"concentration_unit\": \"%\", \"temperature_c\": 37, \"duration_value\": 30, \"duration_unit\": \"min\"}, {\"step_order\": 2, \"type\": \"washing\", \"description\": \"PET was subsequently washed with distilled water.\", \"reagent\": \"distilled water\"}, {\"step_order\": 3, \"type\": \"drying\", \"description\": \"PET was dried at 55 \\u00b0C.\", \"temperature_c\": 55}]}": 10,
+      "{\"reported_name\": \"low-crystallinity PET thin film\", \"material_category\": \"polymer\", \"form\": \"film\", \"morphology\": \"semi_crystalline\", \"crystallinity_percent\": 1.9, \"mw_value\": 45000, \"mw_unit\": \"g/mol\", \"dispersity_mw_mn\": 1.9, \"thickness_value\": 0.2, \"thickness_unit\": \"mm\", \"dimensions\": \"6 mm diameter disk in purified-enzyme assays; parent film reported as 20 \\u00d7 15 \\u00d7 0.2 mm\", \"pretreatment_steps\": []}": 7,
+      "{\"reported_name\": \"semi-crystalline PET powder (Goodfellow Co., product ES306031/1), reported >40% crystallinity, particle size <300 \\u00b5m\", \"material_category\": \"polymer\", \"form\": \"powder\", \"morphology\": \"semi_crystalline\", \"dimensions\": \"particle size <300 \\u00b5m\", \"pretreatment_steps\": []}": 7,
+      "{\"reported_name\": \"nanoPET\", \"material_category\": \"polymer\", \"form\": \"nanomaterial\", \"pretreatment\": \"NanoPET was produced as described in Ercolano et al. (2024), starting from Goodfellow PET microplastics reported as natural colour, maximum particle size 300 \\u00b5m and crystallinity 40%. The nanoPET preparation procedure and final nanoPET particle size/crystallinity are not reproduced in this publication, so those precursor values were not assigned as final nanoPET properties.\", \"pretreatment_steps\": []}": 7,
+      "{\"reported_name\": \"amorphous PET powder prepared from Scientific Polymer Products PET pellets (Cat#138)\", \"material_category\": \"polymer\", \"form\": \"powder\", \"morphology\": \"amorphous\", \"crystallinity_percent\": 11.2, \"dimensions\": \"particle size <400 \\u00b5m\", \"pretreatment\": \"The commercial amorphous PET pellets were ground by the manufacturer and passed through a 400 \\u00b5m sieve to prepare PET powder with particle size <400 \\u00b5m.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"mechanical\", \"description\": \"Amorphous PET pellets were ground by the manufacturer and passed through a 400 \\u00b5m sieve to produce powder with particle size <400 \\u00b5m.\"}]}": 5,
+      "{\"reported_name\": \"amorphous G-PET film (Goodfellow ES301445)\", \"material_category\": \"polymer\", \"form\": \"film\", \"morphology\": \"amorphous\", \"thickness_value\": 250, \"thickness_unit\": \"\\u00b5m\", \"dimensions\": \"3 \\u00d7 0.5 cm film; about 45 mg; reported crystallinity 5\\u20137%\", \"pretreatment_steps\": []}": 5,
+      "{\"reported_name\": \"non pre-treated post-consumer PET (PcPET) food-tray disk\", \"material_category\": \"polymer\", \"form\": \"disk\", \"thickness_value\": 0.3, \"thickness_unit\": \"mm\", \"dimensions\": \"6.0 mm diameter \\u00d7 0.3 mm thickness\", \"pretreatment\": \"The authors describe the PcPET as non pre-treated. Disks were obtained by mechanically cutting PET food trays; no additional polymer pretreatment was reported.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"mechanical\", \"description\": \"PET food trays were cut into disks 6.0 mm in diameter and 0.3 mm thick.\"}]}": 5,
+      "{\"reported_name\": \"commercial PET film (UBIGEO, Republic of Korea)\", \"material_category\": \"polymer\", \"form\": \"film\", \"crystallinity_percent\": 41.79, \"dimensions\": \"circular PET film, 6 mm diameter\", \"pretreatment\": \"Commercial PET film was prepared in circular form with a 6 mm diameter before the enzyme assay.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"mechanical\", \"description\": \"PET film was prepared as a circular piece with 6 mm diameter.\"}]}": 4,
+      "{\"reported_name\": \"microcrystalline PET (mc-PET) prepared from a commercial PET bottle\", \"material_category\": \"polymer\", \"form\": \"powder\", \"crystallinity_percent\": 17.1, \"particle_size_value\": 251.03, \"particle_size_unit\": \"\\u00b5m\", \"pretreatment\": \"Commercial PET bottle material was cut into 5 \\u00d7 5 mm pieces, micronized using a Micro Ball Mill, and sieved. The resulting mc-PET had an average particle size of approximately 251.03 \\u00b5m.\", \"pretreatment_steps\": [{\"step_order\": 1, \"type\": \"mechanical\", \"description\": \"Commercial PET bottle material was cut into 5 \\u00d7 5 mm pieces.\"}, {\"step_order\": 2, \"type\": \"mechanical\", \"description\": \"The PET pieces were micronized using a Micro Ball Mill.\"}, {\"step_order\": 3, \"type\": \"mechanical\", \"description\": \"The micronized PET was sieved; particle-size analysis gave an average size of approximately 251.03 \\u00b5m.\"}]}": 4
+    }
+  },
+  "substrate_analysis": {
+    "unique_values": 1,
+    "missing_count": 0,
+    "distribution": {
+      "PET": 221
+    }
+  },
+  "material_substrate_decision": {
+    "material_approved": false,
+    "substrate_approved": false,
+    "configuration_d_approved": false,
+    "reason": "material_description is highly heterogeneous and source-specific, with 33 unique values and rich preparation metadata; this can encode source/protocol context rather than stable prediction-time substrate features. substrate is constant (PET) across the confirmed dataset, so it contributes no discriminative signal. The context block is therefore rejected for the next research matrix."
+  }
+}

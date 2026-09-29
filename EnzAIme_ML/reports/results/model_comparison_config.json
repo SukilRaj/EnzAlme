@@ -1,0 +1,95 @@
+{
+  "dataset": "data\\processed\\tpa_pet_ml_confirmed.csv",
+  "target": "target_value_standardized",
+  "target_transform": "log1p",
+  "features": {
+    "esm_embedding_dimension": 1280,
+    "environment": [
+      "temperature_c",
+      "ph",
+      "duration_hours"
+    ]
+  },
+  "group_column": "protein_id",
+  "cv_strategy": "GroupKFold",
+  "number_of_folds": 5,
+  "PCA_values": [
+    10,
+    25,
+    50,
+    100
+  ],
+  "models": {
+    "Ridge": [
+      1,
+      10,
+      100
+    ],
+    "ElasticNet": {
+      "alpha": [
+        0.01,
+        0.1,
+        1.0
+      ],
+      "l1_ratio": [
+        0.1,
+        0.5,
+        0.9
+      ]
+    },
+    "RandomForestRegressor": {
+      "n_estimators": 300,
+      "max_depth": 5,
+      "min_samples_leaf": 3
+    },
+    "GradientBoostingRegressor": {
+      "n_estimators": 200,
+      "learning_rate": 0.03,
+      "max_depth": 2,
+      "min_samples_leaf": 3
+    },
+    "EnvironmentalRidge": {
+      "alpha": 10
+    },
+    "MeanBaseline": "training-fold mean log target"
+  },
+  "random_seed": 42,
+  "folds": [
+    {
+      "fold": 1,
+      "train_records": 146,
+      "validation_records": 75,
+      "train_proteins": 24,
+      "validation_proteins": 1
+    },
+    {
+      "fold": 2,
+      "train_records": 184,
+      "validation_records": 37,
+      "train_proteins": 19,
+      "validation_proteins": 6
+    },
+    {
+      "fold": 3,
+      "train_records": 184,
+      "validation_records": 37,
+      "train_proteins": 19,
+      "validation_proteins": 6
+    },
+    {
+      "fold": 4,
+      "train_records": 185,
+      "validation_records": 36,
+      "train_proteins": 19,
+      "validation_proteins": 6
+    },
+    {
+      "fold": 5,
+      "train_records": 185,
+      "validation_records": 36,
+      "train_proteins": 19,
+      "validation_proteins": 6
+    }
+  ],
+  "preprocessing": "PCA and environmental StandardScaler are fit separately within each training fold."
+}

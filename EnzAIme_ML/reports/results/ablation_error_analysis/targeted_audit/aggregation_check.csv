@@ -1,0 +1,13 @@
+﻿configuration,metric,pooled_oof_value,mean_fold_value,defined_fold_count,fold_count,aggregation_note
+A,mae_um,1420.712664507627,1423.1083857471326,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+A,rmse_um,5085.699206739496,3200.768736687273,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+A,r2,-0.0489747036720591,-0.2917476221872883,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+A,spearman,0.4408822209672188,0.3131776702346841,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+B,mae_um,1888.33057054038,1918.2932398061846,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+B,rmse_um,5346.749048483047,3943.420391515289,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+B,r2,-0.1594266436356657,-86.8720366472366,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+B,spearman,0.2737302565537072,-0.22675071181906425,4,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+C,mae_um,1515.8998049653262,1592.1208717198062,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+C,rmse_um,5116.622727280307,3452.482537898115,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+C,r2,-0.0617700377413008,-23.22155728836957,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
+C,spearman,0.391955857510308,0.2394329683546145,5,5,pooled computes once over 221 OOF rows; mean_fold averages defined fold metrics
