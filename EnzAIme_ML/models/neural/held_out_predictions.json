@@ -1,0 +1,92 @@
+[
+  {
+    "protein_id": "15",
+    "observed_um": 40.79999923706055,
+    "predicted_um": 72.02396392822266
+  },
+  {
+    "protein_id": "15",
+    "observed_um": 106.20001983642578,
+    "predicted_um": 72.01477813720703
+  },
+  {
+    "protein_id": "15",
+    "observed_um": 66.00001525878906,
+    "predicted_um": 69.36318969726562
+  },
+  {
+    "protein_id": "15",
+    "observed_um": 76.89999389648438,
+    "predicted_um": 67.98039245605469
+  },
+  {
+    "protein_id": "15",
+    "observed_um": 10.5,
+    "predicted_um": 72.02396392822266
+  },
+  {
+    "protein_id": "15",
+    "observed_um": 21.000001907348633,
+    "predicted_um": 72.01477813720703
+  },
+  {
+    "protein_id": "15",
+    "observed_um": 5.5,
+    "predicted_um": 69.36318969726562
+  },
+  {
+    "protein_id": "15",
+    "observed_um": 7.0,
+    "predicted_um": 67.98039245605469
+  },
+  {
+    "protein_id": "185",
+    "observed_um": 1.399999976158142,
+    "predicted_um": 73.58341979980469
+  },
+  {
+    "protein_id": "185",
+    "observed_um": 3.3000001907348633,
+    "predicted_um": 73.43728637695312
+  },
+  {
+    "protein_id": "185",
+    "observed_um": 5.59999942779541,
+    "predicted_um": 73.29141235351562
+  },
+  {
+    "protein_id": "185",
+    "observed_um": 9.399998664855957,
+    "predicted_um": 73.14581298828125
+  },
+  {
+    "protein_id": "185",
+    "observed_um": 0.30000001192092896,
+    "predicted_um": 73.58341979980469
+  },
+  {
+    "protein_id": "185",
+    "observed_um": 0.800000011920929,
+    "predicted_um": 73.43728637695312
+  },
+  {
+    "protein_id": "185",
+    "observed_um": 1.5000001192092896,
+    "predicted_um": 73.29141235351562
+  },
+  {
+    "protein_id": "223",
+    "observed_um": 25.200000762939453,
+    "predicted_um": 15.481738090515137
+  },
+  {
+    "protein_id": "225",
+    "observed_um": 31.89999771118164,
+    "predicted_um": 21.707454681396484
+  },
+  {
+    "protein_id": "226",
+    "observed_um": 19.599998474121094,
+    "predicted_um": 35.263179779052734
+  }
+]

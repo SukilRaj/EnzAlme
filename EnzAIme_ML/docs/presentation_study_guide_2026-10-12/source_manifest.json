@@ -1,0 +1,26 @@
+{
+  "created": "2026-10-12",
+  "slides": 83,
+  "formulas": 29,
+  "sources": {
+    "C:\\Users\\Welcome\\Downloads\\PET_Degradation_Overview.pptx": "df56c703f055d5a75db8d72f6029901aba19510a3585fefff580ce0040acc0d8",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\backend\\app\\services\\esm_encoder.py": "238ea3c088b0f60b9ff6133823546e393af51a375e38c379b1033693ce5f85be",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\backend\\app\\services\\predictor.py": "140772dbadbbcd8e595955093114d5d37dfa9efff5f5a72a5b235ed16f859436",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\backend\\app\\services\\recommender.py": "439c0ec3a58fe87e83ef587fa8126efdb31aa579e1caad88fe8d2e2aff0ec115",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\backend\\app\\schemas\\recommendation.py": "a7027b9abf706b5b6913fd5e9d06d81eb96698dfb294be6c796e288e1129e04b",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\frontend\\src\\App.jsx": "8eaad9c288d42450a0d8144e13159c6cabd2424805f25cf8cb726e556727d8ee",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\scripts\\run_controlled_ablation.py": "7a8ec9d8c0a008574f4e9ad30fd548693ab84f903dcfc4f3d42018c35089aba5",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\scripts\\analyze_ablation_errors.py": "671500958d84b3f17ef93894e1a6ba7c5c7d1856b6b5f7045579269cab4777b2",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\scripts\\run_model_comparison_experiment.py": "0ac032467ab96af180fd18f8af83734109d6e29a6497882f25be189de2c25e31",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\scripts\\build_tpa_provenance_audit.py": "52364a81770d3005a2e515e5d6b0f81335e7722e9f745242d6b098972d0ff9f8",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\scripts\\build_confirmed_tpa_dataset.py": "5026fda761bfcd102b2341e78956737d4c08dacb603509be12ef1f542888af28",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\reports\\results\\served_model_audit\\README.md": "c51592bdf0e820b4c132780cbb3469e7dd8fa9a32957374786bc14d71fd71a2d",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\reports\\results\\served_model_audit\\prediction_comparison.json": "5971fb2f68bd31451327c7dbabf5d451dc3d82d46fec543e3c59b706576f8a69",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\reports\\results\\ablation_error_analysis\\pooled_metrics.csv": "0839b40a43636724ec7b7ddf234513c0078c3561fad3dfa2b9f97c11a4e52221",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\reports\\results\\ablation_error_analysis\\protein_metrics.csv": "6169baef501190fcc77a4982c7b45bcdd9822f7b332b6a5af8b9299f9c6bbd61",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\reports\\results\\ablation_error_analysis\\fold_metrics.csv": "c2800534472c0fbee6dc7ac2ae76c9d2cdfc3d433104a035c58b5759336398dd",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\reports\\results\\protein_balance_sensitivity.json": "b355aa5ea459c2b3a7350c1f38ca5a0824c4dd36ec1ca96a5d033168271983a9",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\reports\\results\\tpa_provenance_audit_summary.json": "cdeed705a8ffc2befb54fc936eccb8f54047a056e3c07f90bbd777e0142a93d0",
+    "D:\\Final_Year_Project\\EnzAIme_ML\\models\\training_metrics.json": "a433b1e28f7582b6fc6fc80cab2803b664450f5e2ebb65cd4f674c0eb9d0b56e"
+  }
+}

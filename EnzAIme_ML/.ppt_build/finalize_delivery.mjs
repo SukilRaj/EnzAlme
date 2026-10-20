@@ -1,0 +1,7 @@
+import fs from 'node:fs/promises';
+import {finalizePresentation} from 'file:///C:/Users/Welcome/.codex/plugins/cache/openai-primary-runtime/presentations/26.930.11008/skills/presentations/container_tools/artifact_tool_utils.mjs';
+const workspaceDir='D:/Final_Year_Project/EnzAIme_ML';
+const skill='C:/Users/Welcome/.codex/plugins/cache/openai-primary-runtime/presentations/26.930.11008/skills/presentations';
+const result=await finalizePresentation({workspaceDir,candidatePath:workspaceDir+'/.ppt_build/candidate_final.pptx',finalPath:workspaceDir+'/outputs/validated/ProjectReview_EnzAIme_Final_Review.pptx',pythonExecutable:'C:/Users/Welcome/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe',integrityValidatorPath:skill+'/container_tools/inspect_presentation_package_integrity.py',layoutValidatorPath:skill+'/container_tools/inspect_presentation_layout_geometry.py',layoutArgs:['--expected-slide-size-emu','9144000,6858000','--validate-heading-fit',...[4,5,6,8,10,11,12,13,14,15,21,22,30,34,36,37,41,42].flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:45,requiredNativeTableOwnerSlides:[4,5,6,8,10,11,12,13,14,15,21,22,30,34,36,37,41,42],requiredNativeChartOwnerSlides:[23],materializeLiteralChartWorkbooks:true,verifyArtifactToolImport:true,receiptPath:workspaceDir+'/.ppt_build/validation_delivery.json'});console.log(JSON.stringify(result));
+
+

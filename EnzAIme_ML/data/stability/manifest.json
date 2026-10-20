@@ -1,0 +1,11 @@
+{
+  "fetched_at": "2026-10-13T23:25:10.760574+00:00",
+  "source": "https://loschmidt.chemi.muni.cz/fireprotdb/",
+  "search_exhausted": true,
+  "records": 5622,
+  "sequences": 660,
+  "protein_groups": 660,
+  "exclusions": 207,
+  "scope": "Sequence entries with measured Tm; mutants excluded. Protein groups are database entities, not homology clusters.",
+  "unit_note": "FireProtDB thermal measurements interpreted as degrees C; source papers remain the assay authority."
+}

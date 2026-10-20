@@ -1,0 +1,149 @@
+{
+  "created_utc": "2026-10-12T15:23:29.392132+00:00",
+  "primary_objective": "mae_um",
+  "secondary_objective": "rmse_um",
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "grouping": "protein_id",
+  "seed": 42,
+  "features": [
+    "temperature_c",
+    "ph",
+    "duration_hours",
+    "frozen ESM-2"
+  ],
+  "candidates": [
+    {
+      "name": "training_median",
+      "features": "env",
+      "model": "median",
+      "target": "raw"
+    },
+    {
+      "name": "environment_log_ridge_10",
+      "features": "env",
+      "model": "ridge",
+      "target": "log",
+      "alpha": 10
+    },
+    {
+      "name": "environment_raw_ridge_10",
+      "features": "env",
+      "model": "ridge",
+      "target": "raw",
+      "alpha": 10
+    },
+    {
+      "name": "environment_raw_ridge_100",
+      "features": "env",
+      "model": "ridge",
+      "target": "raw",
+      "alpha": 100
+    },
+    {
+      "name": "environment_quadratic_log_ridge",
+      "features": "env_poly",
+      "model": "ridge",
+      "target": "log",
+      "alpha": 100
+    },
+    {
+      "name": "combined_log_ridge",
+      "features": "combined",
+      "model": "ridge",
+      "target": "log",
+      "alpha": 100
+    },
+    {
+      "name": "protein_condition_interactions_100",
+      "features": "interactions",
+      "model": "ridge",
+      "target": "log",
+      "alpha": 100
+    },
+    {
+      "name": "protein_condition_interactions_1000",
+      "features": "interactions",
+      "model": "ridge",
+      "target": "log",
+      "alpha": 1000
+    },
+    {
+      "name": "environment_raw_forest_depth3",
+      "features": "env",
+      "model": "forest",
+      "target": "raw",
+      "depth": 3
+    },
+    {
+      "name": "environment_raw_forest_depth5",
+      "features": "env",
+      "model": "forest",
+      "target": "raw",
+      "depth": 5
+    },
+    {
+      "name": "environment_log_forest",
+      "features": "env",
+      "model": "forest",
+      "target": "log",
+      "depth": 5
+    },
+    {
+      "name": "combined_raw_forest",
+      "features": "combined",
+      "model": "forest",
+      "target": "raw",
+      "depth": 5
+    },
+    {
+      "name": "combined_raw_extra_trees",
+      "features": "combined",
+      "model": "extra",
+      "target": "raw",
+      "depth": 5
+    }
+  ],
+  "python": "3.11.9",
+  "sklearn": "1.9.1",
+  "numpy": "2.4.6",
+  "script_sha256": "9c9e432b8bd9de28bad5291aaa5bde02f4bb7503e325d7cef2f44d0a5e9df9fc",
+  "input_sha256": {
+    "data\\processed\\tpa_pet_ml_confirmed.csv": "fb71b760b7d408244d95065156581c4a99858fc9af1cd635149659efd75bba2c",
+    "data\\embeddings\\index.json": "1273d1889d9d1599396f3f5f63b395baf4818be731b8bdb957268f4c6f505445",
+    "data\\embeddings\\protein_1.npy": "5de15aa83f3532c54d6d6f9760e88a958f90dc2248a95981a9333036cf6f57a1",
+    "data\\embeddings\\protein_11.npy": "50a5f9217904c5b2106833614759847b01bc2a09f045003d9785b4df5ffe52c3",
+    "data\\embeddings\\protein_13.npy": "3a3b62f92a7b3a7d7bf42dd85c6a2f83ec81c5bf82536ef60de2c862fd2d5233",
+    "data\\embeddings\\protein_148.npy": "98ed228fe06467d28885867022e2400840978d5bb3cfdb0c911edaf6431051a0",
+    "data\\embeddings\\protein_149.npy": "0f7dffc4b42d87860586479a9a77a4972a60cf8841f1815fedbc222e90ca88ae",
+    "data\\embeddings\\protein_15.npy": "3d12fe2379957cab142bafac3cdead6e257a8abfeb3d6210c2d0e5ea44d472fc",
+    "data\\embeddings\\protein_17.npy": "e9c4b18f47fb94e2293f38319c3f17363198af733a51f80d19180ba4cc81c008",
+    "data\\embeddings\\protein_177.npy": "a01a7ad5c899ddc2b8345bdf1be1330c1be5283a3f7daf633508ca64a3763a40",
+    "data\\embeddings\\protein_185.npy": "778b6a4a8f61f3bb732f4b7e9ac9db111c3895a71f1e2633a77b1ded17b8053a",
+    "data\\embeddings\\protein_195.npy": "d3909b24c6cb0326b29ee57a82f7c92e3fb21f963904d9feb1eb0d9038017430",
+    "data\\embeddings\\protein_223.npy": "252266e7742a301a3c5de301ed0c9375a0959d657be1fdf5f613d4dca537a46b",
+    "data\\embeddings\\protein_224.npy": "e59344c2f02ad32933f9afaec62c8f585375e102351f27dac7926d7a24a50ec1",
+    "data\\embeddings\\protein_225.npy": "e634f57e8d2fbbab99618b2c7cee59eb87efaf0a89559f7c3e3d5d8bfd636ff0",
+    "data\\embeddings\\protein_226.npy": "354ff0f42fdecdfc47a004f8dfe00d02fa0dc9f2df50f80eb2ce7b76080b5661",
+    "data\\embeddings\\protein_240.npy": "465db8716fef26c586fdaa02fb4b617ef03880a3b9c4dcf310e50f2c2593f9b0",
+    "data\\embeddings\\protein_25.npy": "ef374443313c174dc277f31e341581105d56755013cfc4b06a6f45102a2e620d",
+    "data\\embeddings\\protein_37.npy": "4727a5ef86f6412f6cc8c9128295139ca3fc424600035be91101297eea044775",
+    "data\\embeddings\\protein_4.npy": "b2bdcd4607a6bf2faeefe80ba9ea05fcf04b9f267b5766591f77ad9685f9bffb",
+    "data\\embeddings\\protein_41.npy": "7c4398d30a2c330104572b9700c86339dcbde6430cbf2091c6f7b7f867452f18",
+    "data\\embeddings\\protein_42.npy": "b1889dcd559c6ca32e6a052f38e949dbcf014fd619303a4d9fb7e6cd009a0642",
+    "data\\embeddings\\protein_44.npy": "43b39323dc711b17407c8a31075c17a79991687f62b36170a1a45bebd5a0c4f3",
+    "data\\embeddings\\protein_481.npy": "fabe9fcf1ec33177a66794e5940facea325c46a5bbb796825e2d30218749c7dd",
+    "data\\embeddings\\protein_483.npy": "29d4895a13251be19f8ca1270f19e582ffb2eac3d26c03a93345adc1c6e711ed",
+    "data\\embeddings\\protein_495.npy": "ae91f12881976279af865800d65c84e0e1dcbd40c86b14ef2268a0b109206603",
+    "data\\embeddings\\protein_496.npy": "99494b137e29a8c66dccc1d7b691577a171457e7bb31fed86ceb4851a92259fd",
+    "models\\.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "models\\model_config.json": "516dfdd74557f4ba1a3f9e3d4831716a27ea26c000aef17baf0a459587e554bd",
+    "models\\pca.pkl": "503e5c5c1d25967aa371f250483e52d4b539f70f8b38fb4611ad83bb38a9dffa",
+    "models\\ridge_model.pkl": "c87118bf57e0082aef16eaff431f46f8a6974ba82cf417ae11785a39445f8eb3",
+    "models\\scaler.pkl": "ae690f35ea628783141e2caad09c220bcc77089b54988831db25f31837a5230f",
+    "models\\training_metrics.json": "a433b1e28f7582b6fc6fc80cab2803b664450f5e2ebb65cd4f674c0eb9d0b56e",
+    "reports\\results\\controlled_ablation_results.json": "5d08afd04777e0b2eeee2b058e9b66bef1bcc75e988e42605df324b43b6a757a",
+    "reports\\results\\ablation_error_analysis\\pooled_metrics.csv": "0839b40a43636724ec7b7ddf234513c0078c3561fad3dfa2b9f97c11a4e52221"
+  },
+  "interpretation": "Exploratory nested CV on an already studied dataset; not an independent external validation. No production promotion."
+}

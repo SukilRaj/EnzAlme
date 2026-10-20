@@ -1,0 +1,189 @@
+{
+  "records": 221,
+  "proteins": 25,
+  "master_records": 462,
+  "assays": 7195,
+  "zero_duration": 8,
+  "all_embeddings_valid": true,
+  "metrics": {
+    "A": {
+      "mae_um": 1423.1083857471326,
+      "rmse_um": 3200.7687366872724,
+      "r2": -0.2917476221872884,
+      "spearman": 0.3131776702346841
+    },
+    "B": {
+      "mae_um": 1918.2932398061844,
+      "rmse_um": 3943.4203915152875,
+      "r2": -86.87203664723657,
+      "spearman": -0.22675071181906423
+    },
+    "C": {
+      "mae_um": 1592.1208717198058,
+      "rmse_um": 3452.482537898114,
+      "r2": -23.22155728836956,
+      "spearman": 0.23943296835461444
+    }
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "test_records": 75,
+      "test_proteins": 1
+    },
+    {
+      "fold": 2,
+      "test_records": 37,
+      "test_proteins": 6
+    },
+    {
+      "fold": 3,
+      "test_records": 37,
+      "test_proteins": 6
+    },
+    {
+      "fold": 4,
+      "test_records": 36,
+      "test_proteins": 6
+    },
+    {
+      "fold": 5,
+      "test_records": 36,
+      "test_proteins": 6
+    }
+  ],
+  "counts": [
+    {
+      "protein_id": 44,
+      "protein_name": "HiC",
+      "records": 75
+    },
+    {
+      "protein_id": 42,
+      "protein_name": "CalB",
+      "records": 20
+    },
+    {
+      "protein_id": 149,
+      "protein_name": "606",
+      "records": 13
+    },
+    {
+      "protein_id": 13,
+      "protein_name": "MG8",
+      "records": 12
+    },
+    {
+      "protein_id": 481,
+      "protein_name": "Sis",
+      "records": 12
+    },
+    {
+      "protein_id": 177,
+      "protein_name": "Sub1",
+      "records": 12
+    },
+    {
+      "protein_id": 1,
+      "protein_name": "IsPETase",
+      "records": 12
+    },
+    {
+      "protein_id": 483,
+      "protein_name": "DIEGO",
+      "records": 12
+    },
+    {
+      "protein_id": 15,
+      "protein_name": "RgPETase",
+      "records": 8
+    },
+    {
+      "protein_id": 195,
+      "protein_name": "BurPL",
+      "records": 8
+    },
+    {
+      "protein_id": 37,
+      "protein_name": "PHL-7",
+      "records": 8
+    },
+    {
+      "protein_id": 185,
+      "protein_name": "SM14est",
+      "records": 7
+    },
+    {
+      "protein_id": 17,
+      "protein_name": "BhrPETase",
+      "records": 5
+    },
+    {
+      "protein_id": 496,
+      "protein_name": "PET94",
+      "records": 2
+    },
+    {
+      "protein_id": 148,
+      "protein_name": "CtPl",
+      "records": 2
+    },
+    {
+      "protein_id": 4,
+      "protein_name": "PET12",
+      "records": 2
+    },
+    {
+      "protein_id": 41,
+      "protein_name": "PET46",
+      "records": 2
+    },
+    {
+      "protein_id": 495,
+      "protein_name": "PET93",
+      "records": 2
+    },
+    {
+      "protein_id": 11,
+      "protein_name": "Mors1",
+      "records": 1
+    },
+    {
+      "protein_id": 25,
+      "protein_name": "TfCut2",
+      "records": 1
+    },
+    {
+      "protein_id": 223,
+      "protein_name": "HG-2",
+      "records": 1
+    },
+    {
+      "protein_id": 240,
+      "protein_name": "Dkca1",
+      "records": 1
+    },
+    {
+      "protein_id": 226,
+      "protein_name": "HG-5",
+      "records": 1
+    },
+    {
+      "protein_id": 225,
+      "protein_name": "HG-4",
+      "records": 1
+    },
+    {
+      "protein_id": 224,
+      "protein_name": "HG-3",
+      "records": 1
+    }
+  ],
+  "feature_counts": {
+    "LEAKAGE_RISK": 24,
+    "SAFE_WITH_CAUTION": 14,
+    "FUTURE_FEATURE": 5,
+    "NOT_RECOMMENDED": 4,
+    "SAFE": 1
+  }
+}

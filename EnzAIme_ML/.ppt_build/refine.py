@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path('.ppt_build/build.mjs');s=p.read_text(encoding='utf-8-sig')
+s=s.replace(" t.borders.assign({fill:'#C5B4A7'", " const mins=vals.map((row,r)=>Math.max(...row.map((v,c)=>String(v).split('\\n').reduce((n,line)=>n+Math.max(1,Math.ceil(line.length*size*0.51/(widths[c]-20))),0)))*size*1.18+16);\n const spare=Math.max(0,h-mins.reduce((a,b)=>a+b,0));\n for(let r=0;r<vals.length;r++)t.rows[r].height=mins[r]+spare/vals.length;\n t.borders.assign({fill:'#C5B4A7'")
+s=s.replace("text(s,'min  ‖y′ − Xw − b1‖₂² + α‖w‖₂²',108,290,780,65,34,false,ink,'center');\ntext(s,'w, b',178,349,110,25,19);", "text(s,'Minimize over w and b:',108,270,780,40,24,true,brown);\ntext(s,'‖y′ − Xw − b1‖₂² + α‖w‖₂²',108,324,780,65,34,false,ink,'center');")
+s=s.replace("down(s,708,245,22,122)","down(s,708,245,22,30)")
+s=s.replace("arrow(s,425,314,111,22);box(s,'Concatenate\\n13 model inputs',555,387,325,70);", "arrow(s,425,314,111,22);box(s,'Concatenate\\n13 model inputs',555,286,325,76);")
+s=s.replace("down(s,708,461);box(s,'Train-only final scaling + Ridge',386,501,494,58);", "down(s,708,369);box(s,'Train-only final scaling + Ridge',386,421,494,58);down(s,627,486);box(s,'TPA prediction after expm1',386,521,494,48,23);")
+s=s.replace("text(s,'Department of AI&DS',355,665,255,26,14", "text(s,'Department of AI&DS',355,665,255,26,14")
+p.write_text(s,encoding='utf-8')
+p=Path('.ppt_build/finalize.mjs');s=p.read_text(encoding='utf-8-sig');s=s.replace("'--validate-heading-fit']", "'--validate-heading-fit',...[4,5,6,8,10,11,12,13,14,15,21,22,30,34,36,37,41,42].flatMap(n=>['--require-native-table-slide',String(n)])]");p.write_text(s,encoding='utf-8')

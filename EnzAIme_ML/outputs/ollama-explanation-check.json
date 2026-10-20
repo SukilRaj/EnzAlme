@@ -1,0 +1,6 @@
+{
+  "text": "The leading predicted candidate is \"SM14est\" with a predicted TPA UM of 73.77 and a predicted TMc of null. This model has a negative R2 of -2.2964554238467456, indicating weak held-out performance. The model also has null Tm, indicating that the stability of the model was not predicted.",
+  "status": "generated",
+  "model": "llama3.2:1b",
+  "note": "LLM-generated interpretation. Numerical model evidence is authoritative; this text is not causal or experimental validation."
+}

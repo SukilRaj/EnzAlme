@@ -1,0 +1,1044 @@
+PAGE 1
+418 IEEE TRANSACTIONS ON EVOLUTIONARY COMPUTATION, VOL. 29, NO. 2, APRIL 2025
+Protein Design by Directed Evolution Guided
+by Large Language Models
+Thanh V . T. Tran and Truong Son Hy
+Abstract—Directed evolution, a strategy for protein engineer-
+ing, optimizes protein properties (i.e., ﬁtness) by a rigorous and
+resource-intensive process of screening or selecting among a
+vast range of mutations. By conducting an in-silico screening of
+sequence properties, machine learning-guided directed evolution
+(MLDE) can expedite the optimization process and alleviate
+the experimental workload. In this work, we propose a general
+MLDE framework in which we apply recent advancements of
+deep learning in protein representation learning and protein
+property prediction to accelerate the searching and optimization
+processes. In particular, we introduce an optimization pipeline
+that utilizes the large language models (LLMs) to pinpoint the
+mutation hotspots in the sequence and then suggest replacements
+to improve the overall ﬁtness. Our experiments have shown the
+superior efﬁciency and efﬁcacy of our proposed framework in
+the conditional protein generation, in comparison with the other
+state-of-the-art baseline algorithms. We expect this work will shed
+a new light on not only protein engineering but also on solving
+the combinatorial problems using the data-driven methods.
+Index Terms —Directed evolution, large language models
+(LLMs), machine learning (ML), protein engineering.
+I. I NTRODUCTION
+P
+ROTEIN are essential biomolecules that play a diverse
+range of critical roles in every living organism. They
+are involved in virtually every important activity that happens
+inside living things: digesting food, contracting muscles, moving
+oxygen throughout the body, attacking foreign viruses, etc. The
+effective resolutions to biological challenges can also serve
+as effective resolutions to the human challenges, given the
+extensive utilization of proteins in various domains, such as
+food, chemicals, consumer products, and medicinal applications.
+However, comprehending the complex structure and function
+of proteins remains an immensely challenging task, owing to
+the diversity of protein sequences and the 3-D structure they
+have. Therefore, computational biology and machine learning
+(ML) methods have emerged as indispensable tools among the
+Manuscript received 29 November 2023; revised 6 April 2024 and 17 June
+2024; accepted 26 July 2024. Date of publication 7 August 2024; date of
+current version 2 April 2025. This article was approved by Associate Editor J.
+Handl. (The authors contributed equally to this work.) (Corresponding author:
+Truong Son Hy.)
+Thanh V . T. Tran is with the FPT Soft ware AI Center, FPT Corporation,
+Hanoi 100000, Vietnam (e-mail: ThanhTVT1@fpt.com).
+Truong Son Hy is with the Department of Computer Science, University
+of Alabama at Birmingham, Birmingham, AL 35294 USA, and also with the
+FPT Soft ware AI Center, FPT Corporation, Hanoi 100000, Vietnam (e-mail:
+thy@uab.edu).
+This article has supplementary downloadable material available at
+https://doi.org/10.1109/TEVC.2024.3439690.
+Digital Object Identiﬁer 10.1109/TEVC.2024.3439690
+researchers and engineers. These methods offer the capability to
+process vast amounts of the biological data, extract meaningful
+patterns, and make predictions that would be impractical through
+the traditional experimental approaches alone [1]. Moreover,
+large language models (LLMs) have been pretrained on the
+extensive protein sequence databases [2], [3], enabling them
+to capture intricate sequence-structure-function relationships.
+These models empower researchers to extract valuable insights
+from the protein sequences, understand their evolution, and
+predict their behavior in various biological contexts.
+In the ﬁeld of protein engineering, ﬁtness can be deﬁned
+as performance on a desired property or function. Examples
+of ﬁtness include catalytic activity for the enzymes [4] and
+ﬂuorescence for the biomarkers [5]. Protein optimization
+seeks to improve protein ﬁtness by altering the underlying
+sequences of amino acids. Nevertheless, the space of possible
+proteins is too large to search exhaustively naturally, in the
+laboratory or computationally. The problem of the identiﬁ-
+cation of ideal sequences is classiﬁed as NP-hard, as there
+currently exists no polynomial-time algorithm for efﬁciently
+exploring this particular domain [6]. Functional proteins are
+scarce in this vast space of sequences, and as the desired
+level of function increases, the number of sequences having
+that function decreases exponentially [7]. Consequently, the
+occurrence of functional sequences is rare and overshadowed
+by nonfunctional and mediocre sequences. In the recent years,
+generative models have emerged as powerful tools for gener-
+ating creative and diverse content, ranging from text [8], [9],
+images [10], [11] to speech [12], and more. Leveraging the
+success of generative models in text and image generation,
+numerous studies have been made to harness these techniques
+to design the novel proteins with tailored properties and
+functions [13], [14], [15]. This developing paradigm promises
+to accelerate the wet-lab experiments with the data-driven
+models to ﬁnd desirable proteins more efﬁciently.
+Directed evolution, a laboratory methodology wherein bio-
+logical entities possessing desired characteristics are generated
+through the iterative cycles of genetic diversiﬁcation and
+library screening or selection, has emerged as a highly valuable
+and extensively utilized instrument in both the fundamental
+and practical realms of biological research [16], [17], [18],
+[19]. This method was conceptualized using the natural pro-
+cess of evolution and the idea of natural selection as its
+primary sources of inspiration. In nature, organisms with
+advantageous traits are more likely to survive and reproduce,
+passing on their beneﬁcial characteristics to the next genera-
+tion. Similarly, directed evolution starts with a protein having
+1089-778X c⃝ 2024 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 2
+TRAN AND HY: PROTEIN DESIGN BY DIRECTED EVOLUTION GUIDED BY LLMs 419
+Fig. 1. (a) Workﬂow of traditional directed evolution: many variants are screened and the best variant is selected as the parent for the next round of
+mutagenesis and screening. (b) We train the in-silico oracle as the “ground truth” evaluator to predict the ﬁtness score of each generated sequence. (c) Our
+proposed MLDE framework. The workﬂow begins by identifying a protein with activity for a target function. Once the starting point is identiﬁed, diver sity
+is introduced through the mutagenesis, and the ﬁtness scores of the resulting variants are predicted by a trained in-silico oracle. Based on these predictions,
+we can select multiple variants as potential parent candidates for the subsequent iteration, balancing exploitation and exploration.
+some level of the desired function. Subsequently, a series
+of mutation and screening rounds are undertaken, wherein
+mutations are introduced (e.g., through the site-saturation
+mutagenesis) to generate a collection of variant proteins.
+Through this iterative process, the most optimal variant is
+identiﬁed, and the cycle continues until a satisfactory level of
+improvement is achieved. Fig. 1(a) demonstrates the workﬂow
+of this algorithm.
+ML-guided directed evolution (MLDE) is a strategy for the
+protein engineering that can be applied to a range of biological
+systems, reducing the burden of laboratory experiments by
+performing in-silico population selection through model-based
+ﬁtness prediction. These techniques can leverage data from
+both improved and unimproved sequences in order to acceler-
+ate the process of evolution and broaden the range of properties
+that can be optimized. This is achieved by intelligently select-
+ing new variants for screening, which enables the achievement
+of higher levels of ﬁtness than what can be accomplished
+solely through directed evolution [20], [21], [22]. Employing
+this novel biology algorithm, we propose a deep learning-
+based framework for MLDE that optimizes directly on the
+discrete space of all the possible sequences. Our pipeline can
+be described by Fig. 1(c).
+Our contributions can be summarized as follows.
+1) We propose a novel LLM-guided mutation prediction
+paradigm framework for in-silico directed evolution.
+2) We introduce a masking strategy that aids the identiﬁ-
+cation of promising mutations.
+II. R
+ELATED WORK
+A. Directed Evolution
+Directed Evolution is a classical paradigm for the pro-
+tein sequence design that has achieved several successes.
+Under this framework, the ML algorithms play a crucial role
+in improving the sample efﬁciency of evolutionary search.
+E m a m ie ta l .[23] utilized a fast Markov chain Monte Carlo
+sampler that uses gradients to propose promising mutations.
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 3
+420 IEEE TRANSACTIONS ON EVOLUTIONARY COMPUTATION, VOL. 29, NO. 2, APRIL 2025
+Ren et al. [24] formulated the local search as a proximal
+optimization problem to derive an objective for searching the
+steepest improvement. Qiu et al. [25] combined hierarchical
+unsupervised clustering sampling and supervised learning
+to guide protein engineering. This work is later improved
+by [26]. Wittmann et al. [27] provided an approach to
+target informative sequences without the initial global search.
+Nevertheless, these methods have not yet incorporated LLMs,
+which have proven efﬁcient in multiple related tasks. Our
+proposal describes the combination of a protein language
+model yielding a highly favorable outcome.
+B. Protein Property Prediction
+One of the primary objectives of bioinformatics is the
+prediction of protein function, which can be applied to
+a vast array of biological issues, including the identiﬁ-
+cation of drug targets and the comprehension of disease
+mechanisms. Numerous computational approaches have been
+developed to autonomously forecast protein function, with spe-
+ciﬁc investigations concentrating on site- or domain-speciﬁc
+predictions [28], [29]. Traditional ML classiﬁers, such as
+support vector machines, random forests, and logistic regres-
+sion have been extensively used for the protein function
+prediction [30], [31]. In the recent years, deep learning has
+led to unprecedented improvements in the performance of
+methods tackling a broad spectrum of problems, including
+predicting protein function [32], [33], [34], [35], [36], [37].
+These developments facilitate our work as we employ atten-
+tion, a well-known mechanism in deep learning to acquire
+a comprehensive understanding of the protein sequence and
+anticipate its properties.
+C. Protein Generation
+Signiﬁcant advancements have been made in the develop-
+ment of methodologies for the generation of functional protein
+sequences with desired features in recent times. Conventional
+approaches that utilize multiple sequence alignments of
+homologous proteins, such as ancestral sequence reconstruc-
+tion [38], have exhibited efﬁcacy in producing functional
+proteins, but with certain limitations in their applicability. To
+access a broader sequence space, different ML techniques have
+been employed. Some techniques, including reinforcement
+learning [39], [40], Bayesian optimization [41], [42], [43],
+importance sampling [44], and adaptive evolution method [45]
+have been used and achieved great results in their deﬁned
+tasks. Modern algorithms, such as language models provide
+a powerful architecture to learn from the large sets of amino
+acid sequences across families for the purpose of generating
+diverse realistic proteins [46], [47], [48]. Other generative
+techniques like variational auto-encoder [49], [50], generative
+adversarial networks [14], [51], and diffusion [52] also show
+promising outcomes in numerous protein engineering tasks.
+Yet, by applying MLDE to generating sequences, we ﬁnd that
+this algorithm demonstrates strong performance, especially in
+comparison to the other state-of-the-art (SOTA) methods.
+III. B
+ACKGROUND
+A. Notation and Problem Formulation
+Through the process of directed evolution, protein ﬁtness is
+enhanced by emulating natural selection through the mutage-
+nesis. From a mathematical standpoint, directed evolution can
+be conceptualized as an optimization problem for a black-box
+algorithm, seeking the optimal sequence x
+⋆
+x⋆ = argmax
+x∈X
+f(x) (1)
+where X is the sequence mutation space and f(x) is an
+unknown sequence-to-ﬁtness function for sequence x in X .
+During the optimization, the algorithm choose the best mutated
+sequence from an intermediate generated population x (the
+size of the population |x| is n) so that the returned ﬁtness
+y
+⋆ = f(x⋆) is the best ﬁtness among the values y.
+B. Transformer
+Transformer [53] is a formidable force in the modern deep
+learning stack. Originally, Transformer follows an encoder–
+decoder scheme and employs a multiheaded self-attention
+mechanism. The fundamental concept underlying this mech-
+anism is for each element within the sequence to acquire
+information from the other tokens present in the same
+sequence. Concretely, given a tensor of sequence features
+X ∈ R
+n×d, Transformer computes three matrices, including
+query (Q),k e y (K), and value (V) via the three linear
+transformations Q = XW⊤
+q , K = XW⊤
+k , and V = XW⊤
+v .A
+self-attention tensor (H) can be computed as follows:
+H = softmax
+( QK⊤
+√ d0
+V
+)
+(2)
+where Wq, Wk, and Wv are the learnable parameters in Rd0×d,
+resulting in H ∈ Rn×d0 . Moreover, each H in (2) denotes
+an attention head. The output of multiple heads (H1,..., Hh)
+are then concatenated together to form a ﬁnal tensor H =
+Concat(H1,..., Hh), where h is the number of attention heads.
+Finally, the new representation X′ can be computed by feeding
+H into a feed-forward neural network (FFN).
+C. ESM-2: Protein Language Model
+Inspired by [54],E S M - 2 [55] adopts the encoder-only
+Transformer architecture style with small modiﬁcations.
+The original Transformer uses absolute sinusoidal positional
+encoding to inform the model about token positions. These
+positional encodings are added to the input embeddings at
+the bottom of the encoder stack. Nevertheless, this approach
+demonstrates limited generalizability beyond the speciﬁc con-
+text window on which it is trained. The implementation of
+rotary positional embedding (RoPE) [56] in ESM-2 enables
+the model to extrapolate beyond its trained context win-
+dow with no additional computational effort. The ESM-2
+model is capable of generating latent representations for the
+individual amino acids inside a protein sequence. This is
+achieved through pretraining on a vast dataset consisting of
+millions of protein sequences, including billions of amino
+acids. Speciﬁcally, given an input protein, 15% of amino
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 4
+TRAN AND HY: PROTEIN DESIGN BY DIRECTED EVOLUTION GUIDED BY LLMs 421
+acids are masked and ESM-2 is tasked with predicting
+these missing positions. Although this training objective only
+directly involves predicting missing amino acids, achieving a
+high degree of success requires the model to learn complex
+internal representations of its input. Consequently, the model
+is able to produce a concise representation of the full protein
+sequence, without relying on the 3-D information. This rich
+and meaningful representations of ESM-2 has aided numerous
+studies, including protein functional prediction [57], [58],
+protein structure prediction [55], protein-protein interaction
+prediction [59], protein multimodal representation [60], and
+protein design [61], [62].
+IV . M
+ETHOD
+This section describes the overall pipeline of our framework.
+Initially, after dividing the sequence population into multiple
+parts, we apply different masking strategies for each portion to
+retrieve a partially-masked population. These masked variants
+are then fed into ESM-2 to predict the tokens being masked.
+After that, the newly generated population is measured for
+ﬁtness by a ﬁne tuned Attention1D. These steps are repeatedly
+iterated until they reach a predeﬁned iteration number. The
+full workﬂow of our method is illustrated in Fig. 1(c).
+A. Selecting Mutation Positions
+We follow the scheme of the text-based masked language
+model [54], which masks some of the tokens from the input
+and predicts the original vocabulary ID of the masked. In
+the context of protein generation, we assume that the new
+prediction tokens can boost the ﬁtness values of the protein
+sequence. In this study, we conducted two different masking
+strategies: 1) random masking and 2) importance masking. In
+the ﬁrst scheme, we randomly replace token(s) in the sequence
+by the ⟨MASK⟩ tokens. For the latter, we follow the soft-
+masking strategy described in [63]. Concretely, when we split
+a protein sequence into multiple substrings of the length k
+called k-mers, it creates a distribution based on the frequency
+of each k-mer. Therefore, when masking and recovering the
+sequences, k-mer with various importance should be treated
+differently. Following [63], we consider the following aspects
+to measure and deﬁne the importance of k-mers in one
+sequence:
+1) Relevancy: We adopt the TF-IDF weights [64], w
+TF-IDF,
+of the k-mer as one way to measure the relevance of k-mer w
+in one sequence x
+wTF-IDF(w, x) = fw,x∑
+w′∈x fw′,x
+log N
+1 +| {x ∈ X : w ∈ x}| (3)
+where fw,x is the number of times that k-mer w occurs in the
+sequence x, N is the number of sequences in the corpus, and
+X is the set of sentences, and |{x ∈ X : w ∈ x}| is the number
+of sequences where the k-mer w appears. A higher weight for
+k-mer w in sequence x in TF-IDF means that the k-mer might
+be more important in the sequence.
+2) Entropy: We also consider measuring the amount of
+information with the entropy H [65] in the k-mer w to reﬂect
+the importance of that k-mer
+H(w) =− p(w) log(p(w)) (4)
+where p(w) = (fw/[∑V
+j=1 fj]) represents the probability of k-
+mer w and f is the number of appearances of k-mer in the
+corpus. A k-mer with lower entropy indicates that it might
+contain less information and thus be less important compared
+to the one with higher entropy.
+In practice, we combine these two measures (with normal-
+ization) to decide the importance I of the k-mer w in one
+sequence x by
+I(w) = w
+TF-IDF(w, x)∑
+w′∈x wTF-IDF(w′, x) + H(w)∑
+w′∈d H(w′). (5)
+Based on the introduced importance I of the k-mers in
+a sequence, we decide to replace the k-mer(s) with the
+lowest importance value(s) by ⟨MASK⟩ token(s). By doing this,
+models could replace the least important k-mers with better
+ones for better generation quality.
+B. Machine Learning-Guided Improvement
+After the generation of a population of masked sequences,
+these sequences are subsequently inputted into the ESM-2
+model. Following this, the neural network generates
+predictions for the masked tokens and produces a latent repre-
+sentation of these variations. In the ﬁnal stage, we evaluate the
+sequences that have been newly proposed by measuring their
+ﬁtness values. In practice, validating these generated sequences
+experimentally is costly and time intensive. We follow the
+prior works [24], [44] in leveraging a trained evaluator model
+(i.e., oracle) as a proxy for the wet-lab measurements. This
+oracle operates on the input representation X
+′ ∈ RB×L×d0
+derived from a pretrained ESM model after processing a
+protein sequence. The architecture of this module is as follows:
+X2ReLU
+(
+Linear1(X′)
+)
+RB×L×dhid (6)
+X3ReLU(Linear2(X2)) ∈ RB×L×dhid (7)
+X4Attention1D(X3) ∈ RB×dhid (8)
+X5ReLU(Linear3(X4)) RB×dhid (9)
+X′′ReLU(Linear4(X5)) ∈ RB×1 (10)
+where B is the number of sequences, L is the input length, and
+dhid is the hidden dimension of the module. As illustrated in
+Fig. 1(b), this model is subsequently trained to comprehend
+the ﬁtness landscape of the speciﬁed protein sequence. The
+values are thereafter arranged in descending order to generate
+the most optimal sequences that will proceed to the subsequent
+iteration of the pipeline.
+In summary, our pipeline can be described by Algorithm 1.
+It is important to note that while selecting the best variants
+in each iteration, we combine the present “effective” popu-
+lation with the population from the preceding iteration. This
+procedure guarantees that in the event of mutations resulting
+in a reduction in ﬁtness values, the pipeline will opt for the
+variations from the preceding round rather than the inferior
+ones.
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 5
+422 IEEE TRANSACTIONS ON EVOLUTIONARY COMPUTATION, VOL. 29, NO. 2, APRIL 2025
+Algorithm 1 Machine Learning-Guided Directed Evolution
+Input: Wild-type xwt, ﬁtness ywt, population n, beam m,
+iterations N, random ratio α, k-mer size k
+Output: population sequence xtop, population ﬁtness
+ytop
+1: xprev ← Duplicate xwt for n times
+2: yprev ← Duplicate ywt for n times
+3: for i = 1,..., N do
+4: xcur ← Duplicate sequences in Xprev for m times
+5: L ← len(xcur)
+6: // Masking
+7: xcur ← SHUFFLE (xcur)
+8: x1 ← RANDOM MASK(xcur[: int(αL)], k)
+9: x2 ← IMPORTANCE MASK(xcur[int(αL) :], k)
+10: xmask ← CONCAT(x1, x2)
+11: // Predicting mutation and extracting features
+12: Xrepr, Rfeat ← ESM2 (xmask)
+13: // Replacing ⟨MASK⟩ tokens with predicted ones
+14: xmut ← ARGMAX (SOFTMAX (Xrepr))
+15: // Predicting ﬁtness
+16: ymut ← ATTENTION 1D(Rfeat)
+17: // Choosing best variants
+18: xcomb ← CONCAT(xmut, xprev)
+19: ycomb ← CONCAT(ymut, yprev)
+20: xtop, ytop ← TOP K(xcomb, ycomb, n)
+21: xprev ← xtop
+22: yprev ← ytop
+23: end for
+V. E XPERIMENT
+In this section, we conduct extensive experiments to validate
+the effectiveness of our proposed pipeline on the protein
+sequence design task.
+A. Datasets
+Following [24] and [44], we evaluate our method on the fol-
+lowing eight protein engineering benchmark datasets: 1) Green
+Fluorescent Protein ( avGFP); 2) Adeno-Associated Viruses
+(AA V); 3) TEM-1 β-Lactamase ( TEM); 4) Ubiquitination
+Factor Ube4b (E4B); 5) Aliphatic Amide Hydrolase ( AMIE);
+6) Levoglucosan Kinase ( LGK); 7) Poly(A)-Binding Protein
+(Pab1); and 8) SUMO E2 Conjugase ( UBE2I). Table I
+provides comprehensive details of the eight datasets utilized in
+this study, including the protein name, its organism, sequence
+length, dataset size, optimization target, and percentile dis-
+tribution. Each dataset corresponds to different optimization
+targets, which we simplify as a singular term “ﬁtness” when
+reporting the benchmark results in this article. The detailed
+data descriptions are provided in the supplementary material.
+B. Implementation Details
+Starting with a population of wild-type protein sequences,
+we split them into two separate groups. Each group is
+then subjected to a speciﬁc masking strategy, resulting in a
+population of masked sequences. These sequences are then fed
+Fig. 2. Illustration of beam search adaptation in directed evolution. In this
+ﬁgure, the population number is 2 and the beam size is 2, which makes
+the effective population size 4 (i.e., sequences in the third generation before
+dropping the inferior ones). The sequences covered in red boxes are chosen
+to move to the next iteration.
+to the pretrained 35-million-parameter version of the ESM-
+2 model, which generates the representation of the sequences
+and introduces mutations to the sequences by replacing the
+⟨MASK⟩ with the amino acid that the model conﬁdently pre-
+dicted. This representation is then fed into the oracle described
+in Section IV-B to predict the ﬁtness value of sequences.
+Subsequently, the population is arranged in a descending order
+to select the optimal n variations according to their respective
+ﬁtness values. These variants are the prospective candidates
+that will undergo the same pipeline in the subsequent iteration.
+Following several rounds, we would observe enhanced protein
+sequences exhibiting improved ﬁtness ratings.
+In our settings, we set the population size to 128 follow-
+ing [40]. Inspired by the beam search algorithm, which has
+proven its efﬁciency in the ﬁeld of natural language pro-
+cessing [74], [75], the model proposes four separate mutated
+sequences (i.e., a beam size of 4), instead of one mutation
+in the traditional directed evolution, to each variant in the
+population, making the effective population size to 512. This
+adaptation is illustrated in Fig. 2. We conﬁgure the random
+ratio to 0 .6 and the k-mer size to 1 for the remaining
+hyperparameters. It is important to acknowledge that the out-
+comes generated from these conﬁgurations are not guaranteed
+to be optimal. The examination of the inﬂuence of each
+hyperparameter is conducted in Section V-F.
+To ensure unbiased evaluation and avoid circular use of
+oracles, which can potentially cause information leakage,
+we employ two separate oracles for each ﬁtness dataset:
+1) the optimization oracle that guides the model optimization
+and 2) the evaluation oracle that assesses the performance
+of every methods. Following [24], we construct both the
+oracles by freezing the ESM-based encoders and training an
+Attention1D module stacked atop to predict the ﬁtness scores.
+We use the pretrained 33-layer ESM-2 for the former and the
+trained oracle provided by [24] for the latter. Details on these
+oracles are provided in the supplementary material. For each
+algorithm, we run all the experiments ﬁve times and report the
+average scores with their standard deviation.
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 6
+TRAN AND HY: PROTEIN DESIGN BY DIRECTED EVOLUTION GUIDED BY LLMs 423
+TABLE I
+DETAILED INFORMATION AND STATISTICS OF THE EIGHT PROTEIN DATASETS
+TABLE II
+MAXIMUM FITNESS SCORES (MFS) OF ALL METHODS ACROSS EIGHT DATASETS .H IGHER VALUES INDICATE BETTER FUNCTIONAL PROPERTIES IN
+THE DATASET. Bold Results INDICATE THE BEST VALUE AMONG ALL METHODS ASSESSED USING THE SAME ORACLES
+C. Baseline Algorithms
+We assess the performance of our method in comparison
+to the several representative baselines: 1) AdaLead [76]
+is an advanced implementation of model-guided evolution;
+2) DyNA PPO [39] applies proximal policy optimization to
+search sequences on a learned landscape model; 3) CMA-
+ES [77] is a famous evolutionary search algorithm; 4)
+DbAS [78] is a probabilistic modeling framework employing
+an adaptive sampling algorithm; 5) CbAS [79] is an improve-
+ment over DbAS that conditions on the desired properties;
+6) COMS [80] is conservative objective models for the
+ofﬂine MBO; 7) PEX [24] is a model-guided sequence design
+algorithm using the proximal exploration; 8) GFN-AL [40]
+applies GFlowNet to design the biological sequences; and 9)
+GGS [81] is a graph-based smoothing method to optimize the
+protein sequences. To ensure precise evaluation, we re-execute
+and re-evaluate baseline methods using the same oracle. For
+implementations from 1 to 5, we utilized the open-source
+implementation provided by [76]. As for the other baseline
+methods, we adapted and modiﬁed the codes released by their
+respective authors. Details about the hyperparameter selection
+for these baselines are discussed in the supplementary material.
+D. Evaluation Metrics
+We employ three metrics from [40] to assess our sequence
+design pipeline: 1) MFS: Maximum ﬁtness score; 2) diversity;
+and 3) novelty. Additionally, we consider two additional
+metrics for robustness: 1) AFS: Average ﬁtness score and
+6) dist(WT): The distance between the best-designed sequence
+and wild-type one. Detailed descriptions and mathematical for-
+mulations of these metrics can be found in the supplementary
+material. It is important to note that while greater diversity,
+novelty, and dist(WT) provide insights into the exploration and
+exploitation tradeoffs, they do not necessarily indicate superior
+performance.
+E. Experimental Results
+1) Comparison With Other Baselines: As described in
+Table II, our approach exhibits superior ﬁtness scores in seven
+out of eight protein families when evaluated against the
+methods utilizing the same oracle. Notably, it is observed
+that AA V and Pab1 contain sequences with limited lengths,
+up to 28 and 76 amino acids, respectively. However, for the
+datasets featuring longer sequences, leveraging the capabil-
+ities of protein language models trained on millions of the
+protein sequences notably enhances the MLDE’s optimization
+capabilities. This is particularly evident on the avGFP and
+E4B benchmarks, where our method achieves statistically
+signiﬁcant outperforms over the baselines. These ﬁndings
+suggest that our approach adeptly harnesses the potential of
+protein language models to introduce novel mutations into the
+existing proteins.
+Additionally, Tables III and IV outline the diversity and
+novelty metrics for all the methods. It is crucial to emphasize
+that while these results offer insights into the exploration
+and exploitation tradeoff, they may not necessarily reﬂect the
+efﬁcacy of an algorithm, as it largely depends on the speciﬁc
+objectives of each method. Some methods aim to optimize the
+ﬁtness score while maximizing the diversity and novelty [44],
+while others may prioritize minimizing novelty [24], and some
+may solely focus on optimizing the ﬁtness score alone [81].
+Moreover, a random algorithm can achieve maximum diversity
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 7
+424 IEEE TRANSACTIONS ON EVOLUTIONARY COMPUTATION, VOL. 29, NO. 2, APRIL 2025
+TABLE III
+DIVERSITY OF ALL METHODS ACROSS EIGHT DATASETS .T HIS TABLE PROVIDES INSIGHT INTO THE
+EXPLORATION AND EXPLOITATION TRADEOFF AMONG METHODS
+TABLE IV
+NOVELTY OF ALL METHODS ACROSS EIGHT DATASETS .T HIS TABLE PROVIDES INSIGHT INTO THE
+EXPLORATION AND EXPLOITATION TRADEOFF AMONG METHODS
+TABLE V
+AVERAGE FITNESS SCORES (AFS) OF ALL METHODS ACROSS EIGHT DATASETS .H IGHER VALUES INDICATE BETTER FUNCTIONAL PROPERTIES IN THE
+DATASET. Bold Results INDICATE THE BEST VALUE AMONG ALL METHODS ASSESSED USING THE SAME ORACLES
+and novelty scores. This is evident in the case of GFN-AL and
+COMs in the AMIE dataset, where it attains high novelty and
+diversity score, yet achieves the lowest MFS and AFS among
+all the methods.
+2) Average Performance: Another crucial factor determin-
+ing the efﬁcacy of an optimization algorithm is its ability to
+consistently produce high-quality samples within the popula-
+tion. Table V illustrates this aspect through the computation of
+the AFS, showcasing our method’s prowess as it consistently
+outperforms all the evaluated methods across eight bench-
+marks. As a result, our method achieves the top performance,
+highlighting the highest average score of 3.669, surpassing the
+runner-up, PEX, by a signiﬁcant margin of 5.6-fold.
+3) Mutations to Best Design: Table VI presents the number
+of mutations required to transform the wild-type sequence
+into the best-designed sequence within our ﬁnal proposed
+population along with the corresponding percentages relative
+TABLE VI
+EDIT DISTANCE BETWEEN THE WILD -TYPE SEQUENCE AND THE
+BEST-DESIGNED SEQUENCE
+to the actual length of the protein. Overall, our method
+modiﬁes the wild-type sequences within the range of 17.9%
+to 45.4%, with a predominant occurrence around 31% for
+the majority of tasks. These ﬁgures align with the natural
+protein diversity, as proteins within the same family exhibit
+variability. For instance, [82] demonstrated the existence of
+multiple GFP proteins in nature, with cgreGFP exhibiting
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 8
+TRAN AND HY: PROTEIN DESIGN BY DIRECTED EVOLUTION GUIDED BY LLMs 425
+Fig. 3. Effects of different beam sizes (k-mer size is ﬁxed to 1 ) on eight tasks. The x-axis is the number of rounds and the y-axis is the ﬁtness score. Size
+of dots represents the edit distance from those particular sequences to wild-type one.
+the highest ﬂuorescence despite only sharing 41% sequence
+similarity with the avGFP utilized in our study.
+F . Analysis
+1) Effect of Masking Strategy: We conduct an ablation
+study to demonstrate how each masking strategy contributes
+to the performance. In particular, we compare MLDE with
+its variants, including 1) without random masking (w/o RM):
+we do not use random masking for MLDE and 2) without
+importance masking (w/o IM): we only rely on random
+masking to select positions to mutate. As shown in the
+lower section of Table II, removing either component leads
+to a decrease in algorithm performance. This observation
+highlights the effectiveness of employing both the strategies,
+afﬁrming the efﬁcacy of our proposed masking approach.
+2) Effect of Beam Size: The impact of varying beam sizes
+is depicted in Fig. 3. The graphic illustrates that increasing
+the beam size leads to accelerated convergence of the pipeline
+and results in sequences with higher ﬁtness values throughout
+each iteration. This further underscores the effectiveness of
+incorporating the beam search technique.
+3) Effect of k-Mer Size: The efﬁcacy of selecting the k-mer
+size for the sequence masking is illustrated in Fig. 4.I ti s
+evident that the inﬂuence of the k-mer size varies across the
+datasets. For instance, while the distinction among settings is
+evident in the AA V dataset, with a k-mer size of 1 being the
+optimal setting, no signiﬁcant difference is observed when we
+examine LGK and AMIE datasets. Therefore, it is apparent
+that the impact of the k-mer size ﬂuctuates and requires careful
+adjustment in order to achieve the optimal outcomes.
+4) Validation of Generated Sequences: To comprehen-
+sively evaluate the generated samples, we assess the folding
+ability of proteins by using ESMFold [55]. There are three
+main reasons for us to decide utilizing ESMFold: 1) it
+generates SOTA 3-D structure predictions directly from the
+primary protein sequence; 2) it operates without reliance
+on the multiple-sequence alignment (MSA), a crucial but
+computational-burden component in the architecture of many
+established folding models [83], [84], resulting in a 60 ×
+speedup for the short sequences and a 10× speedup on average
+compared to these models; 3) it predicts structures with
+conﬁdence and does not depend on any templates, mitigating
+the potential for producing an “unfolded” structure for a
+sequence highly similar to a template. Fig. 5 illustrates the
+tertiary structure of TEM’s best variant, aligned with its
+wild-type structure. The root mean-square deviation (RMSD)
+between the two structures is 0.324 A. Additionally, the ﬁgure
+demonstrates the high conﬁdence of our predicted structure,
+validating our model’s capability to design a real TEM-1
+β-Lactamase protein. Structures of other proteins are presented
+in the supplementary material. We also explore the application
+of ESM-1v [85] in the zero-shot validation of generated
+sequences, which is introduced in the supplementary material.
+Our implementation is publicly available at https://github.
+com/HySonLab/Directed_Evolution.
+VI. C
+ONCLUSION
+This article introduces an ML-driven evolution (MLDE)
+framework. Incorporating two distinct masking strategies,
+namely random masking and importance masking, our pipeline
+utilizes the pretrained models with minimal training, resulting
+in protein sequences exhibiting higher ﬁtness. Experimental
+results across the six protein sequence design tasks demon-
+strate that our method surpasses several robust baselines across
+nearly all the metrics. In the future work, we aim to apply
+our directed evolution framework to the task of ligand-binding
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 9
+426 IEEE TRANSACTIONS ON EVOLUTIONARY COMPUTATION, VOL. 29, NO. 2, APRIL 2025
+Fig. 4. Effects of different k-mer sizes to mask (beam size is ﬁxed to 4 ) on eight tasks. The x-axis is the number of rounds and the y-axis is the ﬁtness
+score. Size of dots represents the edit distance from those particular sequences to wild-type one.
+Fig. 5. 3-D visualization of best-designed variant of TEM-1 β-Lactamase
+protein (colored), aligned with its wild-type structure (gray). The color
+of predicted structure represents ESMFold’s local prediction conﬁdence
+(pLDDT) per amino acid location.
+protein redesign, antibody design, etc. We hope our framework
+will enable scientists and researchers to efﬁciently optimize
+the proteins with certain given properties.
+Limitations: Despite the positive outcomes of our approach,
+the protein sequences we created have not been veriﬁed
+through the in-vitro experimentation, which introduces a level
+of uncertainty associated with the oracle model. The results
+presented in our research are obtained by averaging data
+from the ﬁve separate runs with different seeds, which can
+accommodate some variance on these metrics. Additionally,
+all the ﬁtness data utilized in our study are derived from the
+wet-lab experiments, ensuring that the ﬁtness values within the
+training datasets are realistic. Although there is currently no
+perfect metric available, we believe that new methods should
+be encouraged in the ﬁeld of computational biology.
+R
+EFERENCES
+[1] C. Hsu, H. Nisonoff, C. Fannjiang, and J. Listgarten, “Learning
+protein ﬁtness models from evolutionary and assay-labeled data,”
+Nat. Biotechnol. , vol. 40, no. 7, pp. 1114–1122, Jul. 2022. [Online].
+Available: https://doi.org/10.1038/s41587-021-01146-5
+[2] A. Rives et al., “Biological structure and function emerge from scaling
+unsupervised learning to 250 million protein sequences,” Proc. Nat.
+Acad. Sci. , vol. 118, no. 15, 2021, Art. no. e2016239118. [Online].
+Available: https://www.pnas.org/doi/abs/10.1073/pnas.2016239118
+[3] R. Verkuil et al., “Language models generalize beyond natural proteins,”
+bioRxiv. Preprint, 2022. [Online]. Available: https://www.biorxiv.org/
+content/10.1101/2022.12.21.521521v1
+[4] D. W. Anderson, F. Baier, G. Yang, and N. Tokuriki, “The adaptive
+landscape of a metallo-enzyme is shaped by environment-dependent
+epistasis,” Nat. Commun., vol. 12, no. 1, p. 3867, 2021.
+[5] S. J. Remington, “Green ﬂuorescent protein: A perspective,” Protein
+Sci., vol. 20, no. 9, pp. 1509–1519, 2011.
+[6] N. A. Pierce and E. Winfree, “Protein design is NP-hard,” Protein Eng.,
+Design Sel., vol. 15, no. 10, pp. 779–782, Oct. 2002. [Online]. Available:
+https://doi.org/10.1093/protein/15.10.779
+[7] J. M. Smith, “Natural selection and the concept of a protein space,”
+Nature, vol. 225, no. 5232, pp. 563–564, Feb. 1970. [Online]. Available:
+https://doi.org/10.1038/225563a0
+[8] A. Radford et al., “Language models are unsupervised multitask learn-
+ers,” OpenAI Blog, vol. 1, no. 8, p. 9, 2019.
+[9] H. Touvron et al., “Llama 2: Open foundation and ﬁne-tuned chat
+models,” 2023, arXiv:2307.09288.
+[10] J. Ho, A. Jain, and P. Abbeel, “Denoising diffusion probabilistic
+models,” in Advances in Neural Information Processing Systems ,
+vol. 33. H. Larochelle, M. Ranzato, R. Hadsell, M. Balcan, and
+H. Lin, Eds. Red Hook, NY , USA: Curran Assoc., Inc., 2020,
+pp. 6840–6851. [Online]. Available: https://proceedings.neurips.cc/paper
+_ﬁles/paper/2020/ﬁle/4c5bcfec8584af0d967f1ab10179ca4b-Paper.pdf
+[11] A. Ramesh, P. Dhariwal, A. Nichol, C. Chu, and M. Chen,
+“Hierarchical text-conditional image generation with CLIP Latents,”
+2022, arXiv:2204.06125.
+[12] M. Le et al., “V oicebox: Text-guided multilingual universal speech
+generation at scale,” 2023, arXiv:2306.15687.
+[13] Z. Wu et al., “Signal peptides generated by attention-based neural
+networks,” ACS Syn. Biol., vol. 9, no. 8, pp. 2154–2161, 2020. [Online].
+Available: https://doi.org/10.1021/acssynbio.0c00219
+[14] D. Repecka et al., “Expanding functional protein sequence spaces using
+generative adversarial networks,” Nat. Mach. Intell. , vol. 3, no. 4,
+pp. 324–333, Apr. 2021. [Online]. Available: https://doi.org/10.1038/
+s42256-021-00310-5
+[15] A. Hawkins-Hooker, F. Depardieu, S. Baur, G. Couairon, A. Chen,
+and D. Bikard, “Generating functional protein variants with varia-
+tional autoencoders,” PLOS Comput. Biol. , vol. 17, no. 2, Feb. 2021,
+Art. no. e1008736. [Online]. Available: https://doi.org/10.1371/journal.
+pcbi.1008736
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 10
+TRAN AND HY: PROTEIN DESIGN BY DIRECTED EVOLUTION GUIDED BY LLMs 427
+[16] O. Kuchner and F. H. Arnold, “Directed evolution of enzyme catalysts,”
+Trends Biotechnol., vol. 15, no. 12, pp. 523–530, 1997.
+[17] F. H. Arnold, “Design by directed evolution,” Accounts Chem. Res. ,
+vol. 31, no. 3, pp. 125–131, 1998.
+[18] C. A. Tracewell and F. H. Arnold, “Directed enzyme evolution: Climbing
+ﬁtness peaks one amino acid at a time,” Current Opinion Chem. Biol. ,
+vol. 13, no. 1, pp. 3–9, 2009.
+[19] P. Romero and F. Arnold, “Exploring protein ﬁtness landscapes by
+directed evolution,” Nature Rev. Mol. Cell Biol. , vol. 10, pp. 866–76,
+Dec. 2009.
+[20] P. A. Romero, A. Krause, and F. H. Arnold, “Navigating the protein
+ﬁtness landscape with Gaussian processes,” Proc. Nat. Acad. Sci. ,
+vol. 110, no. 3, pp. E193–E201, 2013. [Online]. Available: https://www.
+pnas.org/doi/abs/10.1073/pnas.1215251110
+[21] C. N. Bedbrook, K. K. Yang, J. E. Robinson, E. D. Mackey,
+V . Gradinaru, and F. H. Arnold, “Machine learning-guided channel-
+rhodopsin engineering enables minimally invasive optogenetics,” Nature
+Methods, vol. 16, no. 11, pp. 1176–1184, Oct. 2019. [Online]. Available:
+https://doi.org/10.1038/s41592-019-0583-8
+[22] Z. Wu, S. B. J. Kan, R. D. Lewis, B. J. Wittmann, and F. H. Arnold,
+“Machine learning-assisted directed protein evolution with combinatorial
+libraries,” Proc. Nat. Acad. Sci. , vol. 116, no. 18, pp. 8852–8858,
+2019. [Online]. Available: https://www.pnas.org/doi/abs/10.1073/pnas.
+1901979116
+[23] P. Emami, A. Perreault, J. Law, D. Biagioni, and P. S. John, “Plug &
+play directed evolution of proteins with gradient-based discrete MCMC,”
+Mach. Learn., Sci. Technol. , vol. 4, no. 2, Apr. 2023, Art. no. 025014.
+[Online]. Available: https://dx.doi.org/10.1088/2632-2153/accacd
+[24] Z. Ren, J. Li, F. Ding, Y . Zhou, J. Ma, and J. Peng, “Proximal
+exploration for model-guided protein sequence design,” in Proc. 39th
+Int. Conf. Mach. Learn. , 2022, pp. 18520–18536. [Online]. Available:
+https://proceedings.mlr.press/v162/ren22a.html
+[25] Y . Qiu, J. Hu, and G.-W. Wei, “Cluster learning-assisted directed
+evolution,” Nature Comput. Sci., vol. 1, no. 12, pp. 809–818, Dec. 2021.
+[Online]. Available: https://doi.org/10.1038/s43588-021-00168-y
+[26] Y . Qiu and G.-W. Wei, “CLADE 2.0: Evolution-driven cluster learning-
+assisted directed evolution,” J. Chem. Inf. Model. , vol. 62, no. 19,
+pp. 4629–4641, 2022. [Online]. Available: https://doi.org/10.1021/acs.
+jcim.2c01046
+[27] B. J. Wittmann, Y . Yue, and F. H. Arnold, “Informed training set design
+enables efﬁcient machine learning-assisted directed protein evolution,”
+Cell Syst. , vol. 12, no. 11, pp. 1026–1045, Nov. 2021. [Online].
+Available: https://doi.org/10.1016/j.cels.2021.07.008
+[28] D. C. E. Koo and R. Bonneau, “Towards region-speciﬁc propagation
+of protein functions,” Bioinformatics, vol. 35, no. 10, pp. 1737–1744,
+Oct. 2018. [Online]. Available: https://doi.org/10.1093/bioinformatics/
+bty834
+[29] W. Torng and R. B. Altman, “High precision protein functional site
+detection using 3D convolutional neural networks,” Bioinformatics,
+vol. 35, no. 9, pp. 1503–1512, Sep. 2018. [Online]. Available: https:
+//doi.org/10.1093/bioinformatics/bty813
+[30] Y . Guan, C. L. Myers, D. C. Hess, Z. Barutcuoglu, A. A. Caudy, and
+O. G. Troyanskaya, “Predicting gene function in a hierarchical context
+with an ensemble of classiﬁers,” Genome Biol. , vol. 9, no. 1, p. S3,
+2008. [Online]. Available: https://doi.org/10.1186/gb-2008-9-s1-s3
+[31] M. N. Wass, G. Barton, and M. J. E. Sternberg, “CombFunc: Predicting
+protein function using heterogeneous data sources,” Nucleic Acids Res. ,
+vol. 40, no. 1, pp. W466–W470, May 2012. [Online]. Available: https:
+//doi.org/10.1093/nar/gks489
+[32] M. Kulmanov, M. A. Khan, and R. Hoehndorf, “DeepGO: Predicting
+protein functions from sequence and interactions using a deep ontology-
+aware classiﬁer,” Bioinformatics, vol. 34, no. 4, pp. 660–668, Oct. 2017.
+[Online]. Available: https://doi.org/10.1093/bioinformatics/btx624
+[33] M. Kulmanov and R. Hoehndorf, “DeepGOPlus: Improved protein
+function prediction from sequence,” Bioinformatics, vol. 36, no. 2,
+pp. 422–429, Jul. 2019. [Online]. Available: https://doi.org/10.1093/
+bioinformatics/btz595
+[34] V . Gligorijevi ´c et al., “Structure-based protein function prediction
+using graph convolutional networks,” Nat. Commun. , vol. 12, no. 1,
+p. 3168, May 2021. [Online]. Available: https://doi.org/10.1038/s41467-
+021-23303-9
+[35] Z. Wang et al., “LM-GVP: An extensible sequence and structure
+informed deep learning framework for protein property prediction,” Sci.
+Rep.
+, vol. 12, no. 1, p. 6832, Apr. 2022. [Online]. Available: https://doi.
+org/10.1038/s41598-022-10775-y
+[36] K. Ngo and T. S. Hy, “Target-aware variational auto-encoders for
+ligand generation with multi-modal protein modeling,” in Proc. NeurIPS
+Generat. AI Biol. (GenBio) Workshop , 2023, pp. 1–14. [Online].
+Available: https://openreview.net/forum?id=4k926QVVM4
+[37] N. K. Ngo, T. S. Hy, and R. Kondor, “Multiresolution graph transformers
+and wavelet positional encoding for learning long-range and hierarchical
+structures,” J. Chem. Phys. , vol. 159, no. 3, Jul. 2023, Art. no. 034109.
+[Online]. Available: https://doi.org/10.1063/5.0152833
+[38] Y . Gumulya et al., “Engineering highly functional thermostable proteins
+using ancestral sequence reconstruction,” Nature Catal., vol. 1, no. 11,
+pp. 878–888, Oct. 2018. [Online]. Available: https://doi.org/10.1038/
+s41929-018-0159-5
+[39] C. Angermueller, D. Dohan, D. Belanger, R. Deshpande, K. Murphy,
+and L. Colwell, “Model-based reinforcement learning for biological
+sequence design,” in Proc. Int. Conf. Learn. Represent., 2019, pp. 1–23.
+[40] M. Jain et al., “Biological sequence design with GFlowNets,” in Proc.
+39th Int. Conf. Mach. Learn., 2022, pp. 9786–9801. [Online]. Available:
+https://proceedings.mlr.press/v162/jain22a.html
+[41] D. Belanger et al., “Biological sequences design using batched Bayesian
+optimization,” 2019, preprint.
+[42] H. Moss, D. Leslie, D. Beck, J. González, and P. Rayson,
+“BOSS: Bayesian optimization over string spaces,” in Advances
+in Neural Information Processing Systems , vol. 33. H. Larochelle,
+M. Ranzato, R. Hadsell, M. Balcan, and H. Lin, Eds. Red Hook,
+NY , USA: Curran Assoc., Inc., 2020, pp. 15476–15486. [Online].
+Available: https://proceedings.neurips.cc/paper_ﬁles/paper/2020/ﬁle/
+b19aa25ff58940d974234b48391b9549-Paper.pdf
+[43] K. Terayama, M. Sumita, R. Tamura, and K. Tsuda, “Black-
+box optimization for automated discovery,” Accounts Chem.
+Res., vol. 54, no. 6, pp. 1334–1346, 2021. [Online]. Available:
+https://doi.org/10.1021/acs.accounts.0c00713
+[44] Z. Song and L. Li, “Importance weighted expectation-Maximization
+for protein sequence design,” in Proc. 40th Int. Conf. Mach. Learn. ,
+2023, pp. 32349–32364. [Online]. Available: https://proceedings.mlr.
+press/v202/song23g.html
+[45] K. Swersky, Y . Rubanova, D. Dohan, and K. Murphy, “Amortized
+Bayesian optimization over discrete spaces,” in Proc. 36th Conf.
+Uncertainty Artif. Intell. (UAI), 2020, pp. 769–778. [Online]. Available:
+https://proceedings.mlr.press/v124/swersky20a.html
+[46] A. Elnaggar et al., “ProtTrans: Toward understanding the language of
+life through self-supervised learning,” IEEE Trans. Pattern Anal. Mach.
+Intell., vol. 44, no. 10, pp. 7112–7127, Oct. 2022. [Online]. Available:
+https://doi.org/10.1109/tpami.2021.3095381
+[47] N. Ferruz, S. Schmidt, and B. Höcker, “ProtGPT2 is a deep unsupervised
+language model for protein design,” Nat. Commun. , vol. 13, no. 1,
+p. 4348, Jul. 2022. [Online]. Available: https://doi.org/10.1038/s41467-
+022-32007-7
+[48] E. Nijkamp, J. Ruffolo, E. N. Weinstein, N. Naik, and A. Madani,
+“ProGen2: Exploring the boundaries of protein language models,” 2022,
+arXiv:2206.13517.
+[49] A. J. Riesselman, J. B. Ingraham, and D. S. Marks, “Deep generative
+models of genetic variation capture the effects of mutations,” Nature
+Methods, vol. 15, no. 10, pp. 816–822, Oct. 2018. [Online]. Available:
+https://doi.org/10.1038/s41592-018-0138-4
+[50] X. Ding, Z. Zou, and C. L. Brooks III, “Deciphering protein evolution
+and ﬁtness landscapes with latent space models,” Nat. Commun., vol. 10,
+no. 1, p. 5644, Dec. 2019. [Online]. Available: https://doi.org/10.1038/
+s41467-019-13633-0
+[51] A. Gupta and J. Zou, “Feedback GAN for DNA optimizes pro-
+tein functions,” Nature Mach. Intell. , vol. 1, no. 2, pp. 105–111,
+Feb. 2019. [Online]. Available: https://doi.org/10.1038/s42256-019-
+0017-4
+[52] J. L. Watson et al., “De novo design of protein structure and func-
+tion with RFdiffusion,” Nature, vol. 620, no. 7976, pp. 1089–1100,
+Aug. 2023. [Online]. Available: https://doi.org/10.1038/s41586-023-
+06415-8
+[53] A. Vaswani et al., “Attention is all you need,” in Advances in
+Neural Information Processing Systems , vol. 30. I. Guyon et al.,
+Eds. Red Hook, NY , USA: Curran Assoc., Inc., 2017. [Online].
+Available: https://proceedings.neurips.cc/paper_ﬁles/paper/2017/ﬁle/
+3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+[54] J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, “BERT: Pre-
+training of deep bidirectional transformers for language understanding,”
+in Proc. Conf. North Am. Chapter Assoc. Comput. Linguist., Human
+Lang. Technol., Volume 1 (Long Short Papers) , 2019, pp. 4171–4186.
+[Online]. Available: https://aclanthology.org/N19-1423
+[55] Z. Lin et al., “Evolutionary-scale prediction of atomic-
+level protein structure with a language model,” Science,
+vol. 379, no. 6637, pp. 1123–1130, 2023. [Online]. Available:
+https://www.science.org/doi/abs/10.1126/science.ade2574
+[56] J. Su, Y . Lu, S. Pan, A. Murtadha, B. Wen, and Y . Liu,
+“RoFormer: Enhanced transformer with rotary position embedding,”
+2022, arXiv:2104.09864.
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 
+PAGE 11
+428 IEEE TRANSACTIONS ON EVOLUTIONARY COMPUTATION, VOL. 29, NO. 2, APRIL 2025
+[57] H. Derbel, Z. Zhao, and Q. Liu, “Accurate prediction of functional
+effect of single amino acid variants with deep learning,” Comput. Struct.
+Biotechnol. J., vol. 21, pp. 5776–5784, Jan. 2023. [Online]. Available:
+http://dx.doi.org/10.1016/j.csbj.2023.11.017
+[58] W. Lin, J. Wells, Z. Wang, C. Orengo, and A. C. Martin, “VariPred:
+Enhancing pathogenicity prediction of missense variants using pro-
+tein language models,” bioRxiv, Preprint, 2023. [Online]. Available:
+https://www.biorxiv.org/content/early/2023/03/20/2023.03.16.532942.1
+[59] S. Sledzieski, M. Kshirsagar, M. Baek, B. Berger, R. Dodhia, and
+J. L. Ferres, “Democratizing protein language models with parameter-
+efﬁcient ﬁne-tuning,” bioRxiv, Preprint, 2023. [Online]. Available:
+https://www.biorxiv.org/content/early/2023/11/10/2023.11.09.566187
+[60] V . T. D. Nguyen and T. S. Hy, “Multimodal
+pretraining for unsupervised protein representation
+learning,” bioRxiv, Preprint, 2023. [Online]. Available:
+https://www.biorxiv.org/content/early/2023/12/07/2023.11.29.569288
+[61] T. Chen, P. Vure, R. Pulugurta, and P. Chatterjee, “AMP-
+diffusion: Integrating latent diffusion with protein language
+models for antimicrobial peptide generation,” in Proc. NeurIPS
+Generat. AI Biol. (GenBio) Workshop , 2023. [Online]. Available:
+https://openreview.net/forum?id=145TM9VQhx
+[62] T. Cohen and D. Schneidman-Duhovny, “Epitope-speciﬁc antibody
+design using diffusion models on the latent space of ESM embeddings,”
+in Proc. NeurIPS Generat. AI Biol. (GenBio) Workshop, 2023, pp. 1–14.
+[Online]. Available: https://openreview.net/forum?id=Enqxq6TWoZ
+[63] J. Chen, A. Zhang, M. Li, A. Smola, and D. Yang, “A cheaper
+and better diffusion language model with soft-masked noise,” 2023,
+arXiv:2304.04746.
+[64] D. Dessì, R. Helaoui, V . Kumar, D. R. Recupero, and D. Riboni,
+“TF-IDF vs word Embeddings for morbidity identiﬁcation in clin-
+ical notes: An initial study,” in Proc. 1st Workshop Smart Pers.
+Health Interfaces Co-Located 25th Int. Conf. Intell. User Interfaces,
+SmartPhil@IUI, Cagliari, Italy, 2020, pp. 1–12. [Online]. Available:
+http://ceur-ws.org/V ol-2596/paper1.pdf
+[65] C. Bentz and D. Alikaniotis, “The word entropy of natural languages,”
+2016, arXiv:1606.06996.
+[66] K. S. Sarkisyan et al., “Local ﬁtness landscape of the green ﬂuorescent
+protein,” Nature, vol. 533, no. 7603, pp. 397–401, May 2016. [Online].
+Available: https://doi.org/10.1038/nature17995
+[67] D. H. Bryant et al., “Deep diversiﬁcation of an AA V capsid protein
+by machine learning,” Nature Biotechnol., vol. 39, no. 6, pp. 691–696,
+Jun. 2021. [Online]. Available: https://doi.org/10.1038/s41587-020-
+00793-4
+[68] E. Firnberg, J. W. Labonte, J. J. Gray, and M. Ostermeier, “A compre-
+hensive, high-resolution map of a gene’s ﬁtness landscape,” Mol. Biol.
+Evol., vol. 31, no. 6, pp. 1581–1592, Feb. 2014. [Online]. Available:
+https://doi.org/10.1093/molbev/msu081
+[69] L. M. Starita et al., “Activity-enhancing mutations in an E3 ubiquitin
+ligase identiﬁed by high-throughput mutagenesis,” Proc. Nat. Acad.
+Sci., vol. 110, no. 14, pp. E1263–E1272, 2013. [Online]. Available:
+https://www.pnas.org/doi/abs/10.1073/pnas.1303309110
+[70] E. E. Wrenbeck, L. R. Azouz, and T. A. Whitehead, “Single-
+mutation ﬁtness landscapes for an enzyme on multiple
+substrates reveal speciﬁcity is globally encoded,” Nat. Commun. ,
+vol. 8, no. 1, Jun. 2017, Art. no. 15695. [Online]. Available:
+https://doi.org/10.1038/ncomms15695
+[71] J. R. Klesmith, J.-P. Bacik, R. Michalczyk, and T. A. Whitehead,
+“Comprehensive sequence-ﬂux mapping of a Levoglucosan
+utilization pathway in E. coli,” ACS Syn. Biol. ,v o l .4 ,
+no. 11, pp. 1235–1243, Sep. 2015. [Online]. Available:
+http://dx.doi.org/10.1021/acssynbio.5b00131
+[72] D. Melamed, D. L. Young, C. E. Gamble, C. R. Miller,
+and S. Fields, “Deep mutational scanning of an RRM domain
+of the saccharomyces cerevisiae poly(a)-binding protein,” RNA,
+vol. 19, no. 11, pp. 1537–1551, Sep. 2013. [Online]. Available:
+http://dx.doi.org/10.1261/rna.040709.113
+[73] J. Weile et al., “A framework for exhaustively mapping functional mis-
+sense variants,” Mol. Syst. Biol., vol. 13, no. 12, p. 957, 2017. [Online].
+Available: https://www.embopress.org/doi/abs/10.15252/msb.20177908
+[74] A. Graves, “Sequence transduction with recurrent neural networks,”
+2012, arXiv:1211.3711.
+[75] N. Boulanger-Lewandowski, Y . Bengio, and P. Vincent, “Audio chord
+recognition with recurrent neural networks,” in Proc. ISMIR , 2013,
+pp. 335–340.
+[76] S. Sinai, R. Wang, A. Whatley, S. Slocum, E. Locane, and E. Kelsic,
+“AdaLead: A simple and robust adaptive greedy search algorithm for
+sequence design,” 2020, arXiv:2010.02141.
+[77] N. Hansen and A. Ostermeier, “Completely derandomized self-
+adaptation in evolution strategies,” Evol. Comput. , vol. 9, no. 2,
+pp. 159–195, 2001.
+[78] D. H. Brookes and J. Listgarten, “Design by adaptive sampling,” 2020,
+arXiv:1810.03714.
+[79] D. Brookes, H. Park, and J. Listgarten, “Conditioning by
+adaptive sampling for robust design,” in Proc. 36th Int.
+Conf. Mach. Learn. , 2019, pp. 773–782. [Online]. Available:
+https://proceedings.mlr.press/v97/brookes19a.html
+[80] B. Trabucco, A. Kumar, X. Geng, and S. Levine, “Conservative objective
+models for effective ofﬂine model-based optimization,” in Proc. Int.
+Conf. Mach. Learn. , 2021, pp. 10358–10368.
+[81] A. Kirjner et al., “Improving protein optimization with smoothed ﬁtness
+landscapes,” in Proc. 12th Int. Conf. Learn. Represent. , 2024, pp. 1–10.
+[Online]. Available: https://openreview.net/forum?id=rxlF2Zv8x0
+[82] L. Gonzalez Somermeyer et al., “Heterogeneity of the GFP ﬁtness
+landscape and data-driven protein design,” eLife, vol. 11, May 2022,
+Art. no. e75842. [Online]. Available: https://doi.org/10.7554/eLife.75842
+[83] J. Jumper et al., “Highly accurate protein structure prediction with
+AlphaFold,” Nature, vol. 596, no. 7873, pp. 583–589, Aug. 2021.
+[Online]. Available: https://doi.org/10.1038/s41586-021-03819-2
+[84] M. Baek et al., “Accurate prediction of protein structures and interactions
+using a three-track neural network,” Science, vol. 373, no. 6557,
+pp. 871–876, 2021. [Online]. Available: https://www.science.org/doi/
+abs/10.1126/science.abj8754
+[85] J. Meier, R. Rao, R. Verkuil, J. Liu, T. Sercu, and A. Rives, “Language
+models enable zero-shot prediction of the effects of mutations on protein
+function,” in Advances in Neural Information Processing Systems ,
+vol. 34. M. Ranzato, A. Beygelzimer, Y . Dauphin, P. Liang, and
+J. W. Vaughan, Eds. Red Hook, NY , USA: Curran Assoc., Inc., 2021,
+pp. 29287–29303. [Online]. Available: https://proceedings.neurips.
+cc/paper_ﬁles/paper/2021/ﬁle/f51338d736f95dd42427296047067694-
+Paper.pdf
+T h a n hV .T .T r a nreceived the B.Sc. degree in
+computer science from the University of Engineering
+and Technology, Vietnam National University, Ho
+Chi Minh City, Vietnam.
+He is currently an AI resident with FPT Software
+AI Center, Hanoi, Vietnam, under the group of
+Dr. Hy. His research focuses on generative models
+for scientiﬁc applications in the direction of AI for
+science and engineering.
+Truong Son Hy received the B.Sc. degree in
+computer science from Eötvös Loránd University,
+Budapest, Hungary, and the Ph.D. degree in
+computer science from the University of Chicago,
+Chicago, IL, USA.
+He is currently a tenure-track Assistant Professor
+with the Department of Computer Science,
+University of Alabama at Birmingham, Birmingham,
+AL, USA. He also works as an AI Scientist at
+FPT Soft ware AI Center, FPT Corporation, Hanoi,
+Vietnam. Prior to his current faculty position, he
+has worked as a Lecturer and a Postdoctoral Fellow with the Halıcıo ˘glu
+Data Science Institute, University of California at San Diego, La Jolla,
+CA, USA; and a tenure-track Assistant Professor with the Department of
+Mathematics and Computer Science, Indiana State University, Terre Haute,
+IN, USA. His research focuses on graph neural networks, multiresolution
+matrix factorization, graph wavelets, deep generative models on graphs, group
+equivariant, and multiscale hierarchical models for scientiﬁc applications in
+the direction of AI for science and engineering.
+Authorized licensed use limited to: Mepco Schlenk Engineering College. Downloaded on July 21,2026 at 06:17:44 UTC from IEEE Xplore.  Restrictions apply. 

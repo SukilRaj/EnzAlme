@@ -1,0 +1,561 @@
+[
+  {
+    "fold": 1,
+    "selected": {
+      "mae_um": {
+        "name": "training_median",
+        "features": "env",
+        "model": "median",
+        "target": "raw"
+      },
+      "rmse_um": {
+        "name": "environment_quadratic_log_ridge",
+        "features": "env_poly",
+        "model": "ridge",
+        "target": "log",
+        "alpha": 100
+      }
+    },
+    "inner_scores": {
+      "training_median": {
+        "mae_um": 1389.0080914937882,
+        "rmse_um": 6171.361963587237,
+        "r2": -0.05148118696936299,
+        "spearman": -0.2841623378655334,
+        "macro_protein_mae_um": 1069.5281186502773
+      },
+      "environment_log_ridge_10": {
+        "mae_um": 1458.8452426901024,
+        "rmse_um": 6150.444759383415,
+        "r2": -0.04436548915717786,
+        "spearman": 0.006621201212657763,
+        "macro_protein_mae_um": 1089.1154237064716
+      },
+      "environment_raw_ridge_10": {
+        "mae_um": 2802.783320965482,
+        "rmse_um": 6574.19457616258,
+        "r2": -0.19323113052589647,
+        "spearman": 0.14169907329455367,
+        "macro_protein_mae_um": 2263.9686500637795
+      },
+      "environment_raw_ridge_100": {
+        "mae_um": 2478.3678202678,
+        "rmse_um": 6326.168353033039,
+        "r2": -0.10489487289653976,
+        "spearman": 0.04605334109887443,
+        "macro_protein_mae_um": 2060.140911140579
+      },
+      "environment_quadratic_log_ridge": {
+        "mae_um": 1430.2769358939559,
+        "rmse_um": 6150.329696972222,
+        "r2": -0.044326413580693114,
+        "spearman": -0.029517232084329714,
+        "macro_protein_mae_um": 1079.3176426287646
+      },
+      "combined_log_ridge": {
+        "mae_um": 1415.9626982614855,
+        "rmse_um": 6166.819165972704,
+        "r2": -0.049933746329327455,
+        "spearman": -0.22045120766532136,
+        "macro_protein_mae_um": 1086.1723893189317
+      },
+      "protein_condition_interactions_100": {
+        "mae_um": 1412.505985769246,
+        "rmse_um": 6162.747561706911,
+        "r2": -0.04854777947597322,
+        "spearman": -0.15592518729513355,
+        "macro_protein_mae_um": 1098.7128717352489
+      },
+      "protein_condition_interactions_1000": {
+        "mae_um": 1397.8252884048493,
+        "rmse_um": 6166.18948043631,
+        "r2": -0.04971934265605715,
+        "spearman": -0.25034904155610144,
+        "macro_protein_mae_um": 1076.6167392316675
+      },
+      "environment_raw_forest_depth3": {
+        "mae_um": 1999.364513844087,
+        "rmse_um": 6648.796699129698,
+        "r2": -0.22046569067668997,
+        "spearman": 0.07257819273421891,
+        "macro_protein_mae_um": 1484.2249022506614
+      },
+      "environment_raw_forest_depth5": {
+        "mae_um": 2002.472925968894,
+        "rmse_um": 6648.527442026326,
+        "r2": -0.22036684199250112,
+        "spearman": 0.07985542286976328,
+        "macro_protein_mae_um": 1485.9881946861278
+      },
+      "environment_log_forest": {
+        "mae_um": 1485.281807378759,
+        "rmse_um": 6162.945459375329,
+        "r2": -0.04861512232602494,
+        "spearman": 0.08832492826594646,
+        "macro_protein_mae_um": 1099.6317275373633
+      },
+      "combined_raw_forest": {
+        "mae_um": 1618.4275569940028,
+        "rmse_um": 6161.997006499298,
+        "r2": -0.048292391740269114,
+        "spearman": 0.07257494721018208,
+        "macro_protein_mae_um": 1191.145468262879
+      },
+      "combined_raw_extra_trees": {
+        "mae_um": 1847.8504393235983,
+        "rmse_um": 6188.347691329326,
+        "r2": -0.057277233925501436,
+        "spearman": 0.06504629642068788,
+        "macro_protein_mae_um": 1647.5697815039337
+      }
+    }
+  },
+  {
+    "fold": 2,
+    "selected": {
+      "mae_um": {
+        "name": "environment_raw_forest_depth5",
+        "features": "env",
+        "model": "forest",
+        "target": "raw",
+        "depth": 5
+      },
+      "rmse_um": {
+        "name": "environment_raw_forest_depth5",
+        "features": "env",
+        "model": "forest",
+        "target": "raw",
+        "depth": 5
+      }
+    },
+    "inner_scores": {
+      "training_median": {
+        "mae_um": 930.7144609482751,
+        "rmse_um": 1546.3956877895935,
+        "r2": -0.33326221380244747,
+        "spearman": -0.6094329895973589,
+        "macro_protein_mae_um": 530.1385499864045
+      },
+      "environment_log_ridge_10": {
+        "mae_um": 957.1152040040768,
+        "rmse_um": 2129.538826776876,
+        "r2": -1.5283979901803142,
+        "spearman": 0.5351146107949498,
+        "macro_protein_mae_um": 348.1626392982876
+      },
+      "environment_raw_ridge_10": {
+        "mae_um": 787.4343182828251,
+        "rmse_um": 1282.444264698225,
+        "r2": 0.08303805931978547,
+        "spearman": 0.45316504138667957,
+        "macro_protein_mae_um": 520.5145433095112
+      },
+      "environment_raw_ridge_100": {
+        "mae_um": 882.6530601803166,
+        "rmse_um": 1366.2903368277478,
+        "r2": -0.04078327457858455,
+        "spearman": 0.10728041628479901,
+        "macro_protein_mae_um": 637.7486400815601
+      },
+      "environment_quadratic_log_ridge": {
+        "mae_um": 814.5730560823094,
+        "rmse_um": 1570.196397787858,
+        "r2": -0.37461875282407253,
+        "spearman": 0.5479395216186435,
+        "macro_protein_mae_um": 316.92284742639174
+      },
+      "combined_log_ridge": {
+        "mae_um": 733.5237214720477,
+        "rmse_um": 1490.5762485718847,
+        "r2": -0.23874725294705934,
+        "spearman": 0.7142321334473553,
+        "macro_protein_mae_um": 269.01949697629715
+      },
+      "protein_condition_interactions_100": {
+        "mae_um": 785.8433286603135,
+        "rmse_um": 1527.1268800438856,
+        "r2": -0.30024308876382944,
+        "spearman": 0.33569754907409893,
+        "macro_protein_mae_um": 286.83186649647496
+      },
+      "protein_condition_interactions_1000": {
+        "mae_um": 810.0708841302875,
+        "rmse_um": 1527.5032554054537,
+        "r2": -0.3008840830063302,
+        "spearman": -0.38058382261761875,
+        "macro_protein_mae_um": 330.70441463200206
+      },
+      "environment_raw_forest_depth3": {
+        "mae_um": 603.6746561499393,
+        "rmse_um": 1102.106165254668,
+        "r2": 0.32279341150420326,
+        "spearman": 0.7058704697077921,
+        "macro_protein_mae_um": 407.35944558063466
+      },
+      "environment_raw_forest_depth5": {
+        "mae_um": 596.4618877386447,
+        "rmse_um": 1095.116773261473,
+        "r2": 0.3313556601084102,
+        "spearman": 0.7314828139639916,
+        "macro_protein_mae_um": 396.8185822236642
+      },
+      "environment_log_forest": {
+        "mae_um": 698.6740231896567,
+        "rmse_um": 1376.3870403670194,
+        "r2": -0.05622261133138795,
+        "spearman": 0.6594568676988668,
+        "macro_protein_mae_um": 339.0118800340902
+      },
+      "combined_raw_forest": {
+        "mae_um": 741.0154746232466,
+        "rmse_um": 1362.7277827913915,
+        "r2": -0.03536273910953258,
+        "spearman": 0.6627635382468817,
+        "macro_protein_mae_um": 410.1141062343515
+      },
+      "combined_raw_extra_trees": {
+        "mae_um": 677.5679998394132,
+        "rmse_um": 1217.8179165503632,
+        "r2": 0.1731265847902469,
+        "spearman": 0.6994911577504966,
+        "macro_protein_mae_um": 425.36265468451694
+      }
+    }
+  },
+  {
+    "fold": 3,
+    "selected": {
+      "mae_um": {
+        "name": "environment_log_forest",
+        "features": "env",
+        "model": "forest",
+        "target": "log",
+        "depth": 5
+      },
+      "rmse_um": {
+        "name": "environment_log_forest",
+        "features": "env",
+        "model": "forest",
+        "target": "log",
+        "depth": 5
+      }
+    },
+    "inner_scores": {
+      "training_median": {
+        "mae_um": 1843.9627451494903,
+        "rmse_um": 5581.782794627529,
+        "r2": -0.06854864622683454,
+        "spearman": -0.45705602973108317,
+        "macro_protein_mae_um": 1668.2391757316454
+      },
+      "environment_log_ridge_10": {
+        "mae_um": 1623.7398884421582,
+        "rmse_um": 5517.4525231555,
+        "r2": -0.04406044550949706,
+        "spearman": 0.45236967931388017,
+        "macro_protein_mae_um": 1383.203461044928
+      },
+      "environment_raw_ridge_10": {
+        "mae_um": 2560.8589597201467,
+        "rmse_um": 5704.753563257651,
+        "r2": -0.11614909044077715,
+        "spearman": 0.5491112300247766,
+        "macro_protein_mae_um": 2136.7221227471223
+      },
+      "environment_raw_ridge_100": {
+        "mae_um": 2265.8132516433593,
+        "rmse_um": 5522.70442806284,
+        "r2": -0.046049013913229464,
+        "spearman": 0.44502989045123276,
+        "macro_protein_mae_um": 2250.4762159882216
+      },
+      "environment_quadratic_log_ridge": {
+        "mae_um": 1645.257448288869,
+        "rmse_um": 5548.520723291837,
+        "r2": -0.05585154063693398,
+        "spearman": 0.38703874501576,
+        "macro_protein_mae_um": 1389.2338330830044
+      },
+      "combined_log_ridge": {
+        "mae_um": 1665.5057604069502,
+        "rmse_um": 5613.984052199893,
+        "r2": -0.08091310501911897,
+        "spearman": 0.23021161971676404,
+        "macro_protein_mae_um": 1426.2120343360416
+      },
+      "protein_condition_interactions_100": {
+        "mae_um": 1723.1343399534114,
+        "rmse_um": 5632.761684234619,
+        "r2": -0.08815606581228042,
+        "spearman": 0.06779924120751474,
+        "macro_protein_mae_um": 1475.9660831255326
+      },
+      "protein_condition_interactions_1000": {
+        "mae_um": 1723.634005916039,
+        "rmse_um": 5618.347597125435,
+        "r2": -0.08259406665920244,
+        "spearman": -0.3118364298564786,
+        "macro_protein_mae_um": 1472.0036350842365
+      },
+      "environment_raw_forest_depth3": {
+        "mae_um": 3277.7010450704724,
+        "rmse_um": 6887.327248883142,
+        "r2": -0.6268588370878354,
+        "spearman": 0.5229040602556294,
+        "macro_protein_mae_um": 1972.7541914066016
+      },
+      "environment_raw_forest_depth5": {
+        "mae_um": 3272.4137964967217,
+        "rmse_um": 6884.422472658707,
+        "r2": -0.6254868493311192,
+        "spearman": 0.5175787856136363,
+        "macro_protein_mae_um": 1962.3367078942044
+      },
+      "environment_log_forest": {
+        "mae_um": 1573.411970754792,
+        "rmse_um": 5489.627322045026,
+        "r2": -0.033556345164449164,
+        "spearman": 0.4370401573308167,
+        "macro_protein_mae_um": 1434.348101445463
+      },
+      "combined_raw_forest": {
+        "mae_um": 1832.6441789586681,
+        "rmse_um": 5578.2604772201685,
+        "r2": -0.06720048199494766,
+        "spearman": 0.33233023355680763,
+        "macro_protein_mae_um": 2465.777605382967
+      },
+      "combined_raw_extra_trees": {
+        "mae_um": 2682.3626228102567,
+        "rmse_um": 6034.166343441416,
+        "r2": -0.24877153140925623,
+        "spearman": 0.3766109492619365,
+        "macro_protein_mae_um": 3097.240816977115
+      }
+    }
+  },
+  {
+    "fold": 4,
+    "selected": {
+      "mae_um": {
+        "name": "environment_log_forest",
+        "features": "env",
+        "model": "forest",
+        "target": "log",
+        "depth": 5
+      },
+      "rmse_um": {
+        "name": "environment_raw_ridge_100",
+        "features": "env",
+        "model": "ridge",
+        "target": "raw",
+        "alpha": 100
+      }
+    },
+    "inner_scores": {
+      "training_median": {
+        "mae_um": 1734.8451567567568,
+        "rmse_um": 5545.311635432213,
+        "r2": -0.06599554549965991,
+        "spearman": -0.5332628745905402,
+        "macro_protein_mae_um": 1553.5189279930596
+      },
+      "environment_log_ridge_10": {
+        "mae_um": 1562.4483286612742,
+        "rmse_um": 5461.99665665575,
+        "r2": -0.03420428900778982,
+        "spearman": 0.29152000218265395,
+        "macro_protein_mae_um": 1279.7445078875676
+      },
+      "environment_raw_ridge_10": {
+        "mae_um": 2190.6800538281823,
+        "rmse_um": 5600.759510552437,
+        "r2": -0.0874200207311071,
+        "spearman": 0.6140057845698154,
+        "macro_protein_mae_um": 1548.8661938363687
+      },
+      "environment_raw_ridge_100": {
+        "mae_um": 1969.5642748037615,
+        "rmse_um": 5404.943922571608,
+        "r2": -0.012711774505290263,
+        "spearman": 0.5543831273106568,
+        "macro_protein_mae_um": 1783.950633851246
+      },
+      "environment_quadratic_log_ridge": {
+        "mae_um": 1577.6660689352684,
+        "rmse_um": 5497.733559646568,
+        "r2": -0.04778180276672517,
+        "spearman": 0.209996495544359,
+        "macro_protein_mae_um": 1295.438270478226
+      },
+      "combined_log_ridge": {
+        "mae_um": 1615.5791704052563,
+        "rmse_um": 5557.538915239239,
+        "r2": -0.0707017177562026,
+        "spearman": 0.026422458804664282,
+        "macro_protein_mae_um": 1334.1131225053434
+      },
+      "protein_condition_interactions_100": {
+        "mae_um": 1612.617219243644,
+        "rmse_um": 5549.302042124318,
+        "r2": -0.06753027845598902,
+        "spearman": 0.08084380380890761,
+        "macro_protein_mae_um": 1316.4604877049721
+      },
+      "protein_condition_interactions_1000": {
+        "mae_um": 1632.2060373551187,
+        "rmse_um": 5558.979463834049,
+        "r2": -0.07125685476128774,
+        "spearman": -0.4421177365723146,
+        "macro_protein_mae_um": 1359.8375674600775
+      },
+      "environment_raw_forest_depth3": {
+        "mae_um": 3142.216168792864,
+        "rmse_um": 6766.035561526791,
+        "r2": -0.5869820943606225,
+        "spearman": 0.2992765707959841,
+        "macro_protein_mae_um": 1908.2254894199846
+      },
+      "environment_raw_forest_depth5": {
+        "mae_um": 3138.498044344734,
+        "rmse_um": 6765.771323162222,
+        "r2": -0.586858141903976,
+        "spearman": 0.32268060533583376,
+        "macro_protein_mae_um": 1900.687666323177
+      },
+      "environment_log_forest": {
+        "mae_um": 1466.0507227749395,
+        "rmse_um": 5416.785111950369,
+        "r2": -0.017153947391311375,
+        "spearman": 0.3833285191826639,
+        "macro_protein_mae_um": 1287.81546873774
+      },
+      "combined_raw_forest": {
+        "mae_um": 1722.672768172899,
+        "rmse_um": 5459.141251002806,
+        "r2": -0.03312325543724515,
+        "spearman": 0.2126790291453756,
+        "macro_protein_mae_um": 1498.2086052846807
+      },
+      "combined_raw_extra_trees": {
+        "mae_um": 2215.3815546008477,
+        "rmse_um": 5690.000699155156,
+        "r2": -0.12234949143272611,
+        "spearman": 0.4713591714513781,
+        "macro_protein_mae_um": 2010.2432461224762
+      }
+    }
+  },
+  {
+    "fold": 5,
+    "selected": {
+      "mae_um": {
+        "name": "environment_log_ridge_10",
+        "features": "env",
+        "model": "ridge",
+        "target": "log",
+        "alpha": 10
+      },
+      "rmse_um": {
+        "name": "environment_log_ridge_10",
+        "features": "env",
+        "model": "ridge",
+        "target": "log",
+        "alpha": 10
+      }
+    },
+    "inner_scores": {
+      "training_median": {
+        "mae_um": 1846.0627402512848,
+        "rmse_um": 5570.259936748464,
+        "r2": -0.06807642981129858,
+        "spearman": -0.4916361893000416,
+        "macro_protein_mae_um": 1673.5182657972098
+      },
+      "environment_log_ridge_10": {
+        "mae_um": 1630.371482607998,
+        "rmse_um": 5512.109374591674,
+        "r2": -0.045892527545025485,
+        "spearman": 0.44447800508516383,
+        "macro_protein_mae_um": 1356.7477694232905
+      },
+      "environment_raw_ridge_10": {
+        "mae_um": 2775.141590983178,
+        "rmse_um": 5842.505729801257,
+        "r2": -0.17503201906487464,
+        "spearman": 0.552622093528575,
+        "macro_protein_mae_um": 2143.708015012866
+      },
+      "environment_raw_ridge_100": {
+        "mae_um": 2452.2649894974043,
+        "rmse_um": 5563.504403336305,
+        "r2": -0.0654873044540274,
+        "spearman": 0.36886317050518097,
+        "macro_protein_mae_um": 2415.3890128539592
+      },
+      "environment_quadratic_log_ridge": {
+        "mae_um": 1657.9824812461147,
+        "rmse_um": 5545.0240147100685,
+        "r2": -0.058420565685730175,
+        "spearman": 0.3682140662439226,
+        "macro_protein_mae_um": 1371.3482826235766
+      },
+      "combined_log_ridge": {
+        "mae_um": 1659.978347575778,
+        "rmse_um": 5595.065424083484,
+        "r2": -0.07761032896728959,
+        "spearman": 0.3198531005972512,
+        "macro_protein_mae_um": 1379.9203051435252
+      },
+      "protein_condition_interactions_100": {
+        "mae_um": 1660.5332400351158,
+        "rmse_um": 5598.588731951787,
+        "r2": -0.07896793539477676,
+        "spearman": 0.3658840260493406,
+        "macro_protein_mae_um": 1402.7256411983271
+      },
+      "protein_condition_interactions_1000": {
+        "mae_um": 1706.7072679075852,
+        "rmse_um": 5603.155132727011,
+        "r2": -0.08072873961441984,
+        "spearman": -0.22252424739284501,
+        "macro_protein_mae_um": 1418.00400251648
+      },
+      "environment_raw_forest_depth3": {
+        "mae_um": 4092.6905445789944,
+        "rmse_um": 8268.653777385203,
+        "r2": -1.3535369577225538,
+        "spearman": 0.5414234178083347,
+        "macro_protein_mae_um": 1985.7734863434302
+      },
+      "environment_raw_forest_depth5": {
+        "mae_um": 4087.356677310807,
+        "rmse_um": 8267.62194820347,
+        "r2": -1.3529496077964378,
+        "spearman": 0.515004760787036,
+        "macro_protein_mae_um": 1964.5852469320532
+      },
+      "environment_log_forest": {
+        "mae_um": 2220.4135507402148,
+        "rmse_um": 5886.635840970095,
+        "r2": -0.19284976068663728,
+        "spearman": 0.48882125355197836,
+        "macro_protein_mae_um": 1443.2359802484605
+      },
+      "combined_raw_forest": {
+        "mae_um": 3156.468174709965,
+        "rmse_um": 7091.854186751388,
+        "r2": -0.731294711443695,
+        "spearman": 0.414987425160719,
+        "macro_protein_mae_um": 2473.179905247211
+      },
+      "combined_raw_extra_trees": {
+        "mae_um": 2991.5909150064244,
+        "rmse_um": 6177.286332175814,
+        "r2": -0.313550795978198,
+        "spearman": 0.46844377927888475,
+        "macro_protein_mae_um": 2907.4857375618067
+      }
+    }
+  }
+]

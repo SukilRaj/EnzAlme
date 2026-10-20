@@ -1,0 +1,11 @@
+{
+  "controlled_ablation_results.json": "5d08afd04777e0b2eeee2b058e9b66bef1bcc75e988e42605df324b43b6a757a",
+  "ablation_error_analysis/fold_metrics.csv": "c2800534472c0fbee6dc7ac2ae76c9d2cdfc3d433104a035c58b5759336398dd",
+  "ablation_error_analysis/pooled_metrics.csv": "0839b40a43636724ec7b7ddf234513c0078c3561fad3dfa2b9f97c11a4e52221",
+  "model_comparison_results.csv": "51474bb3d97b2e20dee5a178c96bb8f2e64e5d80ef642a2c9b7ac17e0f914ed5",
+  "protein_balance_sensitivity.json": "b355aa5ea459c2b3a7350c1f38ca5a0824c4dd36ec1ca96a5d033168271983a9",
+  "cross_validation_results.json": "db18af5573ad513be19fdbf3f809e9c83cf7238fa1088bb1a4d707568c41dbfe",
+  "repeated_condition_variability.csv": "30037c6d63e6de41d23cca4c49c80677a2ad974498a87d8d1694081d3bd756c6",
+  "ablation_error_analysis\\actual_vs_predicted.png": "6a77c2309433ac32425108355f923aced35a5b609201c5fda4f9dbbb7d7845ca",
+  "ablation_error_analysis\\per_protein_squared_error.png": "971cd6c4f1935be360519dd3c4cc9490a14e2db317a70d24aed9ca54ec1c0da1"
+}

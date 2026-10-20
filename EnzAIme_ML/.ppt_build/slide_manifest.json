@@ -1,0 +1,272 @@
+[
+  {
+    "slide": 1,
+    "title": "EnzAIme",
+    "source": "Original title slide and project brief",
+    "note": "Final review. Preserve team and guide identities from the supplied deck."
+  },
+  {
+    "slide": 2,
+    "title": "Motivation and current scope",
+    "source": "Original slides 2–7; data/processed/tpa_pet_ml_confirmed.csv",
+    "note": ""
+  },
+  {
+    "slide": 3,
+    "title": "Aim and research objectives",
+    "source": "data/processed/tpa_pet_ml_confirmed.csv; scripts/",
+    "note": ""
+  },
+  {
+    "slide": 4,
+    "title": "Current work and long-term proposal",
+    "source": "reports/results/served_model_audit/README.md; reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": ""
+  },
+  {
+    "slide": 5,
+    "title": "Literature survey: evolution and structure",
+    "source": "https://github.com/HySonLab/Directed_Evolution; https://ieeexplore.ieee.org/document/10443319/",
+    "note": "Hong title corrected to Artificial Intelligence. Bibliographic details retained from the source deck; full paper access was limited."
+  },
+  {
+    "slide": 6,
+    "title": "Literature survey: protein representations",
+    "source": "https://doi.org/10.1126/science.ade2574; https://doi.org/10.1073/pnas.2016239118",
+    "note": ""
+  },
+  {
+    "slide": 7,
+    "title": "Research gap and question",
+    "source": "Project brief; reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": ""
+  },
+  {
+    "slide": 8,
+    "title": "Dataset sources and intended roles",
+    "source": "master_dataset.csv; reports/results/tpa_provenance_audit_summary.json; reports/results/fireprotdb_analysis.json",
+    "note": ""
+  },
+  {
+    "slide": 9,
+    "title": "Dataset construction and provenance",
+    "source": "master_dataset.csv; data/processed/tpa_pet_ml_confirmed.csv; reports/results/tpa_provenance_audit_summary.json",
+    "note": ""
+  },
+  {
+    "slide": 10,
+    "title": "Confirmed dataset profile",
+    "source": "data/processed/tpa_pet_ml_confirmed.csv; reports/results/tpa_confirmed_dataset_summary.json",
+    "note": ""
+  },
+  {
+    "slide": 11,
+    "title": "Activity provenance audit",
+    "source": "reports/results/tpa_confirmed_dataset_summary.json; reports/results/tpa_ambiguous_review.md",
+    "note": ""
+  },
+  {
+    "slide": 12,
+    "title": "Protein imbalance and assay variability",
+    "source": "reports/results/repeated_condition_variability.json; data/processed/tpa_pet_ml_confirmed.csv",
+    "note": ""
+  },
+  {
+    "slide": 13,
+    "title": "Feature eligibility and leakage audit",
+    "source": "reports/results/feature_eligibility_audit.csv",
+    "note": ""
+  },
+  {
+    "slide": 14,
+    "title": "Controlled feature configurations",
+    "source": "reports/results/research_feature_matrix_summary.json",
+    "note": ""
+  },
+  {
+    "slide": 15,
+    "title": "What model are we using?",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py; backend/app/services/esm_encoder.py",
+    "note": ""
+  },
+  {
+    "slide": 16,
+    "title": "Frozen ESM-2 feature extraction",
+    "source": "backend/app/services/esm_encoder.py; data/embeddings/index.json; reports/results/research_feature_matrix_summary.json",
+    "note": "Current implementation pools all attention-mask tokens, including special tokens; it truncates at 1024 tokens. Existing vectors reused, no regeneration."
+  },
+  {
+    "slide": 17,
+    "title": "Current research prediction pipeline",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": ""
+  },
+  {
+    "slide": 18,
+    "title": "Representation and feature equations",
+    "source": "backend/app/services/esm_encoder.py; reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": "m_i is 1 for attended tokens. This corrects the brief’s residue-only pooling description to match the implementation."
+  },
+  {
+    "slide": 19,
+    "title": "Ridge training and prediction",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": "Ridge fits an intercept by default. The objective uses transformed training targets. log1p itself has no fitted parameters, but is applied within the fold training flow."
+  },
+  {
+    "slide": 20,
+    "title": "Evaluation metrics",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": ""
+  },
+  {
+    "slide": 21,
+    "title": "Protein-grouped cross-validation",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": ""
+  },
+  {
+    "slide": 22,
+    "title": "Controlled ablation results",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": "Arithmetic means of fold metrics. B Spearman excludes undefined fold 1 and uses four defined folds; all other displayed means use five folds. These are not pooled OOF metrics."
+  },
+  {
+    "slide": 23,
+    "title": "Ablation: absolute prediction error",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": "Editable chart generated from actual CSV fold means. No synthetic metric values."
+  },
+  {
+    "slide": 24,
+    "title": "What the current results tell us",
+    "source": "reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py",
+    "note": ""
+  },
+  {
+    "slide": 25,
+    "title": "Completed fold-level error analysis",
+    "source": "reports/results/ablation_error_analysis/actual_vs_predicted.png; reports/results/ablation_error_analysis/ablation_error_analysis_report.md",
+    "note": ""
+  },
+  {
+    "slide": 26,
+    "title": "Error analysis: two major findings",
+    "source": "reports/results/ablation_error_analysis/targeted_audit/targeted_audit_report.md",
+    "note": "The targeted report contains a conflicting B fold-1 constant value. That constant is omitted. Controlled metrics are taken directly from the CSV."
+  },
+  {
+    "slide": 27,
+    "title": "Additional research already completed",
+    "source": "reports/results/model_comparison_results.json; reports/results/protein_balance_sensitivity.md; reports/results/repeated_condition_variability.json",
+    "note": "These follow-up experiments differ from the fixed A/B/C ablation. No production model selection or deployment follows from them."
+  },
+  {
+    "slide": 28,
+    "title": "Software architecture",
+    "source": "backend/app/api/routes.py; backend/app/services/; frontend/src/App.jsx; reports/results/served_model_audit/README.md",
+    "note": ""
+  },
+  {
+    "slide": 29,
+    "title": "Served model: lineage and reproducibility",
+    "source": "reports/results/served_model_audit/README.md; models/model_config.json",
+    "note": ""
+  },
+  {
+    "slide": 30,
+    "title": "Actual saved API output",
+    "source": "reports/results/served_model_audit/live_api_prediction.json; reports/results/served_model_audit/prediction_comparison.json",
+    "note": "Saved API output from the 2026-09-28 audit, not a newly run inference or screenshot."
+  },
+  {
+    "slide": 31,
+    "title": "Prototype interface: home",
+    "source": "Original PPT embedded screenshot, preserved without fabrication",
+    "note": "These images document the older prototype and do not represent the current React interface or confirmed-model inference."
+  },
+  {
+    "slide": 32,
+    "title": "Prototype interface: recommendation",
+    "source": "Original PPT embedded screenshot, preserved without fabrication",
+    "note": "These images document the older prototype and do not represent the current React interface or confirmed-model inference."
+  },
+  {
+    "slide": 33,
+    "title": "Prototype interface: enzyme details",
+    "source": "Original PPT embedded screenshot, preserved without fabrication",
+    "note": "These images document the older prototype and do not represent the current React interface or confirmed-model inference."
+  },
+  {
+    "slide": 34,
+    "title": "Initial rule-based baseline",
+    "source": "Original slide 31",
+    "note": "Historical prototype documentation. The formula is preserved for context, not claimed as the current learned predictor."
+  },
+  {
+    "slide": 35,
+    "title": "Preliminary mutation prioritization",
+    "source": "Original slide 32; reports/results/fireprotdb_analysis.json",
+    "note": "Current EnzAIme_ML routes do not expose a mutation endpoint. Historical implementation claims are not carried into the present ML application."
+  },
+  {
+    "slide": 36,
+    "title": "Current implementation status",
+    "source": "data/processed/tpa_pet_ml_confirmed.csv; reports/results/; backend/app/; frontend/src/",
+    "note": ""
+  },
+  {
+    "slide": 37,
+    "title": "Codebase and verification evidence",
+    "source": "backend/app/; frontend/src/; scripts/; tests/test_legacy_evidence_integration.py; reports/results/served_model_audit/README.md",
+    "note": "No existing application tests were rerun for this presentation-only edit. The old 54-test assertion and clean-install claim are not supported for this repository."
+  },
+  {
+    "slide": 38,
+    "title": "Current limitations",
+    "source": "data/processed/tpa_pet_ml_confirmed.csv; reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py; reports/results/served_model_audit/README.md",
+    "note": ""
+  },
+  {
+    "slide": 39,
+    "title": "Long-term EnzAIme architecture",
+    "source": "Original proposed architecture and user brief",
+    "note": "PROPOSED / FUTURE ARCHITECTURE. This diagram is a roadmap, not a claim that its modules are trained."
+  },
+  {
+    "slide": 40,
+    "title": "Future masking and evolution strategy",
+    "source": "Original slides 14–22; https://github.com/HySonLab/Directed_Evolution",
+    "note": "Proposal adapted from literature. No current EnzAIme condition-aware neural oracle has been established as trained."
+  },
+  {
+    "slide": 41,
+    "title": "Future work in research order",
+    "source": "Project brief updated against existing reports",
+    "note": ""
+  },
+  {
+    "slide": 42,
+    "title": "Outputs, feasibility and intended impact",
+    "source": "Project brief; repository artifacts",
+    "note": ""
+  },
+  {
+    "slide": 43,
+    "title": "Conclusion",
+    "source": "data/processed/tpa_pet_ml_confirmed.csv; reports/results/controlled_ablation_results.csv; scripts/run_controlled_ablation.py; reports/results/ablation_error_analysis/",
+    "note": ""
+  },
+  {
+    "slide": 44,
+    "title": "References and research evidence",
+    "source": "Bibliographic references and local project evidence",
+    "note": ""
+  },
+  {
+    "slide": 45,
+    "title": "Thank you",
+    "source": "Original closing slide",
+    "note": ""
+  }
+]

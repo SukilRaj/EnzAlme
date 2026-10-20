@@ -1,0 +1,1632 @@
+[
+  {
+    "slide": 1,
+    "part": "ppt/slides/slide1.xml",
+    "paragraphs": [
+      "1",
+      "Department of AI&DS",
+      "Environment-Aware AI Platform for",
+      "Enzyme Recommendation and Optimization",
+      "for Industrial Waste Biodegradation",
+      "REVIEW 2",
+      "Current research focus: TPA/PET activity prediction",
+      "MEMBERS:",
+      "Ramkumar R",
+      "Sukil Raj M S",
+      "GUIDE:",
+      "Mr. G. Kirubakaran",
+      "B.E., M.E.",
+      "Department of Artificial Intelligence and Data Science",
+      "Mepco Schlenk Engineering College",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 2,
+    "part": "ppt/slides/slide2.xml",
+    "paragraphs": [
+      "2",
+      "Enzymatic Industrial Waste Degradation — Overview",
+      "Industrial wastewater contains dyes, plastics, phenolic compounds, oils, and other persistent pollutants.",
+      "Many natural enzymes lose activity under extreme pH and temperature conditions.",
+      "Recent Protein Language Models (ESM-2) can analyze protein sequences computationally.",
+      "This project proposes an AI-assisted enzyme recommendation and optimization pipeline for industrial wastewater treatment.",
+      "Department of AI&DS",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 3,
+    "part": "ppt/slides/slide3.xml",
+    "paragraphs": [
+      "3",
+      "Department of AI&DS",
+      "Target Industrial Waste Categories",
+      "Textile Dye Effluent",
+      "Plastic (PET/PU) Waste",
+      "Pesticide / Phenolic Waste",
+      "Heavy-metal-laden Sludge",
+      "The current study focuses on PET assays with TPA concentration targets. Other waste categories are future extensions.",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-03-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-03-2.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-03-3.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-03-4.png"
+    ]
+  },
+  {
+    "slide": 4,
+    "part": "ppt/slides/slide4.xml",
+    "paragraphs": [
+      "4",
+      "Department of AI&DS",
+      "Enzyme Research Overview",
+      "• Enzymes catalyse biological reactions and can support PET degradation research.",
+      "• Protein sequence and assay conditions jointly describe each observation.",
+      "• Our project investigates prediction of measured TPA concentration.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 5,
+    "part": "ppt/slides/slide5.xml",
+    "paragraphs": [
+      "5",
+      "Department of AI&DS",
+      "PET Degradation Overview",
+      "• PET is the current material studied in the confirmed dataset.",
+      "• Recorded enzyme assays report degradation products under specified conditions.",
+      "• Broader wastewater categories remain a long-term application scope.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 6,
+    "part": "ppt/slides/slide6.xml",
+    "paragraphs": [
+      "6",
+      "Department of AI&DS",
+      "TPA Concentration as the Target",
+      "• Target: experimentally recorded TPA concentration in µM.",
+      "• Inputs: protein sequence, temperature, pH and assay duration.",
+      "• Concentration depends on assay context and duration. It is not a universal catalytic rate.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 7,
+    "part": "ppt/slides/slide7.xml",
+    "paragraphs": [
+      "7",
+      "Department of AI&DS",
+      "Problem Statement",
+      "• Can protein language-model features improve TPA prediction beyond environmental conditions?",
+      "• Measurements span heterogeneous assay protocols and unequal protein coverage.",
+      "• Generalization must be tested on proteins excluded from training.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 8,
+    "part": "ppt/slides/slide8.xml",
+    "paragraphs": [
+      "8",
+      "Department of AI&DS",
+      "Research Gap",
+      "• The two base papers address sequence design and structure prediction.",
+      "• They do not directly establish prediction of TPA concentration under PET assay conditions.",
+      "• Our study examines condition fusion using provenance-audited activity records.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 9,
+    "part": "ppt/slides/slide9.xml",
+    "paragraphs": [
+      "9",
+      "Department of AI&DS",
+      "Aim",
+      "• Investigate whether frozen protein representations combined with environmental conditions improve TPA/PET prediction.",
+      "• Develop an evidence-based research prototype for exploratory enzyme candidate ranking.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 10,
+    "part": "ppt/slides/slide10.xml",
+    "paragraphs": [
+      "10",
+      "Department of AI&DS",
+      "Objectives",
+      "• Audit activity labels and preserve source provenance.",
+      "• Compare environment-only, protein-only and fused features.",
+      "• Evaluate unseen proteins with fold-local preprocessing.",
+      "• Present predictions and evidence with explicit limitations.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 11,
+    "part": "ppt/slides/slide11.xml",
+    "paragraphs": [
+      "11",
+      "Requirement Analysis",
+      "Wild-type/natural enzymes degrade only a narrow range of industrial pollutants and fail under extreme pH/temperature conditions – disadvantage.",
+      "Manual wet-lab directed evolution (mutagenesis + screening) is slow, costly, and combinatorially intractable.",
+      "Computational screening is used to reduce the number of enzyme variants that need laboratory testing.",
+      "Department of AI&DS",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 12,
+    "part": "ppt/slides/slide12.xml",
+    "paragraphs": [
+      "12",
+      "Requirement Analysis (Contd…)",
+      "In-silico, condition-aware mutation screening can shortlist promising enzyme variants before wet-lab testing, saving time and cost.",
+      "Eliminates the need to exhaustively screen the mutation space experimentally for every new waste stream.",
+      "Department of AI&DS",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 13,
+    "part": "ppt/slides/slide13.xml",
+    "paragraphs": [
+      "13",
+      "Department of AI&DS",
+      "Proposed Solution",
+      "• Confirmed activity records form the research dataset.",
+      "• Frozen ESM-2 provides sequence representations.",
+      "• Ridge regression combines approved features.",
+      "• Protein-grouped evaluation measures generalization.",
+      "• FastAPI and React provide an exploratory user interface.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 14,
+    "part": "ppt/slides/slide14.xml",
+    "paragraphs": [
+      "14",
+      "Department of AI&DS",
+      "Specification",
+      "• Existing workstation for data preparation and API/UI development.",
+      "• 16 GB RAM and 50 GB storage were the original project specification.",
+      "• GPU acceleration is preferred for ESM-2 extraction.",
+      "• Cached embeddings support lightweight repeat experiments.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 15,
+    "part": "ppt/slides/slide15.xml",
+    "paragraphs": [
+      "15",
+      "Department of AI&DS",
+      "Specification (Contd…)",
+      "• Python, PyTorch and Hugging Face Transformers.",
+      "• NumPy, pandas, scikit-learn and Biopython.",
+      "• FastAPI backend and React/Vite frontend.",
+      "• VS Code or Codex for implementation and review.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 16,
+    "part": "ppt/slides/slide16.xml",
+    "paragraphs": [
+      "16",
+      "Department of AI&DS",
+      "Technologies Used",
+      "• Frozen ESM-2: facebook/esm2_t33_650M_UR50D.",
+      "• Mean-pooled, 1280-dimensional sequence embeddings.",
+      "• PCA and Ridge regression for controlled experiments.",
+      "• GroupKFold and log1p target transformation.",
+      "• CSV/JSON provenance and experiment artifacts.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 17,
+    "part": "ppt/slides/slide17.xml",
+    "paragraphs": [
+      "17",
+      "Department of AI&DS",
+      "Literature Survey",
+      "Author(s)",
+      "Year",
+      "Vol",
+      "Journal",
+      "Paper Title",
+      "Contribution",
+      "Improvements suggested",
+      "Tran T. V. T., Hy T. S.",
+      "2025",
+      "29",
+      "IEEE Transactions on Evolutionary Computation",
+      "Protein Design by Directed Evolution Guided by Large Language Models",
+      "Uses ESM-2 embeddings to guide directed evolution and prioritize beneficial protein mutations.",
+      "Introduce environment-aware enzyme recommendation by integrating pH, temperature, and pollutant characteristics into the optimization pipeline.",
+      "Hong J. et al.",
+      "2025",
+      "29",
+      "IEEE Transactions on Evolutionary Computation",
+      "Protein Structure Prediction Using a New Optimization-Based Evolutionary and Explainable AI Approach",
+      "Combines evolutionary optimization with explainable AI for protein structure prediction.",
+      "Extend the approach to enzyme selection and recommendation for industrial wastewater treatment.",
+      "Lin Z. et al.",
+      "2023",
+      "379",
+      "Science",
+      "Evolutionary-Scale Prediction of Atomic-Level Protein Structure with a Language Model",
+      "Demonstrates powerful protein representations using large protein language models (ESM-2).",
+      "Apply protein language model embeddings specifically to industrial enzyme engineering and wastewater applications.",
+      "Rives A. et al.",
+      "2021",
+      "118",
+      "Proceedings of the National Academy of Sciences (PNAS)",
+      "Biological Structure and Function Emerge from Scaling Unsupervised Learning to 250 Million Protein Sequences",
+      "Introduced large-scale protein language modeling that learns biological structure and function from protein sequences.",
+      "Develop a condition-aware fitness scoring framework by combining protein embeddings with environmental parameters.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 18,
+    "part": "ppt/slides/slide18.xml",
+    "paragraphs": [
+      "18",
+      "Department of AI&DS",
+      "Literature Survey: Base Paper 1",
+      "• Objective: improve protein fitness through ML-guided directed evolution.",
+      "• Method: random/importance masking, ESM-2 residue proposals and an Attention1D fitness oracle.",
+      "• Evaluation: eight protein-engineering benchmark datasets.",
+      "• Relevance: protein representations and a future design loop.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 19,
+    "part": "ppt/slides/slide19.xml",
+    "paragraphs": [
+      "19",
+      "Department of AI&DS",
+      "Literature Survey: Base Paper 2",
+      "• Objective: predict structure through multiobjective energy optimization.",
+      "• Method: IMPMO-DE with adaptive archive mutation, mixed transfer and archive evolution.",
+      "• Evaluation: 28 proteins and CASP14 template-free targets up to 404 residues.",
+      "• Relevance: a future structure-assessment extension.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 20,
+    "part": "ppt/slides/slide20.xml",
+    "paragraphs": [
+      "20",
+      "Department of AI&DS",
+      "Research Gap Table",
+      "Aspect",
+      "Base papers",
+      "Current EnzAIme study",
+      "Target",
+      "Protein fitness or structure",
+      "Measured TPA concentration",
+      "Inputs",
+      "Sequence / structure search",
+      "Sequence + pH, temperature, duration",
+      "Evaluation",
+      "Paper-specific benchmarks",
+      "Unseen-protein GroupKFold",
+      "Current boundary",
+      "Design / structural optimization",
+      "Prediction experiment; design planned",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 21,
+    "part": "ppt/slides/slide21.xml",
+    "paragraphs": [
+      "System Design",
+      "Department of AI&DS",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-21-1.png"
+    ]
+  },
+  {
+    "slide": 22,
+    "part": "ppt/slides/slide22.xml",
+    "paragraphs": [
+      "22",
+      "Department of AI&DS",
+      "Integrated System Design",
+      "",
+      "Protein sequence",
+      "",
+      "pH, temperature,",
+      "duration",
+      "",
+      "",
+      "",
+      "Frozen ESM-2",
+      "1280 features",
+      "",
+      "Environmental vector",
+      "3 features",
+      "Feature concatenation: 1283 values",
+      "1280 embedding features → embedding scaling → PCA to 10 → concatenate 3 conditions → final scaling of 13 features → Ridge",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 23,
+    "part": "ppt/slides/slide23.xml",
+    "paragraphs": [
+      "23",
+      "Department of AI&DS",
+      "System Design: Data Pipeline",
+      "",
+      "Master dataset",
+      "462 protein rows",
+      "",
+      "Nested assay",
+      "record extraction",
+      "",
+      "Provenance audit",
+      "227 matched rows",
+      "",
+      "Six ambiguous",
+      "records excluded",
+      "",
+      "221 confirmed",
+      "TPA observations",
+      "",
+      "25 proteins with",
+      "verified embeddings",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 24,
+    "part": "ppt/slides/slide24.xml",
+    "paragraphs": [
+      "24",
+      "Department of AI&DS",
+      "System Design: Application",
+      "",
+      "Sequence +",
+      "assay conditions",
+      "",
+      "FastAPI input",
+      "validation",
+      "",
+      "Frozen encoder +",
+      "saved model pipeline",
+      "",
+      "TPA prediction",
+      "in µM",
+      "",
+      "React result",
+      "and error states",
+      "",
+      "Legacy-model",
+      "disclosure",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "The served legacy model is separate from the confirmed A/B/C research experiment.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 25,
+    "part": "ppt/slides/slide25.xml",
+    "paragraphs": [
+      "25",
+      "Department of AI&DS",
+      "System Design: Base Paper 1",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-25-1.jpeg"
+    ]
+  },
+  {
+    "slide": 26,
+    "part": "ppt/slides/slide26.xml",
+    "paragraphs": [
+      "26",
+      "Department of AI&DS",
+      "Workflow: Base Paper 1",
+      "",
+      "Parent protein",
+      "population",
+      "",
+      "Random / importance",
+      "masking",
+      "",
+      "ESM-2 residue",
+      "proposals",
+      "",
+      "Attention1D",
+      "fitness oracle",
+      "",
+      "Top-k candidate",
+      "selection",
+      "",
+      "Next evolution",
+      "round",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Conceptual summary of Tran and Hy. This directed-evolution loop is future work in EnzAIme.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 27,
+    "part": "ppt/slides/slide27.xml",
+    "paragraphs": [
+      "27",
+      "Department of AI&DS",
+      "System Design: Base Paper 2",
+      "Fig 1.2 Major Structure of an MPMO framework",
+      "Fig 1.3 Flowchart of IMPMO-DE",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-27-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-27-2.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-27-3.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-27-4.png"
+    ]
+  },
+  {
+    "slide": 28,
+    "part": "ppt/slides/slide28.xml",
+    "paragraphs": [
+      "28",
+      "Department of AI&DS",
+      "Workflow: Base Paper 2",
+      "",
+      "Sequence and",
+      "torsion representation",
+      "",
+      "Three energy",
+      "objectives",
+      "",
+      "Differential-evolution",
+      "populations",
+      "",
+      "Adaptive mutation",
+      "and mixed transfer",
+      "",
+      "Evolvable archive",
+      "update",
+      "",
+      "Candidate protein",
+      "structures",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Conceptual summary of Hong et al. IMPMO-DE is not implemented in the current prototype.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 29,
+    "part": "ppt/slides/slide29.xml",
+    "paragraphs": [
+      "29",
+      "Department of AI&DS",
+      "Algorithm: Research Pipeline",
+      "Input: original assay records 𝐷0, source records 𝑅, existing protein embeddings.Output: confirmed dataset 𝐷, controlled evaluation, out-of-fold error analysis.",
+      "RESEARCH_PIPELINE(D₀, R, embedding_index)",
+      "",
+      "1. Audit source provenance for every record in D₀.",
+      "2. Partition records into confirmed, ambiguous, and other unresolved categories.",
+      "3. Construct D using only confirmed TPA/PET records.",
+      "4. Convert confirmed targets to µM and durations to hours.",
+      "5. Retain duplicate, repeated-condition, and zero-duration flags.",
+      "6. Check sequence availability, feature eligibility, and embedding coverage.",
+      "7. Construct:",
+      "       E = environmental matrix, shape N × 3",
+      "       B = embedding matrix, shape N × 1280",
+      "       z = log1p(y)",
+      "       g = protein identifiers",
+      " ",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-29-1.png"
+    ]
+  },
+  {
+    "slide": 30,
+    "part": "ppt/slides/slide30.xml",
+    "paragraphs": [
+      "30",
+      "Department of AI&DS",
+      "Algorithm: Research Pipeline cond,.",
+      "8. Prepare one shared set of K protein-grouped folds.",
+      "9. For each configuration c ∈ {A, B, C}:",
+      "       fit preprocessing and Ridge within each training fold",
+      "       predict only the corresponding held-out fold",
+      "       retain predictions and fold metrics",
+      "10. Aggregate defined fold metrics and compute pooled OOF metrics separately.",
+      "11. Analyze errors by record, protein, fold, and repeated conditions.",
+      "12. Report provenance, undefined metrics, limitations, and configuration differences.",
+      "",
+      "Return D, fold_manifest, OOF_predictions, evaluation, error_analysis.",
+      "Context features are not included in the current controlled A/B/C experiment: PET substrate is constant, while material descriptions are heterogeneous and source-specific.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 31,
+    "part": "ppt/slides/slide31.xml",
+    "paragraphs": [
+      "31",
+      "Department of AI&DS",
+      "Algorithm: Fold Preparation",
+      "Records sharing a protein identifier must stay together:",
+      "𝑝𝑖:𝑖∈𝐼𝑘𝑡𝑟∩𝑝𝑖:𝑖∈𝐼𝑘𝑡𝑒=∅.",
+      "Each record must appear in exactly one held-out fold:",
+      "𝑘=1𝐾𝐼𝑘𝑡𝑒=1,…,𝑁,  𝐼𝑘𝑡𝑒∩𝐼𝓁𝑡𝑒=∅ 𝑘≠𝓁.",
+      "PREPARE_FOLDS(D, K = 5)",
+      "g ← protein_id column of D",
+      "F ← GroupKFold(K).split(record_indices, groups = g)",
+      "For each fold k with indices (Iᵗʳₖ, Iᵗᵉₖ):",
+      "    Assert training and held-out protein sets do not overlap.",
+      "    Record training/test indices, protein IDs, and record counts.",
+      "Assert every record occurs in exactly one held-out fold.",
+      "Reuse F unchanged for configurations A, B, and C.",
+      "Return F.",
+      "The implementation groups by protein ID. It does not additionally group different IDs by sequence similarity.",
+      " ",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-31-1.png"
+    ]
+  },
+  {
+    "slide": 32,
+    "part": "ppt/slides/slide32.xml",
+    "paragraphs": [
+      "32",
+      "Department of AI&DS",
+      "Algorithm: Evaluation",
+      "For a held-out set 𝑉, define residuals:",
+      "𝑟𝑖=𝑦𝑖−𝑦ˆ𝑖.",
+      "Then:",
+      "MAE=1𝑉𝑖∈𝑉𝑟𝑖,  RMSE=1𝑉𝑖∈𝑉𝑟𝑖2,𝑅2=1−𝑖∈𝑉𝑟𝑖2𝑖∈𝑉𝑦𝑖−𝑦¯𝑉2,𝜌𝑠=Corrrank𝑦,rank𝑦ˆ.",
+      "MAE and RMSE use µM; 𝑅2and Spearman correlation are dimensionless.",
+      "EVALUATE(y, ŷ, fold_ids)",
+      "For each fold k:",
+      "    Calculate MAEₖ and RMSEₖ.",
+      "    Calculate R²ₖ unless the actual targets are constant.",
+      "    Calculate Spearmanₖ unless actual targets or predictions are constant.",
+      "    Retain an explicit reason for every undefined metric.",
+      " ",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-32-1.png"
+    ]
+  },
+  {
+    "slide": 33,
+    "part": "ppt/slides/slide33.xml",
+    "paragraphs": [
+      "33",
+      "Department of AI&DS",
+      "Algorithm: Evaluation Cond.,",
+      "For each metric M:",
+      "    J ← folds where M is defined",
+      "    mean_fold(M) ← mean of M over J",
+      "    sd_fold(M) ← sample standard deviation over J",
+      "    Report |J| / K.",
+      "",
+      "Concatenate all OOF predictions.",
+      "Compute pooled metrics once over the concatenated records.",
+      "",
+      "Return fold metrics, mean-fold summaries, pooled metrics.",
+      "Mean-fold and pooled metrics are different quantities. In general:",
+      "1𝐾∑𝑘RMSE𝑘≠1𝑁∑𝑖𝑟𝑖2.",
+      "The controlled study uses sample standard deviation for fold summaries. This does not establish how the legacy model’s saved variation statistics were originally computed.",
+      " ",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-33-1.png"
+    ]
+  },
+  {
+    "slide": 34,
+    "part": "ppt/slides/slide34.xml",
+    "paragraphs": [
+      "34",
+      "Department of AI&DS",
+      "Algorithm: Candidate Exploration",
+      "Candidates and evidence counts come from 𝐷; scores come from 𝑓𝐿:",
+      "𝑛𝑝=𝑖=1𝑁1𝑝𝑖=𝑝,𝑞𝑝",
+      " ",
+      "",
+      "October 12, 2026",
+      "𝑛𝑝: number of dataset records associated with protein 𝑝.",
+      "𝑁: total number of records in the dataset being counted.",
+      "𝑖: index of a record, from 1 to 𝑁.",
+      "𝑝𝑖: protein associated with record 𝑖.",
+      "𝟏𝑝𝑖=𝑝: indicator function. It equals 1 when record 𝑖 belongs to protein 𝑝, and 0 otherwise.",
+      "​: adds those indicator values, giving the count for protein 𝑝.",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-34-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-34-2.png"
+    ]
+  },
+  {
+    "slide": 35,
+    "part": "ppt/slides/slide35.xml",
+    "paragraphs": [
+      "35",
+      "Department of AI&DS",
+      "Algorithm: Candidate Exploration Cont.,",
+      "=max 0, exp 𝑓𝐿 𝑆𝐿𝑃𝐿𝐛𝑝;𝐞∗−1",
+      " ",
+      "",
+      "October 12, 2026",
+      "𝑞𝑝: the model’s predicted product concentration for protein 𝑝, in 𝜇M.",
+      "𝐛𝑝: the protein’s frozen ESM-2 representation (embedding).",
+      "𝑃𝐿: the legacy model’s saved PCA transformation. In this project, it reduces the embedding to 10 components.",
+      "𝐞∗: the input reaction-condition vector, containing temperature, pH, and duration.",
+      " ; : concatenation: join the reduced protein representation and condition vector into one feature vector.",
+      "𝑆𝐿: the legacy model’s saved feature scaler, applied to the concatenated features.",
+      "𝑓𝐿: the legacy regression model (Ridge), which predicts on the log1+concentration scale.",
+      "exp⋅−1: converts the prediction back from the log scale to concentration.",
+      "max0,⋅: clips a negative converted prediction to zero.",
+      "",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-35-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-35-2.png"
+    ]
+  },
+  {
+    "slide": 36,
+    "part": "ppt/slides/slide36.xml",
+    "paragraphs": [
+      "36",
+      "Department of AI&DS",
+      "Algorithm: Candidate Exploration Cond,.",
+      "EXPLORE_CANDIDATES(D, embedding_index, e*, m)",
+      "Validate pH, temperature, duration, and requested count.",
+      "Do not require a user-supplied sequence.",
+      "C ← unique proteins from D",
+      "For each protein p ∈ C:",
+      "    bₚ ← existing indexed embedding",
+      "    qₚ ← LEGACY_PREDICT(bₚ, e*)",
+      "    nₚ ← number of confirmed records for p",
+      "    Attach confirmed evidence provenance.",
+      "    Label qₚ as a legacy-model computational prediction.",
+      "    State unresolved training/evaluation row membership.",
+      "Sort candidates by qₚ in descending order.",
+      "Assign ranks and return the first m candidates.",
+      "The API permits 1≤𝑚≤10. Rankings indicate computational estimates under the supplied conditions, not experimentally established superiority.",
+      " ",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-36-1.png"
+    ]
+  },
+  {
+    "slide": 37,
+    "part": "ppt/slides/slide37.xml",
+    "paragraphs": [
+      "37",
+      "Department of AI&DS",
+      "Modules",
+      " 1. Dataset construction and provenance audit.",
+      " 2. Frozen protein representation.",
+      " 3. Feature fusion and controlled prediction.",
+      " 4. Validation and error analysis.",
+      " 5. Prediction/recommendation API and responsive UI.",
+      " 6. Mutation and structure modules: planned.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 38,
+    "part": "ppt/slides/slide38.xml",
+    "paragraphs": [
+      "38",
+      "Department of AI&DS",
+      "1. Dataset Construction",
+      "Field",
+      "Confirmed research dataset",
+      "File",
+      "data/processed/tpa_pet_ml_confirmed.csv",
+      "Observations",
+      "221",
+      "Unique proteins",
+      "25",
+      "Target",
+      "target_value_standardized, µM",
+      "Environmental inputs",
+      "temperature_c, ph, duration_hours",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 39,
+    "part": "ppt/slides/slide39.xml",
+    "paragraphs": [
+      "39",
+      "Department of AI&DS",
+      "1. Data Sources and Roles",
+      "Source",
+      "Current role",
+      "PAZy / retained assay records",
+      "Activity evidence and source context",
+      "UniProt",
+      "Sequence and protein identity mapping",
+      "BRENDA",
+      "Collected property evidence; not extra labels",
+      "FireProtDB",
+      "Insufficient current mutation/DDG labels",
+      "PDB",
+      "Future structural evidence",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 40,
+    "part": "ppt/slides/slide40.xml",
+    "paragraphs": [
+      "40",
+      "Department of AI&DS",
+      "1. Activity Provenance Audit",
+      "• 7,195 embedded assay records reviewed in the integration workflow.",
+      "• All 227 original ML rows matched retained source records.",
+      "• 221 records confirmed as TPA.",
+      "• Six ambiguous records remain excluded.",
+      "• No unresolved provenance rows in the reported audit.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 41,
+    "part": "ppt/slides/slide41.xml",
+    "paragraphs": [
+      "41",
+      "Department of AI&DS",
+      "1. Units and Duration Normalization",
+      "• Standardized TPA target unit: µM.",
+      "• mM concentrations convert by multiplying by 1,000.",
+      "• Duration values use hours. Days convert by multiplying by 24.",
+      "• Retained source JSON records the original measurement.",
+      "• Unit consistency does not establish assay comparability.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 42,
+    "part": "ppt/slides/slide42.xml",
+    "paragraphs": [
+      "42",
+      "Department of AI&DS",
+      "1. Repeated Assay Conditions",
+      "• 48 repeated protein-condition groups identified.",
+      "• 47 groups have different recorded targets.",
+      "• Additional assay metadata can differ across records.",
+      "• These differences do not establish a causal explanation.",
+      "• Primary analysis retains the observations and provenance.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 43,
+    "part": "ppt/slides/slide43.xml",
+    "paragraphs": [
+      "43",
+      "Department of AI&DS",
+      "1. Feature Eligibility",
+      "• Current approved inputs: ESM-2, temperature, pH and duration.",
+      "• Material descriptions are heterogeneous and source-specific.",
+      "• Substrate is effectively constant PET in this experiment.",
+      "• Salinity, COD and BOD are absent from the confirmed schema.",
+      "• Protein-grouped validation limits identity leakage.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 44,
+    "part": "ppt/slides/slide44.xml",
+    "paragraphs": [
+      "44",
+      "Department of AI&DS",
+      "Source matching uses protein identity, assay conditions, substrate, and numeric measurement compatibility. Numeric equality alone does not establish analyte identity.",
+      "For confirmed TPA measurements:",
+      "𝑦𝜇𝑀=𝑣,𝑢∈𝜇𝑀,𝜇𝑚𝑜𝑙/𝐿,1000𝑣,𝑢=𝑚𝑀,1000𝑣/166.13,𝑢=𝜇𝑔/𝑚𝐿.",
+      "For the currently handled duration units:",
+      "𝑡hours=𝑡,𝑢𝑡=ℎ,24𝑡,𝑢𝑡=𝑑.",
+      " ",
+      "Representation",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-44-1.png"
+    ]
+  },
+  {
+    "slide": 45,
+    "part": "ppt/slides/slide45.xml",
+    "paragraphs": [
+      "45",
+      "Department of AI&DS",
+      "2. Frozen ESM-2 Representation",
+      "• Model: facebook/esm2_t33_650M_UR50D.",
+      "• Frozen feature extractor with no current fine-tuning.",
+      "• 1280-dimensional representation per protein.",
+      "• All 25 confirmed proteins have cached embeddings.",
+      "• Reported checks found no NaN or infinite values.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 46,
+    "part": "ppt/slides/slide46.xml",
+    "paragraphs": [
+      "46",
+      "Department of AI&DS",
+      "2. Frozen ESM-2 Representation Cond,.",
+      "Let 𝐇𝑝∈ℝ𝓁𝑝×1280 be token hidden states and 𝑎𝑝𝑗 the attention mask:",
+      "𝐛𝑝=𝑗=1𝓁𝑝𝑎𝑝𝑗𝐇𝑝𝑗max𝑗=1𝓁𝑝𝑎𝑝𝑗,𝜖.",
+      "Here 𝓁𝑝 is the encoded token count after truncation, rather than necessarily the full sequence length.",
+      " ",
+      "October 12, 2026",
+      "𝐛𝑝: the final, fixed-size embedding for protein 𝑝.",
+      "ℓ𝑝: the number of token positions in the encoded protein sequence.",
+      "𝑗: a position in that sequence.",
+      "𝐇𝑝𝑗: the ESM-2 hidden-state vector at position 𝑗 for protein 𝑝. In this project, each vector has 1,280 values.",
+      "𝑎𝑝𝑗: the weight or mask for position 𝑗. Typically it is 1 for included positions and 0 for padding, so padding does not affect the average.",
+      "𝑗𝑎𝑝𝑗𝐇𝑝𝑗: adds the included position vectors.",
+      "𝑗𝑎𝑝𝑗: counts the included positions.",
+      "𝜖: a small positive value that prevents division by zero if no positions are included.",
+      "max𝑗𝑎𝑝𝑗,𝜖: uses the larger of the included-position count and 𝜖 as the divisor.",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-46-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-46-2.png"
+    ]
+  },
+  {
+    "slide": 47,
+    "part": "ppt/slides/slide47.xml",
+    "paragraphs": [
+      "47",
+      "Department of AI&DS",
+      "2. Pooling and Embedding Reuse",
+      "• Current workflow uses mean residue pooling.",
+      "• Preserve the existing attention-mask pooling behavior.",
+      "• Reuse embeddings for controlled comparisons.",
+      "• Any pooling change requires a new embedding version and rerun.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 48,
+    "part": "ppt/slides/slide48.xml",
+    "paragraphs": [
+      "48",
+      "Department of AI&DS",
+      "3. Feature fusion and controlled prediction",
+      "For fold 𝑘, the controlled feature transformations are:",
+      "𝐱𝑖𝐴,𝑘&=𝑆𝐸,𝑘𝐞𝑖,𝐱𝑖𝐵,𝑘&=𝑃𝑘​𝑆𝐵,𝑘𝐛𝑝𝑖,𝐱𝑖𝐶,𝑘&=𝑆𝐹,𝑘​𝑃𝑘​𝑆𝐵,𝑘𝐛𝑝𝑖;𝐞𝑖.",
+      " ",
+      "October 12, 2026",
+      "𝑖: index of a dataset record.",
+      "𝑘: validation fold.",
+      "𝐞𝑖: the three reaction conditions for record 𝑖: temperature, pH, and duration.",
+      "𝐛𝑝𝑖: the protein embedding for the protein in record 𝑖.",
+      "𝑆𝐸,𝑘: condition-feature scaler fitted on fold 𝑘’s training records.",
+      "𝑆𝐵,𝑘: embedding-feature scaler fitted on the training proteins for fold 𝑘.",
+      "𝑃𝑘: PCA transformation fitted on those scaled training embeddings. It reduces them to 10 components.",
+      " ; : concatenation of vectors.",
+      "𝑆𝐹,𝑘: scaler fitted on the concatenated features in the training records.",
+      "The three configurations are:",
+      "A — conditions only: 𝐱𝑖𝐴,𝑘 has 3 features.",
+      "B — protein representation only: 𝐱𝑖𝐵,𝑘 has 10 PCA features.",
+      "C — combined: 𝐱𝑖𝐶,𝑘 has 10 PCA features plus 3 conditions, for 13 features.",
+      "The 𝑘 subscript indicates that each fold gets its own scalers and PCA, fitted using training data only.",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-48-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-48-2.png"
+    ]
+  },
+  {
+    "slide": 49,
+    "part": "ppt/slides/slide49.xml",
+    "paragraphs": [
+      "49",
+      "Department of AI&DS",
+      "3. Feature fusion and controlled prediction",
+      "Their final dimensions are respectively 3, 10, and 13.",
+      "Ridge estimates:",
+      "𝜷ˆ,𝛽ˆ0=argmin𝜷,𝛽0𝑖∈𝐼𝑘𝑡𝑟𝑧𝑖−𝛽0−𝐱𝑖⊤𝜷2+𝜆𝜷22.",
+      " ",
+      "October 12, 2026",
+      "𝐼𝑘tr: the record indices used to train fold 𝑘.",
+      "𝑧𝑖: the transformed target for record 𝑖, here log1+𝑦𝑖, where 𝑦𝑖 is the measured concentration.",
+      "𝐱𝑖: the feature vector for the chosen configuration and fold.",
+      "𝜷: the learned feature weights; its length is 3, 10, or 13 depending on the configuration.",
+      "𝛽0: the intercept.",
+      "𝜷,𝛽0: the fitted weights and intercept.",
+      "argmin: choose the weights and intercept that make the bracketed quantity as small as possible.",
+      "The sum of squared terms measures training prediction error.",
+      "𝜆𝜷22: the Ridge penalty, which discourages large feature weights. The intercept is not penalized.",
+      "𝜷22: the sum of squared coefficients.",
+      "For the controlled ablation in this project, the Ridge regularization parameter is 𝜆=10.",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-49-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-49-2.png"
+    ]
+  },
+  {
+    "slide": 50,
+    "part": "ppt/slides/slide50.xml",
+    "paragraphs": [
+      "50",
+      "Department of AI&DS",
+      "3. Research Feature Matrix",
+      "Configuration",
+      "Inputs",
+      "Raw Features Dimensions",
+      "A",
+      "Temperature, pH, duration",
+      "3",
+      "B",
+      "Frozen ESM-2 embedding",
+      "10",
+      "C",
+      "ESM-2 + environment",
+      "13",
+      "D",
+      "Material/substrate context",
+      "Rejected for this ablation",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 51,
+    "part": "ppt/slides/slide51.xml",
+    "paragraphs": [
+      "51",
+      "Department of AI&DS",
+      "3. Ridge Prediction Model",
+      "• PCA = 10 components for B and C.",
+      "• Ridge alpha = 10.",
+      "• Target transformation: z = log(1 + y).",
+      "• Back-transformation: ŷ = exp(ẑ) − 1.",
+      "• Original experiment applies no prediction clipping.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 52,
+    "part": "ppt/slides/slide52.xml",
+    "paragraphs": [
+      "52",
+      "Department of AI&DS",
+      "3. Protein-Grouped Validation",
+      "• Five GroupKFold splits grouped by protein_id.",
+      "• A, B and C use identical held-out proteins.",
+      "• All fitted preprocessing stays inside each training fold.",
+      "• R² can become extreme when test-target variance is small.",
+      "• Undefined metrics remain explicitly undefined.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 53,
+    "part": "ppt/slides/slide53.xml",
+    "paragraphs": [
+      "53",
+      "Department of AI&DS",
+      "3. Controlled Ablation Results",
+      "Config",
+      "MAE µM",
+      "RMSE µM",
+      "Mean R²",
+      "Spearman",
+      "A",
+      "1423.11",
+      "3200.77",
+      "−0.29",
+      "0.313",
+      "B",
+      "1918.29",
+      "3943.42",
+      "−86.87",
+      "−0.227",
+      "C",
+      "1592.12",
+      "3452.48",
+      "−23.22",
+      "0.239",
+      "Mean fold metrics. B Spearman uses 4 defined folds; A/C use 5.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 54,
+    "part": "ppt/slides/slide54.xml",
+    "paragraphs": [
+      "54",
+      "Department of AI&DS",
+      "3. Pooled vs Mean-Fold Results",
+      "Config",
+      "Pooled MAE",
+      "Mean MAE",
+      "Pooled R²",
+      "Mean R²",
+      "A",
+      "1420.71",
+      "1423.11",
+      "−0.049",
+      "−0.292",
+      "B",
+      "1888.33",
+      "1918.29",
+      "−0.159",
+      "−86.872",
+      "C",
+      "1515.90",
+      "1592.12",
+      "−0.062",
+      "−23.222",
+      "Pooled metrics weight observations. Mean-fold metrics weight folds equally.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 55,
+    "part": "ppt/slides/slide55.xml",
+    "paragraphs": [
+      "55",
+      "Department of AI&DS",
+      "4. Fold-Level Generalization",
+      "Fold",
+      "A R²",
+      "B R²",
+      "C R²",
+      "1",
+      "−0.693",
+      "−0.639",
+      "0.280",
+      "2",
+      "−0.141",
+      "−0.161",
+      "−0.157",
+      "3",
+      "−0.732",
+      "−433.076",
+      "−115.940",
+      "4",
+      "−0.052",
+      "−0.235",
+      "−0.216",
+      "5",
+      "0.159",
+      "−0.249",
+      "−0.075",
+      "Large errors plus low fold-3 target variance drive extreme B/C R².",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 56,
+    "part": "ppt/slides/slide56.xml",
+    "paragraphs": [
+      "56",
+      "Department of AI&DS",
+      "4. Error Analysis",
+      "For protein 𝑝, its contribution to total squared error is:",
+      "𝜂𝑝=𝑖:𝑝𝑖=𝑝𝑟𝑖2𝑖𝑟𝑖2.",
+      " ",
+      "October 12, 2026",
+      "𝑝: a protein.",
+      "𝑖: a dataset record.",
+      "𝑝𝑖: the protein associated with record 𝑖.",
+      "𝑟𝑖=𝑦𝑖−𝑦𝑖: the prediction residual for record 𝑖, meaning actual value minus predicted value.",
+      "𝑟𝑖2: the squared error for that record.",
+      "The numerator adds squared errors for records belonging to protein 𝑝.",
+      "The denominator adds squared errors over all records.",
+      "𝜂𝑝: the fraction of total squared error contributed by protein 𝑝. Multiply by 100 to express it as a percentage.",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-56-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-56-2.png"
+    ]
+  },
+  {
+    "slide": 57,
+    "part": "ppt/slides/slide57.xml",
+    "paragraphs": [
+      "57",
+      "Department of AI&DS",
+      "4. Error Analysis",
+      "For comparing configurations:",
+      "Δ𝑖𝐴→𝐶=𝑦𝑖−𝑦ˆ𝑖𝐶−𝑦𝑖−𝑦ˆ𝑖𝐴.",
+      "Negative Δ𝑖 means C has lower absolute error for that record.",
+      " ",
+      "October 12, 2026",
+      "𝑦𝑖: the measured value for record 𝑖.",
+      "𝑦𝑖𝐴: configuration A’s prediction, using reaction conditions only.",
+      "𝑦𝑖𝐶: configuration C’s prediction, using both protein representation and reaction conditions.",
+      "𝑦𝑖−𝑦𝑖: absolute prediction error for that configuration.",
+      "Δ𝑖𝐴→𝐶: C’s absolute error minus A’s absolute error for the same record.",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-57-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-57-2.png"
+    ]
+  },
+  {
+    "slide": 58,
+    "part": "ppt/slides/slide58.xml",
+    "paragraphs": [
+      "58",
+      "Department of AI&DS",
+      "4. Error Analysis: PHL-7",
+      "• Protein 37 is PHL-7, held out in fold 2.",
+      "• Observed targets: 1,100–47,000 µM. Training maximum: 6,865 µM.",
+      "• The 47 mM point matches retained source data and is digitized/approximate.",
+      "• At 47,000 µM: A = 371.58, B = 58.44, C = 113.13 µM.",
+      "• PHL-7 dominates pooled squared error.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 59,
+    "part": "ppt/slides/slide59.xml",
+    "paragraphs": [
+      "59",
+      "Department of AI&DS",
+      "4. Error Analysis: Protein 149",
+      "• Protein 149 accounts for 99.3% of B fold-3 SSE and 98.0% of C SSE.",
+      "• 13 observations span 8–187.9 µM.",
+      "• B predicts approximately 6,254 µM. C reaches 3,931 µM.",
+      "• Strong overprediction explains the main fold-3 failure.",
+      "• Observed condition-range coverage does not explain this alone.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 60,
+    "part": "ppt/slides/slide60.xml",
+    "paragraphs": [
+      "60",
+      "Department of AI&DS",
+      "4. Protein-Balance Sensitivity",
+      "• Sensitivity subset: 82 observations across 25 proteins.",
+      "• Each protein contributes at most five records.",
+      "• R² and Spearman change with protein weighting.",
+      "• Large errors and fold variability persist.",
+      "• The confirmed 221-row primary dataset remains intact.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 61,
+    "part": "ppt/slides/slide61.xml",
+    "paragraphs": [
+      "61",
+      "Department of AI&DS",
+      "4. Model Comparison Findings",
+      "• 58 configurations across five folds produced 290 fold results.",
+      "• Compared Ridge, ElasticNet, Random Forest and Gradient Boosting.",
+      "• Included environment-only and mean baselines.",
+      "• No configuration consistently dominated all reported metrics.",
+      "• A production model has not been selected.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 62,
+    "part": "ppt/slides/slide62.xml",
+    "paragraphs": [
+      "62",
+      "Department of AI&DS",
+      "5. Implementation Status",
+      "Component",
+      "Current status",
+      "Provenance / confirmed data",
+      "Completed",
+      "ESM-2 / A-B-C ablation",
+      "Completed",
+      "Fold errors / targeted audit",
+      "Completed",
+      "Responsive UI / real API integration",
+      "Verified in reported checks",
+      "Model refinement / explainability",
+      "Pending",
+      "Mutation / structural validation",
+      "Future work",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 63,
+    "part": "ppt/slides/slide63.xml",
+    "paragraphs": [
+      "63",
+      "Department of AI&DS",
+      "5. Responsive Research Interface",
+      "• Desktop sidebar and accessible mobile navigation.",
+      "• Validated sequence and condition inputs.",
+      "• Prediction results use TPA concentration in µM.",
+      "• Recommendations accept conditions without a sequence.",
+      "• Mobile/desktop checks reported at 360–1440 px.",
+      "• Loading, unavailable-service and error states included.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 64,
+    "part": "ppt/slides/slide64.xml",
+    "paragraphs": [
+      "64",
+      "Department of AI&DS",
+      "5. Backend Integration",
+      "• FastAPI serves prediction and recommendation workflows.",
+      "• Reported IsPETase check: pH 8, 40 °C, 48 h gives 23.14 µM.",
+      "• Five real recommendation candidates returned in the integration check.",
+      "• The result confirms API/UI execution for that input.",
+      "• It does not establish predictive accuracy.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 65,
+    "part": "ppt/slides/slide65.xml",
+    "paragraphs": [
+      "65",
+      "Department of AI&DS",
+      "5. Prediction/recommendation API and responsive UI",
+      "Let each request type maintain state:",
+      "𝑈𝑎∈idle,loading,success,error, 𝑎∈predict,recommend,evaluate.",
+      " ",
+      "October 12, 2026",
+      "𝑎: the action—making a prediction, requesting recommendations, or viewing evaluation results.",
+      "𝑈𝑎: the current UI state for action 𝑎.",
+      "idle: no request is running.",
+      "loading: the request is in progress.",
+      "success: the request completed and its result is available.",
+      "error: the request failed or the input was invalid.",
+      " "
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-65-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-65-2.png"
+    ]
+  },
+  {
+    "slide": 66,
+    "part": "ppt/slides/slide66.xml",
+    "paragraphs": [
+      "66",
+      "Department of AI&DS",
+      "5. Legacy Served Model Audit",
+      "• Legacy dataset has 227 rows, including six ambiguous records.",
+      "• Saved preprocessing strongly matches those 227 rows.",
+      "• Exact Ridge training/evaluation membership remains unresolved.",
+      "• The audit correction separates legacy metadata from confirmed research.",
+      "• scikit-learn 1.6.1 artifacts load under a 1.9.1 runtime with warnings.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 67,
+    "part": "ppt/slides/slide67.xml",
+    "paragraphs": [
+      "67",
+      "Department of AI&DS",
+      "Controlled feature Ablation",
+      "Individual Folds:",
+      "Group Error Analysis:",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-67-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-67-2.png"
+    ]
+  },
+  {
+    "slide": 68,
+    "part": "ppt/slides/slide68.xml",
+    "paragraphs": [
+      "68",
+      "Department of AI&DS",
+      "Actual vs Predicted A/B/C:",
+      "Protein Balance Sensitivity:",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-68-1.png",
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-68-2.png"
+    ]
+  },
+  {
+    "slide": 69,
+    "part": "ppt/slides/slide69.xml",
+    "paragraphs": [
+      "69",
+      "Department of AI&DS",
+      "Squared error contribution by Protein:",
+      "October 12, 2026"
+    ],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-69-1.png"
+    ]
+  },
+  {
+    "slide": 70,
+    "part": "ppt/slides/slide70.xml",
+    "paragraphs": [],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-70-1.png"
+    ]
+  },
+  {
+    "slide": 71,
+    "part": "ppt/slides/slide71.xml",
+    "paragraphs": [],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-71-1.png"
+    ]
+  },
+  {
+    "slide": 72,
+    "part": "ppt/slides/slide72.xml",
+    "paragraphs": [],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-72-1.png"
+    ]
+  },
+  {
+    "slide": 73,
+    "part": "ppt/slides/slide73.xml",
+    "paragraphs": [],
+    "images": [
+      "docs\\presentation_study_guide_2026-10-12\\source_images\\slide-73-1.png"
+    ]
+  },
+  {
+    "slide": 74,
+    "part": "ppt/slides/slide74.xml",
+    "paragraphs": [
+      "74",
+      "Department of AI&DS",
+      "Complexity Analysis",
+      "• Sequence embedding is the main computational cost.",
+      "• Transformer self-attention grows quadratically with sequence length.",
+      "• Caching avoids repeated extraction for the 25 known proteins.",
+      "• PCA and Ridge costs depend on rows and retained dimensions.",
+      "• No measured latency benchmark is claimed.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 75,
+    "part": "ppt/slides/slide75.xml",
+    "paragraphs": [
+      "75",
+      "Department of AI&DS",
+      "Complexity Analysis (Contd…)",
+      "• Space requirements include encoder weights, embeddings and assay data.",
+      "• 25 × 1280 float32 embedding values occupy about 125 KiB, excluding overhead.",
+      "• The encoder dominates storage and inference memory.",
+      "• Deployment capacity requires measurement on the target workstation.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 76,
+    "part": "ppt/slides/slide76.xml",
+    "paragraphs": [
+      "76",
+      "Department of AI&DS",
+      "SWOT Analysis",
+      "• Strengths: traceable activity records and explicit leakage controls.",
+      "• Strengths: reusable embeddings and reproducible A/B/C comparisons.",
+      "• Weaknesses: 25 proteins, uneven coverage and assay heterogeneity.",
+      "• Weaknesses: current generalization and absolute errors remain poor.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 77,
+    "part": "ppt/slides/slide77.xml",
+    "paragraphs": [
+      "77",
+      "Department of AI&DS",
+      "SWOT Analysis (Contd…)",
+      "• Opportunities: better assay metadata and additional validated proteins.",
+      "• Opportunities: experimentally supported candidate prioritization.",
+      "• Threats: protocol confounding and unsupported extrapolation.",
+      "• Threats: uncertain predictions presented as industrial validation.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 78,
+    "part": "ppt/slides/slide78.xml",
+    "paragraphs": [
+      "78",
+      "Department of AI&DS",
+      "Cost of the Project",
+      "• Existing workstation is the current development resource.",
+      "• Software stack uses open-source tools.",
+      "• Compute, storage and internet costs depend on usage.",
+      "• Wet-lab assays and structural validation need separate budgeting.",
+      "• A verified monetary project total is not available.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 79,
+    "part": "ppt/slides/slide79.xml",
+    "paragraphs": [
+      "79",
+      "Department of AI&DS",
+      "Social Impact",
+      "• Potential support for research on plastic biodegradation.",
+      "• Transparent evidence can help researchers assess candidates.",
+      "• Future validated tools may reduce unnecessary screening effort.",
+      "• Environmental benefits require experimental and process validation.",
+      "• The present prototype does not measure waste-treatment impact.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 80,
+    "part": "ppt/slides/slide80.xml",
+    "paragraphs": [
+      "80",
+      "Department of AI&DS",
+      "Applications",
+      "• Current: TPA/PET prediction-method research.",
+      "• Current: exploratory candidate comparison and evidence review.",
+      "• Future: condition-aware laboratory screening support.",
+      "• Future: mutation prioritization and structural assessment.",
+      "• Other wastewater categories require their own defensible datasets.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 81,
+    "part": "ppt/slides/slide81.xml",
+    "paragraphs": [
+      "81",
+      "Department of AI&DS",
+      "Future Work",
+      "• Refine models from observed error patterns.",
+      "• Expand validated proteins and assay metadata.",
+      "• Test uncertainty and grouping robustness.",
+      "• Add explainability to candidate rankings.",
+      "• Obtain evidence for mutation and structure work.",
+      "• Collaborate on laboratory validation.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 82,
+    "part": "ppt/slides/slide82.xml",
+    "paragraphs": [
+      "82",
+      "Department of AI&DS",
+      "References",
+      "• [1] T. V. T. Tran and T. S. Hy. Protein Design by Directed Evolution Guided by Large Language Models. IEEE TEVC, 29(2), 418–428, 2025. DOI: 10.1109/TEVC.2024.3439690.",
+      "• [2] J. Hong, Z.-H. Zhan, L. He, Z. Xu and J. Zhang. Protein Structure Prediction Using a New Optimization-Based Evolutionary and Explainable Artificial Intelligence Approach. IEEE TEVC, 29(3), 646–660, 2025. DOI: 10.1109/TEVC.2024.3365814.",
+      "October 12, 2026"
+    ],
+    "images": []
+  },
+  {
+    "slide": 83,
+    "part": "ppt/slides/slide83.xml",
+    "paragraphs": [
+      "83",
+      "Department of AI&DS",
+      "Thank You",
+      "October 12, 2026"
+    ],
+    "images": []
+  }
+]

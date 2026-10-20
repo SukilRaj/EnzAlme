@@ -1,0 +1,750 @@
+[
+  {
+    "part": "ppt/slides/slide1.xml",
+    "text": [
+      "1",
+      "Department of AI&DS",
+      "Environment-Aware AI Platform for Enzyme Recommendation and Optimization for Industrial Waste Biodegradation",
+      "\tMEMBERS:  ",
+      "Ramk",
+      "umar",
+      " R\t\t\t      ",
+      " Sukil Raj M S",
+      "\tGUIDE:",
+      "\t",
+      "Mr.G.Kirubakaran",
+      "  B.E., M.E.,",
+      "Department of Artificial Intelligence and Data Science",
+      "Mepco",
+      " Schlenk Engineering College",
+      "Base Paper:",
+      " ",
+      "Protein Design by Directed Evolution Guided by Large Language Models (IEEE TEVC, 2025)"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide2.xml",
+    "text": [
+      "2",
+      "Enzymatic Industrial Waste Degradation — Overview",
+      "Industrial wastewater contains dyes, plastics, phenolic compounds, oils, and other persistent pollutants.",
+      "Many natural enzymes lose activity under extreme pH and temperature conditions.",
+      "Recent Protein Language Models (ESM-2) can ",
+      "analyze",
+      " protein sequences computationally.",
+      "This project proposes an ",
+      "AI-assisted enzyme recommendation and optimization pipeline",
+      " for industrial wastewater treatment.",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide3.xml",
+    "text": [
+      "3",
+      "Department of AI&DS",
+      "Target Industrial Waste Categories",
+      "Textile Dye Effluent",
+      "Plastic (PET/PU) Waste",
+      "Pesticide / Phenolic Waste",
+      "Heavy-metal-laden Sludge",
+      "Initial study focuses on PET plastic, phenolic compounds, textile dyes, and oil-containing wastewater because public enzyme datasets are available for these categories."
+    ]
+  },
+  {
+    "part": "ppt/slides/slide4.xml",
+    "text": [
+      "4",
+      "Aim",
+      "To develop an AI-assisted platform that recommends and computationally evaluates enzyme variants suitable for industrial wastewater under specified environmental conditions such as pH and temperature.",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide5.xml",
+    "text": [
+      "5",
+      "Objective",
+      "Identify pollutant-specific enzyme families from public biological databases.",
+      "Collect sequence, structure, and enzyme-property datasets.",
+      "Build a condition-aware computational pipeline using Protein Language Models.",
+      "Predict enzyme fitness and stability in-silico.",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide6.xml",
+    "text": [
+      "6",
+      "Requirement Analysis",
+      "Wild-type/natural enzymes degrade only a narrow range of industrial pollutants and fail under extreme pH/temperature conditions – disadvantage.",
+      "Manual wet-lab directed evolution (mutagenesis + screening) is slow, costly, and combinatorially intractable.",
+      "Computational screening is used to reduce the number of enzyme variants that need laboratory testing.",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide7.xml",
+    "text": [
+      "7",
+      "Requirement Analysis (Contd…)",
+      "In-silico, condition-aware mutation screening can shortlist promising enzyme variants before wet-lab testing, saving time and cost",
+      ".",
+      "Eliminates the need to exhaustively screen the mutation space experimentally for every new waste stream",
+      ".",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide8.xml",
+    "text": [
+      "8",
+      "Specification",
+      "GPU (RTX 4050 or equivalent) — preferred",
+      "16 GB RAM",
+      "50 GB storage",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide9.xml",
+    "text": [
+      "9",
+      "Specification (Contd…)",
+      "Python 3.x",
+      "PyTorch",
+      "Hugging Face Transformers (ESM-2)",
+      "Biopython",
+      "pandas, NumPy",
+      "Jupyter Notebook / VS Code",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide10.xml",
+    "text": [
+      "10",
+      "Literature Survey",
+      "Department of AI&DS",
+      "Author(s)",
+      "Year",
+      "Vol",
+      "Journal",
+      "Paper Title",
+      "Contribution",
+      "Improvements suggested",
+      "Tran T. V. T., Hy T. S.",
+      "2025",
+      "29",
+      "IEEE Transactions on Evolutionary Computation",
+      "Protein Design by Directed Evolution Guided by Large Language Models",
+      "Uses ESM-2 embeddings to guide directed evolution and prioritize beneficial protein mutations.",
+      "Introduce ",
+      "environment-aware enzyme recommendation",
+      " by integrating pH, temperature, and pollutant characteristics into the optimization pipeline.",
+      "Hong J. et al.",
+      "2025",
+      "29",
+      "IEEE Transactions on Evolutionary Computation",
+      "Protein Structure Prediction Using a New Optimization-Based Evolutionary and Explainable AI Approach",
+      "Combines evolutionary optimization with explainable AI for protein structure prediction.",
+      "Extend the approach to ",
+      "enzyme selection and recommendation",
+      " for industrial wastewater treatment.",
+      "Lin Z. et al.",
+      "2023",
+      "379",
+      "Science",
+      "Evolutionary-Scale Prediction of Atomic-Level Protein Structure with a Language Model",
+      "Demonstrates powerful protein representations using large protein language models (ESM-2).",
+      "Apply protein language model embeddings specifically to ",
+      "industrial enzyme engineering",
+      " and wastewater applications.",
+      "Rives A. et al.",
+      "2021",
+      "118",
+      "Proceedings of the National Academy of Sciences (PNAS)",
+      "Biological Structure and Function Emerge from Scaling Unsupervised Learning to 250 Million Protein Sequences",
+      "Introduced large-scale protein language modeling that learns biological structure and function from protein sequences.",
+      "Develop a ",
+      "condition-aware fitness scoring framework",
+      " by combining protein embeddings with environmental parameters."
+    ]
+  },
+  {
+    "part": "ppt/slides/slide11.xml",
+    "text": [
+      "11",
+      "System Design",
+      " ",
+      "(Adopted from Base Paper 1)",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide12.xml",
+    "text": [
+      "12",
+      "1. Multi-Modal Input Encoding",
+      "Department of AI&DS",
+      "Module 1 — Multi-Modal Input Encoding",
+      "Protein sequence embedding (ESM-2 encoder):",
+      "Process-condition vector:",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide13.xml",
+    "text": [
+      "13",
+      "Multi-Modal Input Encoding (Contd…)",
+      "Department of AI&DS",
+      "Module 1 — Multi-Modal Input Encoding (contd.)",
+      "Condition embedding:",
+      "Condition-fused sequence representation:",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide14.xml",
+    "text": [
+      "14",
+      "2. Mutation Hotspot Selection (Masking Strategy)",
+      "Department of AI&DS",
+      "Two complementary masking strategies select mutation hotspots:",
+      "1) Random masking — replaces tokens uniformly at random (exploration)",
+      "2) Importance masking — replaces the least-informative k-mers, scored via TF-IDF + entropy (exploitation)",
+      "The random ratio α is tuned per waste category / condition profile"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide15.xml",
+    "text": [
+      "15",
+      "Mutation Hotspot Selection (Contd…)",
+      "Department of AI&DS",
+      "Module 2 — Masking Strategy (contd.)",
+      "Relevance of ",
+      "-",
+      "mer",
+      " ",
+      "in sequence ",
+      "(TF-IDF):",
+      "Information content of ",
+      "-",
+      "mer",
+      " ",
+      "(entropy):",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide16.xml",
+    "text": [
+      "16",
+      "Mutation Hotspot Selection (Contd…)",
+      "Department of AI&DS",
+      "Module 2 — Masking Strategy (contd.)",
+      "Combined importance score:",
+      "Lowest-importance ",
+      "-",
+      "mers",
+      " are replaced with ",
+      ";",
+      "remaining positions are masked at random ratio ",
+      "(conditioned on the target waste category)",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide17.xml",
+    "text": [
+      "17",
+      "3. Condition-Aware Fitness Oracle",
+      "ESM-2 encodes the (masked) candidate sequence and predicts the replacement residues at masked positions",
+      "The condition embedding ",
+      "e_c",
+      " (pH, temperature, ",
+      "Salinity",
+      ", ",
+      "Pollutant type",
+      ") is fused with the sequence representation",
+      "An Attention1D head, trained on wet-lab-labelled fitness data, predicts a single degradation-fitness score per candidate",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide18.xml",
+    "text": [
+      "18",
+      "Condition-Aware Fitness Oracle (Contd…)",
+      "Department of AI&DS",
+      "Module 3 — Condition-Aware Fitness Oracle (contd.)",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide19.xml",
+    "text": [
+      "19",
+      "4. Iterative Condition-Guided Directed-Evolution Loop",
+      "Replaces exhaustive wet-lab screening with a beam-search-guided iterative selection loop",
+      "Each round proposes m mutated candidates per parent (beam size) and keeps the Top-k by predicted fitness for the next round",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide20.xml",
+    "text": [
+      "20",
+      "Directed-Evolution Loop (Contd…)",
+      "Department of AI&DS",
+      "Module 4 — Directed-Evolution Loop (Pseudocode I)",
+      "Input: wild-type ",
+      ", condition ",
+      ", population ",
+      ", beam ",
+      "1: ",
+      "2: ",
+      "3: ",
+      "4: ",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide21.xml",
+    "text": [
+      "21",
+      "Directed-Evolution Loop (Contd…)",
+      "Department of AI&DS",
+      "Module 4 — Directed-Evolution Loop (Pseudocode II)",
+      "5: ",
+      "6: ",
+      "7: ",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide22.xml",
+    "text": [
+      "22",
+      "Directed-Evolution Loop (Contd…)",
+      "Department of AI&DS",
+      "Module 4 — Directed-Evolution Loop (Pseudocode III)",
+      "8: ",
+      "9: ",
+      "10: ",
+      "11: ",
+      "end for",
+      "Output: ranked candidate enzyme sequences ",
+      "for condition ",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide23.xml",
+    "text": [
+      "Proposed Architecture Model"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide24.xml",
+    "text": [
+      "24",
+      "Modules",
+      "Department of AI&DS",
+      "Module",
+      "Purpose",
+      "Wastewater Input",
+      "Collect pH, temperature, pollutant type",
+      "Enzyme Retrieval",
+      "Retrieve enzyme sequences from ",
+      "UniProt",
+      "Property Integration",
+      "Add pH and temperature information from BRENDA",
+      "Protein Embedding",
+      "Generate ESM-2 embeddings",
+      "Fitness Prediction",
+      "Estimate candidate suitability",
+      "Recommendation",
+      "Rank enzyme candidates"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide25.xml",
+    "text": [
+      "Data Integration",
+      "Dataset",
+      "Information Extracted",
+      "Purpose",
+      "UniProt",
+      "Protein sequences, Enzyme name, EC Number",
+      "Primary input for Protein Language Model",
+      "BRENDA",
+      "Optimum pH, Temperature, Enzyme properties",
+      "Environmental compatibility",
+      "FireProtDB",
+      "Mutation data, Stability (ΔΔG)",
+      "Mutation and stability analysis",
+      "Protein Data Bank (PDB)",
+      "3D protein structures",
+      "Structural validation & docking",
+      "Industrial Wastewater Dataset",
+      "pH, Temperature, COD, BOD, Pollutant type",
+      "Environmental input features"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide26.xml",
+    "text": [
+      "Preprocessing Pipeline"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide27.xml",
+    "text": [
+      "Feasibility Analysis",
+      "Feasibility",
+      "Description",
+      "Technical Feasibility",
+      "Pretrained Protein Language Models and open-source AI frameworks are available.",
+      "Data Feasibility",
+      "Public biological and environmental datasets are available and can be integrated.",
+      "Operational Feasibility",
+      "Computational predictions reduce laboratory screening effort; wet-lab validation is future work.",
+      "Economic Feasibility",
+      "Uses open-source software and publicly accessible datasets, minimizing development cost."
+    ]
+  },
+  {
+    "part": "ppt/slides/slide28.xml",
+    "text": [
+      "28",
+      "Expected ",
+      "Output",
+      "Department of AI&DS",
+      "Ranked enzyme candidates",
+      "Predicted fitness score",
+      "Environmental suitability score",
+      "Suggested mutation hotspots (future module)"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide29.xml",
+    "text": [
+      "29",
+      "Implementation Update — M",
+      "U",
+      "P Completed",
+      "Department of AI&DS",
+      "Full working prototype: FastAPI backend + React/Vite frontend",
+      "End-to-end environment-aware recommendation pipeline is live",
+      "Transparent Environment-Aware Suitability Score engine implemented",
+      "Mutation-prioritization module implemented and API-exposed",
+      "9-enzyme curated demo dataset (2 fully verified sequences)",
+      "54 automated tests passing across scoring, mutation and API layers"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide30.xml",
+    "text": [
+      "Planned Modules — Implementation Status",
+      "Planned Module",
+      "Implemented As",
+      "Status",
+      "Wastewater Input",
+      "React form + Pydantic input validation",
+      "Completed",
+      "Enzyme Retrieval & Embedding",
+      "Curated dataset + frozen ESM-2 pipeline (GPU pending)",
+      "Partially completed",
+      "Fitness / Suitability Scoring",
+      "Rule-based compatibility engine",
+      "Completed",
+      "Recommendation Ranking",
+      "REST API + ranked results UI",
+      "Completed",
+      "Mutation Optimization (new)",
+      "Ranked point-mutation API + UI",
+      "Completed"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide31.xml",
+    "text": [
+      "31",
+      "Environment-Aware Suitability Score (Implemented)",
+      "Department of AI&DS",
+      "Weights: pollutant 0.40, pH 0.25, temperature 0.25, salinity 0.10",
+      "Transparent and auditable — reference target for the future neural fitness oracle",
+      "Every score ships with a full compatibility breakdown and plain-language explanation",
+      " (clipped to [0,1])",
+      " "
+    ]
+  },
+  {
+    "part": "ppt/slides/slide32.xml",
+    "text": [
+      "32",
+      "Mutation Prioritization Module (Implemented)",
+      "Department of AI&DS",
+      "Generates bounded single-point substitution candidates across the sequence",
+      "Scored from documented physicochemical properties (hydropathy, volume, helix propensity)",
+      "Ranked via S_mut = 0.7 × stability + 0.3 × fitness-proxy",
+      "Every result labeled “computational prediction — experimental validation required”"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide33.xml",
+    "text": [
+      "Codebase Map",
+      "Layer",
+      "Path",
+      "Implements",
+      "Shared core",
+      "common/enzaime_core/",
+      "Scoring, mutation logic, data loader, ESM-2",
+      "Backend API",
+      "backend/app/",
+      "/recommend, /mutations, /enzyme/{id}, /health",
+      "Frontend UI",
+      "frontend/src/",
+      "Recommend, Results, Detail, Mutations, About",
+      "Data + training",
+      "scripts/, notebooks/",
+      "Clean, build, embed, train (7-stage pipeline)",
+      "Testing",
+      "tests/*.py",
+      "54 automated tests (scoring, mutation, API)"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide34.xml",
+    "text": [
+      "Module 1: ",
+      "Dataset Snippet: Environmental Query & Evaluation Scenarios"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide35.xml",
+    "text": [
+      "Module 2: Environment-Aware Compatibility Scoring Engine",
+      "common/enzaime_core/scoring.py"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide36.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide37.xml",
+    "text": [
+      "Module 3: Frozen ESM-2 Feature Extraction & Multimodal Fusion Network",
+      "1. Code Snippet: Frozen ESM-2 Sequence Embedding common/enzaime_core/embeddings.py"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide38.xml",
+    "text": [
+      "2. Code Snippet: ",
+      "PyTorch",
+      " Multimodal Fusion Architecture(",
+      "SuitabilityNet",
+      ")",
+      "common/enzaime_core/model.py"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide39.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide40.xml",
+    "text": [
+      "40",
+      "Sample Output — Live System Result",
+      "Department of AI&DS",
+      "Query: PET · pH 8.0 · 35°C · Salinity 0.5%",
+      "1 PETase (IsPETase) — 98% suitability, verified PET activity",
+      "2 MHETase — 98% suitability, verified PET activity",
+      "3 BurPL — 86% suitability, predicted PET activity",
+      "Full compatibility breakdown + plain-language explanation shown per result"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide41.xml",
+    "text": [
+      "41",
+      "Testing & Validation",
+      "Department of AI&DS",
+      "54 automated tests across data, scoring, mutation and API layers — all passing",
+      "Full user journey verified: recommend → enzyme details → mutation analysis",
+      "Invalid inputs correctly rejected (bad pH/temperature/salinity/pollutant → HTTP 400)",
+      "Verified reproducible from a clean install (fresh venv, pip install -r requirements.txt)",
+      "Demo Mode fallback confirmed: works fully without GPU or a trained neural model"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide42.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide43.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide44.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide45.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide46.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide47.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide48.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide49.xml",
+    "text": []
+  },
+  {
+    "part": "ppt/slides/slide50.xml",
+    "text": [
+      "50",
+      "Deliverables",
+      "Department of AI&DS",
+      "Integrated enzyme dataset",
+      "Preprocessing pipeline",
+      "ESM-2 embedding module",
+      "Condition-aware recommendation prototype",
+      "Technical report and research documentation"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide51.xml",
+    "text": [
+      "51",
+      "Complexity Analysis",
+      "Computational Considerations",
+      "Sequence embedding is the most computationally expensive stage.",
+      "Complexity depends on sequence length and batch size.",
+      "Pretrained models reduce training cost compared with training from scratch.",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide52.xml",
+    "text": [
+      "52",
+      "SWOT Analysis",
+      "Department of AI&DS",
+      "Strengths",
+      "Weaknesses",
+      "Uses real biological databases",
+      "Dataset integration is challenging",
+      "Environment-aware recommendation",
+      "Experimental validation not included",
+      "AI-assisted screening",
+      "Limited ",
+      "labeled",
+      " fitness data"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide53.xml",
+    "text": [
+      "53",
+      "SWOT Analysis",
+      "Department of AI&DS",
+      "Opportunities",
+      "Threats",
+      "Smart wastewater treatment",
+      "Data availability",
+      "Biotech startup potential",
+      "Regulatory concerns",
+      "Publishable research direction",
+      "Prediction uncertainty"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide54.xml",
+    "text": [
+      "54",
+      "Cost of the Project",
+      "System",
+      "GPU RTX-4050, 6 GB",
+      "16 GB RAM",
+      "50 GB Hard disk",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide55.xml",
+    "text": [
+      "55",
+      "Social Impact",
+      "Supports SDG 6 (Clean Water and Sanitation)",
+      "Supports SDG 9 (Industry, Innovation and Infrastructure)",
+      "Supports SDG 12 (Responsible Consumption and Production)",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide56.xml",
+    "text": [
+      "56",
+      "Applications",
+      "Widely used for",
+      "Textile and dye industry effluent treatment",
+      "Plastic / microplastic-degrading enzyme discovery",
+      "Pesticide and phenolic-compound bioremediation",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide57.xml",
+    "text": [
+      "57",
+      "Future Work",
+      "Complete BRENDA / FireProtDB / industrial wastewater dataset integration",
+      "Train and evaluate the neural fitness oracle on GPU (Kaggle pipeline ready)",
+      "Add molecular docking / structural validation",
+      "Collaborate with biotechnology laboratories for wet-lab validation",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide58.xml",
+    "text": [
+      "58",
+      "References",
+      "T. V. T. Tran and T. S. Hy, “Protein Design by Directed Evolution Guided by Large Language Models,” IEEE Trans. Evol. ",
+      "Comput",
+      "., vol. 29, no. 2, pp. 418-428, Apr. 2025.",
+      "J. Hong, Z.-H. Zhan, L. He, Z. Xu, and J. Zhang, “Protein Structure Prediction Using a New Optimization-Based Evolutionary and Explainable AI Approach,” IEEE Trans. Evol. ",
+      "Comput",
+      "., vol. 29, no. 3, pp. 646-660, Jun. 2025.",
+      "Z. Lin et al., “Evolutionary-scale prediction of atomic-level protein structure with a language model,” Science, vol. 379, no. 6637, pp. 1123-1130, 2023.",
+      "A. Rives et al., “Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences,” Proc. Natl. Acad. Sci., vol. 118, no. 15, 2021.",
+      "Department of AI&DS"
+    ]
+  },
+  {
+    "part": "ppt/slides/slide59.xml",
+    "text": [
+      "59",
+      "\t\t    ",
+      "Thank You",
+      "Department of AI&DS"
+    ]
+  }
+]
